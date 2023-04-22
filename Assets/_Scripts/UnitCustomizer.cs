@@ -45,20 +45,7 @@ namespace ModularCharacter
         // Start is called before the first frame update
         void Start()
         {
-            //// rebuild all lists
-            //BuildLists();
 
-            //// disable any enabled objects before clear
-            //if (enabledObjects.Count != 0)
-            //{
-            //    foreach (GameObject g in enabledObjects)
-            //    {
-            //        g.SetActive(false);
-            //    }
-            //}
-
-            //// clear enabled objects list
-            //enabledObjects.Clear();
         }//end Start
 
         // Update is called once per frame
