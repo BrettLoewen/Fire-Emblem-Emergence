@@ -174,7 +174,7 @@ namespace ModularCharacter
         Transform targetRoot = null;
 
         // find character parts parent object in the scene
-            foreach (Transform t in rootTransform)
+        foreach (Transform t in rootTransform)
         {
             if (t.gameObject.name == characterPart)
             {
@@ -184,16 +184,16 @@ namespace ModularCharacter
         }
 
         // if the dictionary is being re - defined, remove old defintions
-            if (options.ContainsKey(characterPart))
+        if (options.ContainsKey(characterPart))
         {
             options.Remove(characterPart);
         }
 
         // cycle through all child objects of the parent object
-            for (int i = 0; i < targetRoot.childCount; i++)
-            {
+        for (int i = 0; i < targetRoot.childCount; i++)
+        {
             // get child gameobject index i
-           GameObject go = targetRoot.GetChild(i).gameObject;
+            GameObject go = targetRoot.GetChild(i).gameObject;
 
             // disable child object
             go.SetActive(false);
@@ -205,7 +205,9 @@ namespace ModularCharacter
             if (!materialForChildren)
             {
                 if (go.GetComponent<SkinnedMeshRenderer>())
+                {
                     materialForChildren = go.GetComponent<SkinnedMeshRenderer>().material;
+                }
             }
         }
 
