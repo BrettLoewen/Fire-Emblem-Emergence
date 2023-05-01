@@ -25,6 +25,8 @@ public class PlayerMovement: MonoBehaviour
     public float minDistanceOff = 0.05f;
       
     private CharacterController controller;
+
+    private ExplorationGameManager gameManager;
       
     #endregion //end Variables
 
@@ -46,12 +48,21 @@ public class PlayerMovement: MonoBehaviour
         controller = GetComponent<CharacterController>();
 
         currentSpeed = walkSpeed;
+
+        gameManager = ExplorationGameManager.Instance;
     }//end Start
 
     // Update is called once per frame
     void Update()
     {
-        HandleMovement();
+        // If the game is in explore mode, then the player should be able to move their character
+        if(gameManager.explorationState == ExplorationState.Explore)
+        {
+            // Move the player character according to input
+            HandleMovement();
+        }
+
+        // Keep the player character on the ground
         HandleGravity();
     }//end Update
 
