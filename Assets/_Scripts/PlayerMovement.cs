@@ -64,6 +64,9 @@ public class PlayerMovement: MonoBehaviour
 
         // Keep the player character on the ground
         HandleGravity();
+
+        //
+        SaveSystem.SetPlayerPosition(transform.position);
     }//end Update
 
     #endregion //end Unity Control Methods

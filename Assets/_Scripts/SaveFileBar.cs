@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class SaveFileBar: MonoBehaviour
 {
@@ -11,7 +12,11 @@ public class SaveFileBar: MonoBehaviour
     [SerializeField] private TextMeshProUGUI timestampText;
     [SerializeField] private GameObject emptySaveFileText;
 
+    public Button button { get; private set; }
+
     private SaveData data;
+    private int index;
+    private SaveFileScreen saveFileScreen;
 
     #endregion //end Variables
 
@@ -39,9 +44,44 @@ public class SaveFileBar: MonoBehaviour
 
     #region
 
-    public void SetSaveData(SaveData _data)
+    public void Setup(SaveData _data, int _index, SaveFileScreen _saveFileScreen)
     {
         data = _data;
+        index = _index;
+        saveFileScreen = _saveFileScreen;
+
+        if(data == null)
+        {
+            emptySaveFileText.SetActive(true);
+            activityText.gameObject.SetActive(false);
+            timestampText.gameObject.SetActive(false);
+        }
+        else
+        {
+            emptySaveFileText.SetActive(false);
+            activityText.gameObject.SetActive(true);
+            timestampText.gameObject.SetActive(true);
+
+            activityText.text = data.activity;
+            timestampText.text = data.savedAtTimestamp;
+        }
+
+        button = GetComponent<Button>();
+    }
+
+    public void SetNavigationLinks(SaveFileBar up, SaveFileBar down)
+    {
+        Navigation navigation = button.navigation;
+
+        navigation.selectOnUp = up.button;
+        navigation.selectOnDown = down.button;
+
+        button.navigation = navigation;
+    }
+
+    public void OnClick()
+    {
+        saveFileScreen.OnSaveFileBarClick(index);
     }
 
     #endregion

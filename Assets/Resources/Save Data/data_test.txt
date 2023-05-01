@@ -1,1 +1,0 @@
-{"playerPosition":{"x":0.0,"y":-1.0,"z":367.5},"savedAtTimestamp":"2023-04-30 10:15:48 PM","activity":"Exploration"}

@@ -32,7 +32,7 @@ Transform:
   - {fileID: 3812710768769414905}
   - {fileID: 8654015825915396060}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811700343799746976
 GameObject:
@@ -89,8 +89,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1869943872079207395}
-  m_LocalRotation: {x: 0.1583437, y: 0.000000008494654, z: -0.0000000013622611, w: 0.9873841}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.15834373, y: -0.00000008940697, z: 0.000000007450581, w: -0.98738414}
+  m_LocalPosition: {x: -0.00000023841858, y: 0, z: -0.00000667572}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -223,7 +223,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -297,7 +297,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2413143335638020179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.776, z: -5}
+  m_LocalPosition: {x: -0.0000014305115, y: 3.776, z: -5.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -371,7 +371,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -587,6 +587,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c4ae161e-c03f-476d-918d-73678f2b49a1
     m_ActionName: Main/Sprint[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6919153084228603470}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: OnCancelInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 39dffc5f-a3b4-4b3e-933d-685f301f3ba2
+    m_ActionName: Main/Cancel[/XInputControllerWindows/buttonEast]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Main
@@ -610,6 +626,7 @@ MonoBehaviour:
   sprintInput: 0
   interactInput: 0
   menuInput: 0
+  cancelInput: 0
 --- !u!143 &5073067648384014439
 CharacterController:
   m_ObjectHideFlags: 0
@@ -768,7 +785,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -843,8 +860,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5523706894209505588}
-  m_LocalRotation: {x: 0.14035748, y: 0.000000008518027, z: -0.0000000012075222, w: 0.9901009}
-  m_LocalPosition: {x: 0.27, y: 4.486, z: -4.71}
+  m_LocalRotation: {x: -0.14035752, y: -0.00000008940697, z: 0.000000014901161, w: -0.9901009}
+  m_LocalPosition: {x: -0.0000014305115, y: 3.776, z: -5.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1066,7 +1083,7 @@ MonoBehaviour:
     m_LegacyHeadingDefinition: -1
     m_LegacyVelocityFilterStrength: -1
   m_XAxis:
-    Value: 0
+    Value: 225
     m_SpeedMode: 0
     m_MaxSpeed: 300
     m_AccelTime: 0.1
@@ -1138,8 +1155,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8712483952789491538}
-  m_LocalRotation: {x: 0.1403575, y: 0.000000008518026, z: -0.0000000012075223, w: 0.9901009}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.14035752, y: -0.00000011920929, z: 0.0000000037252903, w: -0.9901009}
+  m_LocalPosition: {x: 0.00000023841858, y: 0, z: -0.0000038146973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1217,8 +1234,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9160456525017227083}
-  m_LocalRotation: {x: 0.12237252, y: -0.00000001760263, z: 0.0000000021703905, w: 0.9924843}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0.122372515, y: -0.00000011920929, z: 0.0000000037252903,
+    w: -0.9924843}
+  m_LocalPosition: {x: 0.00000023841858, y: 0, z: -0.0000038146973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

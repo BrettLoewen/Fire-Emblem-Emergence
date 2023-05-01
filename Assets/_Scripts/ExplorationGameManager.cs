@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public enum ExplorationState { Setup, Explore, Menu }
+public enum MenuState { Selection, Save, Load }
 
 public class ExplorationGameManager: Singleton<ExplorationGameManager>
 {
@@ -13,8 +15,14 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     private PlayerInputHandler playerInput;
 
     public ExplorationState explorationState { get; private set; }
+    private MenuState menuState;
 
     [SerializeField] private GameObject pauseMenu;
+
+    [SerializeField] private GameObject saveButton;
+    [SerializeField] private GameObject loadButton;
+
+    [SerializeField] private SaveFileScreen saveFileScreen;
 
     #endregion //end Variables
 
@@ -49,6 +57,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             if(explorationState == ExplorationState.Explore)
             {
                 explorationState = ExplorationState.Menu;
+                menuState = MenuState.Selection;
                 Time.timeScale = 0f;
             }
             // If the game was in menu mode, switch to exploration mode
@@ -56,6 +65,32 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             {
                 explorationState = ExplorationState.Explore;
                 Time.timeScale = 1f;
+            }
+        }
+
+        // If the player pressed the cancel button
+        if (playerInput.cancelInput)
+        {
+            // Cancel the button press
+            playerInput.cancelInput = false;
+
+            switch(menuState)
+            {
+                case MenuState.Load:
+                    menuState = MenuState.Selection;
+                    saveFileScreen.CloseSaveFileScreen();
+                    EventSystem.current.SetSelectedGameObject(loadButton);
+                    break;
+                case MenuState.Save:
+                    menuState = MenuState.Selection;
+                    saveFileScreen.CloseSaveFileScreen();
+                    EventSystem.current.SetSelectedGameObject(saveButton);
+                    break;
+                case MenuState.Selection:
+                    menuState = MenuState.Selection;
+                    explorationState = ExplorationState.Explore;
+                    Time.timeScale = 1f;
+                    break;
             }
         }
 
@@ -69,12 +104,15 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
     public async void Save()
     {
-        await SaveSystem.SaveData();
+        //await SaveSystem.SaveData("save2");
+        menuState = MenuState.Save;
+        await saveFileScreen.OpenSaveFileScreen(SaveFileScreenMode.Save);
     }
 
     public async void Load()
     {
-        await SaveSystem.LoadData();
+        menuState = MenuState.Load;
+        await saveFileScreen.OpenSaveFileScreen(SaveFileScreenMode.Load);
     }
 
     public void Quit()

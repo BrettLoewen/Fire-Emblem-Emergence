@@ -1,0 +1,9 @@
+{
+    "playerPosition": {
+        "x": 3.5,
+        "y": 1.1485955715179444,
+        "z": 3.5
+    },
+    "savedAtTimestamp": "2023-05-01 2:47:15 PM",
+    "activity": "Exploration"
+}
