@@ -21444,34 +21444,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1210ba2448e4ff428a87407a022ecb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialForChildren: {fileID: 2100000, guid: c19fc8bc0b028bf4b8e1a14d2bee1aba, type: 2}
+  materialForChildren: {fileID: 2100000, guid: 45558052f6cb63a45ac890d839d69a6a, type: 2}
   customization: {fileID: 11400000, guid: 376585377cb3fcf43a8a6e3e9d083f1e, type: 2}
-  head:
-    itemIndex: 5
-  eyebrow:
-    itemIndex: 5
-  facialHair:
-    itemIndex: 5
-  torso:
-    itemIndex: 5
-  arm_Upper_Right:
-    itemIndex: 5
-  arm_Upper_Left:
-    itemIndex: 5
-  arm_Lower_Right:
-    itemIndex: 5
-  arm_Lower_Left:
-    itemIndex: 5
-  hand_Right:
-    itemIndex: 5
-  hand_Left:
-    itemIndex: 5
-  hips:
-    itemIndex: 5
-  leg_Right:
-    itemIndex: 5
-  leg_Left:
-    itemIndex: 5
 --- !u!114 &4500076781468271894
 MonoBehaviour:
   m_ObjectHideFlags: 0

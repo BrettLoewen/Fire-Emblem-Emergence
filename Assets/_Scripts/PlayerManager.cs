@@ -1,42 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerManager : Singleton<PlayerManager>
 {
     public static PlayerManager instance;
 
     public PlayerInputHandler inputHandler;
     public PlayerMovement playerMovement;
     public PlayerCamera playerCamera;
-    //public PlayerCombat playerCombat;
     public UnitAnimator playerAnimator;
-    //public PlayerInteract playerInteract;
-    //public PlayerEquipment playerEquipment;
-    //public PlayerStats playerStats;
-    //public PlayerHUD playerHUD;
 
-    private void Awake()
+    protected override void Awake()
     {
-        //Create a singleton reference for the player manager
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Debug.LogError("More than one PlayerManager in the scene!");
-        }
+        base.Awake();
 
         //Tell the other player scripts how to access this manager script
         inputHandler.playerManager = this;
         playerMovement.playerManager = this;
         playerCamera.playerManager = this;
-        //playerAnimator.playerManager = this;
-        //playerCombat.playerManager = this;
-        //playerInteract.playerManager = this;
-        //playerEquipment.playerManager = this;
-        //playerStats.playerManager = this;
-        //playerHUD.playerManager = this;
+    }
+
+    public async Task Setup()
+    {
+        while(SaveSystem.currentSaveData == null)
+        {
+            await Task.Yield();
+        }
+
+        SaveData saveData = SaveSystem.currentSaveData;
+
+        transform.position = saveData.playerPosition;
+        transform.rotation = saveData.playerRotation;
+
+        playerCamera.Setup(saveData.playerCameraValues, saveData.playerPosition);
+
+        await Task.Delay(100);
     }
 }
