@@ -65,6 +65,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             {
                 explorationState = ExplorationState.Menu;
                 menuState = MenuState.Selection;
+                EventSystem.current.SetSelectedGameObject(saveButton);
                 Time.timeScale = 0f;
             }
             // If the game was in menu mode, switch to exploration mode

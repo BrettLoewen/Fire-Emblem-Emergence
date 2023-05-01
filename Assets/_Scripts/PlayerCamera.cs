@@ -43,6 +43,9 @@ public class PlayerCamera: MonoBehaviour
             // Move the camera based on look input from the input handler
             thirdPersonCamera.m_XAxis.m_InputAxisValue = inputHandler.lookInput.x;// * currentSensitivity;
             thirdPersonCamera.m_YAxis.m_InputAxisValue = inputHandler.lookInput.y;// * currentSensitivity;
+
+            // Store the player's current position so it can be saved
+            SaveSystem.SetPlayerCameraValues(thirdPersonCamera.m_XAxis.Value, thirdPersonCamera.m_YAxis.Value);
         }
     }//end Update
 
@@ -50,7 +53,13 @@ public class PlayerCamera: MonoBehaviour
 
     #region
 
+    public void Setup(Vector2 cameraValues, Vector3 playerPosition)
+    {
+        thirdPersonCamera.m_XAxis.Value = cameraValues.x;
+        thirdPersonCamera.m_YAxis.Value = cameraValues.y;
 
+        transform.position = playerPosition;
+    }
 
     #endregion
 }

@@ -14,14 +14,18 @@ public static class SaveSystem
     public static SaveMetaData metaData { get; private set; } = null;// new SaveMetaData() { currentSaveFile = 0, saveFiles = new string[3] { "save1", "save2", "save3" } };
     public static SaveData currentSaveData { get; private set; } = null;  //new SaveData(Vector3.zero, "Exploration");
 
-    public static async Task SaveData(string fileName)
+    public static async Task SaveData(int fileIndex)
     {
         if (metaData == null)
         {
             metaData = await LoadData(SAVE_META_DATA_FILE_NAME, true) as SaveMetaData;
         }
 
-        string filePath = FILE_PATH + $"{fileName}.txt";
+        metaData.currentSaveFile = fileIndex;
+
+        currentSaveData.savedAtTimestamp = DateTime.Now.ToString();
+
+        string filePath = FILE_PATH + $"{metaData.saveFiles[fileIndex]}.txt";
         string metaPath = FILE_PATH + $"{SAVE_META_DATA_FILE_NAME}.txt";
 
         string jsonData = JsonUtility.ToJson(currentSaveData, true);
@@ -85,12 +89,17 @@ public static class SaveSystem
         }
 
         currentSaveData = await LoadData(metaData.saveFiles[metaData.currentSaveFile]) as SaveData;
-        Debug.Log($"Current Save Data: {currentSaveData}");
     }
 
-    public static void SetPlayerPosition(Vector3 position)
+    public static void SetPlayerPositionAndRotation(Vector3 position, Quaternion rotation)
     {
         currentSaveData.playerPosition = position;
+        currentSaveData.playerRotation = rotation;
+    }
+
+    public static void SetPlayerCameraValues(float xValue, float yValue)
+    {
+        currentSaveData.playerCameraValues = new Vector2(xValue, yValue);
     }
 }
 
@@ -98,19 +107,14 @@ public static class SaveSystem
 public class SaveData
 {
     public Vector3 playerPosition;
+    public Quaternion playerRotation;
+    public Vector2 playerCameraValues;
     public string savedAtTimestamp;
     public string activity;
-    
-    public SaveData(Vector3 position, string _activity)
-    {
-        playerPosition = position;
-        savedAtTimestamp = DateTime.Now.ToString();
-        activity = _activity;
-    }
 
     public override string ToString()
     {
-        return $"Position: {playerPosition}\nActivity: {activity}\nTimestamp: {savedAtTimestamp}";
+        return $"Position: {playerPosition}\nRotation: {playerRotation}\nCamera: {playerPosition}\nActivity: {activity}\nTimestamp: {savedAtTimestamp}";
     }
 }
 

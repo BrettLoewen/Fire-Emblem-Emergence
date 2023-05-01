@@ -102,7 +102,7 @@ public class SaveFileScreen: MonoBehaviour
         }
     }
 
-    public void OnSaveFileBarClick(int index)
+    public async void OnSaveFileBarClick(int index)
     {
         if(mode == SaveFileScreenMode.Load)
         {
@@ -111,6 +111,8 @@ public class SaveFileScreen: MonoBehaviour
         else
         {
             Debug.Log($"Trying to save to save file {index + 1}");
+            await SaveSystem.SaveData(index);
+            await OpenSaveFileScreen(mode);
         }
     }
 

@@ -24,17 +24,17 @@ public class PlayerManager : Singleton<PlayerManager>
 
     public async Task Setup()
     {
-        Debug.Log($"Save Data: {SaveSystem.currentSaveData}");
-
         while(SaveSystem.currentSaveData == null)
         {
             await Task.Yield();
         }
 
+        SaveData saveData = SaveSystem.currentSaveData;
 
-        Debug.Log($"New Position {SaveSystem.currentSaveData.playerPosition}");
+        transform.position = saveData.playerPosition;
+        transform.rotation = saveData.playerRotation;
 
-        transform.position = SaveSystem.currentSaveData.playerPosition;
+        playerCamera.Setup(saveData.playerCameraValues, saveData.playerPosition);
 
         await Task.Delay(100);
     }

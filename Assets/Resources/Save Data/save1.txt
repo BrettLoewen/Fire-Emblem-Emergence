@@ -1,1 +1,19 @@
-{"playerPosition":{"x":0.0,"y":-1.0,"z":367.5},"savedAtTimestamp":"2023-05-01 2:03:51 PM","activity":"Exploration"}
+{
+    "playerPosition": {
+        "x": 0.3876185417175293,
+        "y": 1.0183098316192628,
+        "z": 4.239411354064941
+    },
+    "playerRotation": {
+        "x": 0.0,
+        "y": 0.1505843698978424,
+        "z": 0.0,
+        "w": 0.9885972738265991
+    },
+    "playerCameraValues": {
+        "x": -147.47259521484376,
+        "y": 0.2506234645843506
+    },
+    "savedAtTimestamp": "2023-05-01 2:47:15 PM",
+    "activity": "Exploration"
+}

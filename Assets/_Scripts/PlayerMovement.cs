@@ -65,7 +65,7 @@ public class PlayerMovement: MonoBehaviour
             HandleMovement();
 
             // Store the player's current position so it can be saved
-            SaveSystem.SetPlayerPosition(transform.position);
+            SaveSystem.SetPlayerPositionAndRotation(transform.position, transform.rotation);
         }
     }//end Update
 
