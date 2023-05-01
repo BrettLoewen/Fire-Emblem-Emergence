@@ -29,18 +29,25 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     #region Unity Control Methods
 
     // Awake is called before Start before the first frame update
-    protected override void Awake()
+    protected override async void Awake()
     {
         base.Awake();
 
         explorationState = ExplorationState.Setup;
 
         playerInput = player.inputHandler;
+
+        // Make sure the save system loads the current save file
+        await SaveSystem.LoadCurrentSaveFile();
     }//end Awake
 
     // Start is called before the first frame update
-    void Start()
+    async void Start()
     {
+        // Tell the player to set itself up according to loaded save data
+        await player.Setup();
+
+        // Once as setup has ended, exploration can begin
         explorationState = ExplorationState.Explore;
     }//end Start
 

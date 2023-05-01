@@ -12,7 +12,7 @@ public static class SaveSystem
 
     private static string FILE_PATH = Application.dataPath + "/Resources/Save Data/";
     public static SaveMetaData metaData { get; private set; } = null;// new SaveMetaData() { currentSaveFile = 0, saveFiles = new string[3] { "save1", "save2", "save3" } };
-    public static SaveData currentSaveData { get; private set; } = new SaveData(Vector3.zero, "Exploration");
+    public static SaveData currentSaveData { get; private set; } = null;  //new SaveData(Vector3.zero, "Exploration");
 
     public static async Task SaveData(string fileName)
     {
@@ -50,13 +50,11 @@ public static class SaveSystem
         if(isMetaData)
         {
             SaveMetaData data = JsonUtility.FromJson<SaveMetaData>(jsonData);
-            Debug.Log($"Loaded Data: {data}");
             return data;
         }
         else
         {
             SaveData data = JsonUtility.FromJson<SaveData>(jsonData);
-            Debug.Log($"Loaded Data: {data}");
             return data;
 
         }
@@ -77,6 +75,17 @@ public static class SaveSystem
         }
 
         return saveFiles;
+    }
+
+    public static async Task LoadCurrentSaveFile()
+    {
+        if (metaData == null)
+        {
+            metaData = await LoadData(SAVE_META_DATA_FILE_NAME, true) as SaveMetaData;
+        }
+
+        currentSaveData = await LoadData(metaData.saveFiles[metaData.currentSaveFile]) as SaveData;
+        Debug.Log($"Current Save Data: {currentSaveData}");
     }
 
     public static void SetPlayerPosition(Vector3 position)

@@ -55,18 +55,18 @@ public class PlayerMovement: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If the game is in explore mode, then the player should be able to move their character
-        if(gameManager.explorationState == ExplorationState.Explore)
-        {
-            // Move the player character according to input
-            HandleMovement();
-        }
-
         // Keep the player character on the ground
         HandleGravity();
 
-        //
-        SaveSystem.SetPlayerPosition(transform.position);
+        // If the game is in explore mode, then the player should be able to move their character
+        if (gameManager.explorationState == ExplorationState.Explore)
+        {
+            // Move the player character according to input
+            HandleMovement();
+
+            // Store the player's current position so it can be saved
+            SaveSystem.SetPlayerPosition(transform.position);
+        }
     }//end Update
 
     #endregion //end Unity Control Methods

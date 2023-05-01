@@ -1,5 +1,5 @@
 {
-    "currentSaveFile": 0,
+    "currentSaveFile": 1,
     "saveFiles": [
         "save1",
         "save2",
