@@ -5,7 +5,7 @@ using TMPro;
 using System.Threading.Tasks;
 using UnityEngine.EventSystems;
 
-public enum SaveFileScreenMode { Save, Load }
+public enum SaveFileScreenMode { Save, Load, NewGame }
 
 public class SaveFileScreen: MonoBehaviour
 {
@@ -83,7 +83,20 @@ public class SaveFileScreen: MonoBehaviour
 
         // Setup the header text so the user knows which save/load mode they are in
         screenModeText.gameObject.SetActive(true);
-        screenModeText.text = mode.ToString();
+        string modeText = "";
+        switch(mode)
+        {
+            case SaveFileScreenMode.Load:
+                modeText = "Load";
+                break;
+            case SaveFileScreenMode.Save:
+                modeText = "Save";
+                break;
+            case SaveFileScreenMode.NewGame:
+                modeText = "New Game";
+                break;
+        }
+        screenModeText.text = modeText;
 
         // Default to the save file that is currently being used (last file saved to)
         int currentSaveFile = SaveSystem.metaData.currentSaveFile;
