@@ -120,12 +120,18 @@ public class SaveFileScreen: MonoBehaviour
         if(mode == SaveFileScreenMode.Load)
         {
             Debug.Log($"Trying to load from save file {index + 1}");
+            SaveSystem.SetCurrentSaveFile(index);
+            LevelManager.Instance.LoadScene(Scenes.HubWorld);
         }
-        else
+        else if(mode == SaveFileScreenMode.Save)
         {
             Debug.Log($"Trying to save to save file {index + 1}");
             await SaveSystem.SaveData(index);
             await OpenSaveFileScreen(mode);
+        }
+        else if(mode == SaveFileScreenMode.NewGame)
+        {
+            Debug.Log($"Trying to make a new save file using save file {index + 1}");
         }
     }
 

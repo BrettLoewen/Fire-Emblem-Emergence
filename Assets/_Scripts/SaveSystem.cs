@@ -101,6 +101,11 @@ public static class SaveSystem
     {
         currentSaveData.playerCameraValues = new Vector2(xValue, yValue);
     }
+
+    public static void SetCurrentSaveFile(int newCurrentSaveFile)
+    {
+        metaData.currentSaveFile = newCurrentSaveFile;
+    }
 }
 
 [System.Serializable]
