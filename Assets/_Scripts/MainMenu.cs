@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 
-public enum MainMenuState { Selection, Load, NewGame, Options }
+public enum MainMenuState { Selection, Load, NewGame, Options, Loading }
 
 public class MainMenu: MonoBehaviour
 {
@@ -27,15 +27,17 @@ public class MainMenu: MonoBehaviour
     #region Unity Control Methods
 
     // Awake is called before Start before the first frame update
-    void Awake()
+    async void Awake()
     {
         menuState = MainMenuState.Selection;
+
+        await LevelManager.LoadPersistentScene(Scenes.MainMenu);
     }//end Awake
 
     // Start is called before the first frame update
-    void Start()
+    async void Start()
     {
-        
+        await LevelManager.Instance.SetLoadingFinished();
     }//end Start
 
     // Update is called once per frame
@@ -58,6 +60,9 @@ public class MainMenu: MonoBehaviour
     public void OnContinueClick()
     {
         Debug.Log("Loading the current save file");
+
+        menuState = MainMenuState.Loading;
+        LevelManager.Instance.LoadScene(Scenes.HubWorld);
     }
 
     async public void OnLoadClick()

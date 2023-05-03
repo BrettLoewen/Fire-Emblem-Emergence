@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Threading.Tasks;
 
 [System.Serializable]
 public enum ExplorationState { Setup, Explore, Menu }
@@ -37,6 +38,9 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
         playerInput = player.inputHandler;
 
+#pragma warning disable CS4014
+        LevelManager.LoadPersistentScene(Scenes.HubWorld);
+
         // Make sure the save system loads the current save file
         await SaveSystem.LoadCurrentSaveFile();
     }//end Awake
@@ -46,6 +50,12 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     {
         // Tell the player to set itself up according to loaded save data
         await player.Setup();
+
+        await Task.Delay(100);
+
+        await LevelManager.Instance.SetLoadingFinished();
+
+        await Task.Delay(100);
 
         // Once as setup has ended, exploration can begin
         explorationState = ExplorationState.Explore;
