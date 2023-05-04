@@ -36,9 +36,12 @@ public class PlayerInputHandler : MonoBehaviour
     //Receive and store the input for interacting in the game world. Invoke methods associated with submitting in the menu
     public void OnInteractInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if(ExplorationGameManager.Instance.explorationState == ExplorationState.Explore)
         {
-            interactInput = true;
+            if (context.started)
+            {
+                interactInput = true;
+            }
         }
     }
 
