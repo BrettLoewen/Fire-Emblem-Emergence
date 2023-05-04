@@ -102,6 +102,11 @@ public static class SaveSystem
         currentSaveData.playerCameraValues = new Vector2(xValue, yValue);
     }
 
+    public static void SetPlayerCustomization(string customizationObjectName)
+    {
+        currentSaveData.playerCustomization = customizationObjectName;
+    }
+
     public static void SetCurrentSaveFile(int newCurrentSaveFile)
     {
         metaData.currentSaveFile = newCurrentSaveFile;
@@ -114,6 +119,7 @@ public class SaveData
     public Vector3 playerPosition;
     public Quaternion playerRotation;
     public Vector2 playerCameraValues;
+    public string playerCustomization;
     public string savedAtTimestamp;
     public string activity;
 

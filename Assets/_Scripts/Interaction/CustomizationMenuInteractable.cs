@@ -9,10 +9,6 @@ public class CustomizationMenuInteractable: Interactable
 
     private ExplorationGameManager gameManager;
 
-    [SerializeField] private GameObject customizationMenu;
-    [SerializeField] private Transform buttonParent;
-    [SerializeField] private CustomizationMenuButton buttonPrefab;
-
     #endregion //end Variables
 
     #region Unity Control Methods

@@ -11,6 +11,8 @@ public class Interactable: MonoBehaviour
     [SerializeField] private Transform interactionPoint;
     [SerializeField] private float interactionRadius;
 
+    [SerializeField] private string interactionText;
+
     #endregion //end Variables
 
     #region Unity Control Methods
@@ -52,6 +54,11 @@ public class Interactable: MonoBehaviour
         float distance = Helpers.FlatDistance(playerPosition, interactionPoint.position);
 
         return new InteractionResult(distance <= interactionRadius, distance);
+    }
+
+    public string GetInteractionText()
+    {
+        return interactionText;
     }
 
     #endregion

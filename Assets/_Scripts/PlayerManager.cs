@@ -39,11 +39,19 @@ public class PlayerManager : Singleton<PlayerManager>
 
         playerCamera.Setup(saveData.playerCameraValues, saveData.playerPosition);
 
+        if(saveData.playerCustomization != null && saveData.playerCustomization != "")
+        {
+            Debug.Log(saveData.playerCustomization);
+            playerCustomizer.SetCustomization(DataManager.GetCustomizationFromString(saveData.playerCustomization));
+        }
+
         await Task.Delay(100);
     }
 
     public void SetCustomization(Customization customization)
     {
         playerCustomizer.SetCustomization(customization);
+
+        SaveSystem.SetPlayerCustomization(customization.name);
     }
 }

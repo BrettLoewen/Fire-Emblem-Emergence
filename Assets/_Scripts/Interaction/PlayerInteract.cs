@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerInteract: MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class PlayerInteract: MonoBehaviour
 
     private ExplorationGameManager gameManager;
 
+    [SerializeField] private GameObject interactionPrompt;
+    [SerializeField] private TextMeshProUGUI interactionPromptText;
+
     #endregion //end Variables
 
     #region Unity Control Methods
@@ -20,7 +24,7 @@ public class PlayerInteract: MonoBehaviour
     // Awake is called before Start before the first frame update
     void Awake()
     {
-        
+        interactionPrompt.SetActive(false);
     }//end Awake
 
     // Start is called before the first frame update
@@ -46,6 +50,16 @@ public class PlayerInteract: MonoBehaviour
             {
                 targetInteractable.Interact();
             }
+        }
+
+        if(targetInteractable != null)
+        {
+            interactionPrompt.SetActive(true);
+            interactionPromptText.text = targetInteractable.GetInteractionText();
+        }
+        else
+        {
+            interactionPrompt.SetActive(false);
         }
     }//end Update
 
