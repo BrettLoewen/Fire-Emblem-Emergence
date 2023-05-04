@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using System.Threading.Tasks;
 
 [System.Serializable]
-public enum ExplorationState { Setup, Explore, Menu }
+public enum ExplorationState { Setup, Explore, Menu, Customization }
 public enum ExplorationMenuState { Selection, Save, Load }
 
 public class ExplorationGameManager: Singleton<ExplorationGameManager>
@@ -18,12 +18,17 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     public ExplorationState explorationState { get; private set; }
     private ExplorationMenuState menuState;
 
+    [Header("Pause Menu")]
     [SerializeField] private GameObject pauseMenu;
-
     [SerializeField] private GameObject saveButton;
     [SerializeField] private GameObject loadButton;
-
     [SerializeField] private SaveFileScreen saveFileScreen;
+
+    [Header("Customization Menu")]
+    [SerializeField] private GameObject customizationMenu;
+    [SerializeField] private Transform buttonParent;
+    [SerializeField] private CustomizationMenuButton buttonPrefab;
+
 
     #endregion //end Variables
 
@@ -92,22 +97,30 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             // Cancel the button press
             playerInput.cancelInput = false;
 
-            switch(menuState)
+            switch(explorationState)
             {
-                case ExplorationMenuState.Load:
-                    menuState = ExplorationMenuState.Selection;
-                    saveFileScreen.CloseSaveFileScreen();
-                    EventSystem.current.SetSelectedGameObject(loadButton);
+                case ExplorationState.Menu:
+                    switch (menuState)
+                    {
+                        case ExplorationMenuState.Load:
+                            menuState = ExplorationMenuState.Selection;
+                            saveFileScreen.CloseSaveFileScreen();
+                            EventSystem.current.SetSelectedGameObject(loadButton);
+                            break;
+                        case ExplorationMenuState.Save:
+                            menuState = ExplorationMenuState.Selection;
+                            saveFileScreen.CloseSaveFileScreen();
+                            EventSystem.current.SetSelectedGameObject(saveButton);
+                            break;
+                        case ExplorationMenuState.Selection:
+                            menuState = ExplorationMenuState.Selection;
+                            explorationState = ExplorationState.Explore;
+                            Time.timeScale = 1f;
+                            break;
+                    }
                     break;
-                case ExplorationMenuState.Save:
-                    menuState = ExplorationMenuState.Selection;
-                    saveFileScreen.CloseSaveFileScreen();
-                    EventSystem.current.SetSelectedGameObject(saveButton);
-                    break;
-                case ExplorationMenuState.Selection:
-                    menuState = ExplorationMenuState.Selection;
-                    explorationState = ExplorationState.Explore;
-                    Time.timeScale = 1f;
+                case ExplorationState.Customization:
+                    CloseCustomizationMenu();
                     break;
             }
         }
@@ -137,6 +150,53 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     {
         Application.Quit();
         Debug.Log("Quitting...");
+    }
+
+    #endregion
+
+    #region Customization Menu
+
+    public async void OpenCustomizationMenu()
+    {
+        customizationMenu.SetActive(true);
+        explorationState = ExplorationState.Customization;
+
+        foreach (Transform child in buttonParent)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Gives time for the children to be destroyed
+        await Task.Yield();
+
+        Customization[] customizationOptions = DataManager.GetCustomizationOptions();
+
+        foreach (Customization option in customizationOptions)
+        {
+            CustomizationMenuButton button = Instantiate(buttonPrefab, buttonParent);
+            button.Setup(option, this);
+        }
+
+        if (buttonParent.childCount > 0)
+        {
+            EventSystem.current.SetSelectedGameObject(buttonParent.GetChild(0).gameObject);
+        }
+
+        Time.timeScale = 0f;
+    }
+
+    public void OnClickCustomizationOption(Customization customization)
+    {
+        player.SetCustomization(customization);
+        CloseCustomizationMenu();
+    }
+
+    private void CloseCustomizationMenu()
+    {
+        customizationMenu.SetActive(false);
+
+        explorationState = ExplorationState.Explore;
+        Time.timeScale = 1f;
     }
 
     #endregion
