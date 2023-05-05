@@ -79,9 +79,9 @@ public class SaveFileBar: MonoBehaviour
         button.navigation = navigation;
     }
 
-    public void OnClick()
+    public async void OnClick()
     {
-        saveFileScreen.OnSaveFileBarClick(index);
+        await saveFileScreen.OnSaveFileBarClick(index);
     }
 
     #endregion

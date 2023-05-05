@@ -34,6 +34,8 @@ public class PlayerManager : Singleton<PlayerManager>
 
         SaveData saveData = SaveSystem.currentSaveData;
 
+        Debug.Log($"Player save data: \n{saveData}");
+
         transform.position = saveData.playerPosition;
         transform.rotation = saveData.playerRotation;
 
@@ -41,7 +43,6 @@ public class PlayerManager : Singleton<PlayerManager>
 
         if(saveData.playerCustomization != null && saveData.playerCustomization != "")
         {
-            Debug.Log(saveData.playerCustomization);
             playerCustomizer.SetCustomization(DataManager.GetCustomizationFromString(saveData.playerCustomization));
         }
 

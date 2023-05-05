@@ -57,6 +57,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         await player.Setup();
 
         await Task.Delay(100);
+        Debug.Log("Finished setting up the player");
 
         await LevelManager.Instance.SetLoadingFinished();
 

@@ -115,12 +115,14 @@ public class SaveFileScreen: MonoBehaviour
         }
     }
 
-    public async void OnSaveFileBarClick(int index)
+    public async Task OnSaveFileBarClick(int index)
     {
         if(mode == SaveFileScreenMode.Load)
         {
             Debug.Log($"Trying to load from save file {index + 1}");
-            SaveSystem.SetCurrentSaveFile(index);
+            await SaveSystem.SetCurrentSaveFile(index);
+            await Task.Delay(100);
+            Time.timeScale = 1f;
             LevelManager.Instance.LoadScene(Scenes.HubWorld);
         }
         else if(mode == SaveFileScreenMode.Save)

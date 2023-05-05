@@ -10,7 +10,7 @@ public static class SaveSystem
 {
     private const string SAVE_META_DATA_FILE_NAME = "meta";
 
-    private static string FILE_PATH = Application.dataPath + "/Resources/Save Data/";
+    private static string FILE_PATH = Application.persistentDataPath + "/";
     public static SaveMetaData metaData { get; private set; } = null;// new SaveMetaData() { currentSaveFile = 0, saveFiles = new string[3] { "save1", "save2", "save3" } };
     public static SaveData currentSaveData { get; private set; } = null;  //new SaveData(Vector3.zero, "Exploration");
 
@@ -30,7 +30,7 @@ public static class SaveSystem
 
         string jsonData = JsonUtility.ToJson(currentSaveData, true);
         await File.WriteAllTextAsync(filePath, jsonData);
-        
+
         jsonData = JsonUtility.ToJson(metaData, true);
         await File.WriteAllTextAsync(metaPath, jsonData);
 
@@ -83,12 +83,16 @@ public static class SaveSystem
 
     public static async Task LoadCurrentSaveFile()
     {
+        currentSaveData = null;
+
         if (metaData == null)
         {
             metaData = await LoadData(SAVE_META_DATA_FILE_NAME, true) as SaveMetaData;
         }
 
         currentSaveData = await LoadData(metaData.saveFiles[metaData.currentSaveFile]) as SaveData;
+
+        Debug.Log(currentSaveData);
     }
 
     public static void SetPlayerPositionAndRotation(Vector3 position, Quaternion rotation)
@@ -107,9 +111,19 @@ public static class SaveSystem
         currentSaveData.playerCustomization = customizationObjectName;
     }
 
-    public static void SetCurrentSaveFile(int newCurrentSaveFile)
+    public static async Task SetCurrentSaveFile(int newCurrentSaveFile)
     {
+        if (metaData == null)
+        {
+            metaData = await LoadData(SAVE_META_DATA_FILE_NAME, true) as SaveMetaData;
+        }
+
         metaData.currentSaveFile = newCurrentSaveFile;
+
+        string metaPath = FILE_PATH + $"{SAVE_META_DATA_FILE_NAME}.txt";
+
+        string jsonData = JsonUtility.ToJson(metaData, true);
+        await File.WriteAllTextAsync(metaPath, jsonData);
     }
 }
 
@@ -125,7 +139,7 @@ public class SaveData
 
     public override string ToString()
     {
-        return $"Position: {playerPosition}\nRotation: {playerRotation}\nCamera: {playerPosition}\nActivity: {activity}\nTimestamp: {savedAtTimestamp}";
+        return $"Position: {playerPosition}\nRotation: {playerRotation}\nCamera: {playerPosition}\nCustomization: {playerCustomization}\nActivity: {activity}\nTimestamp: {savedAtTimestamp}";
     }
 }
 
