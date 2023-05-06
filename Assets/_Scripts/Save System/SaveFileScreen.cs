@@ -115,15 +115,18 @@ public class SaveFileScreen: MonoBehaviour
         }
     }
 
-    public async Task OnSaveFileBarClick(int index)
+    public async Task OnSaveFileBarClick(int index, bool dataIsNull)
     {
         if(mode == SaveFileScreenMode.Load)
         {
             Debug.Log($"Trying to load from save file {index + 1}");
-            await SaveSystem.SetCurrentSaveFile(index);
-            await Task.Delay(100);
-            Time.timeScale = 1f;
-            LevelManager.Instance.LoadScene(Scenes.HubWorld);
+            if(dataIsNull == false)
+            {
+                await SaveSystem.SetCurrentSaveFile(index);
+                await Task.Delay(100);
+                Time.timeScale = 1f;
+                LevelManager.Instance.LoadScene(Scenes.HubWorld);
+            }
         }
         else if(mode == SaveFileScreenMode.Save)
         {
@@ -134,6 +137,10 @@ public class SaveFileScreen: MonoBehaviour
         else if(mode == SaveFileScreenMode.NewGame)
         {
             Debug.Log($"Trying to make a new save file using save file {index + 1}");
+            await SaveSystem.MakeNewGameSaveFile(index);
+            await Task.Delay(100);
+            Time.timeScale = 1f;
+            LevelManager.Instance.LoadScene(Scenes.HubWorld);
         }
     }
 

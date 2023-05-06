@@ -57,12 +57,17 @@ public class MainMenu: MonoBehaviour
 
     #region
 
-    public void OnContinueClick()
+    public async void OnContinueClick()
     {
         Debug.Log("Loading the current save file");
 
-        menuState = MainMenuState.Loading;
-        LevelManager.Instance.LoadScene(Scenes.HubWorld);
+        bool hasSaveFile = await SaveSystem.HasCurrentSaveFile();
+
+        if(hasSaveFile)
+        {
+            menuState = MainMenuState.Loading;
+            LevelManager.Instance.LoadScene(Scenes.HubWorld);
+        }
     }
 
     async public void OnLoadClick()

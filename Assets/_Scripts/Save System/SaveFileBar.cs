@@ -81,7 +81,7 @@ public class SaveFileBar: MonoBehaviour
 
     public async void OnClick()
     {
-        await saveFileScreen.OnSaveFileBarClick(index);
+        await saveFileScreen.OnSaveFileBarClick(index, data == null);
     }
 
     #endregion
