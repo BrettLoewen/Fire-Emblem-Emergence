@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Used to represent a customization object that the player cna pick from
+/// </summary>
 public class CustomizationMenuButton: MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private TextMeshProUGUI optionText;
+    [SerializeField] private TextMeshProUGUI optionText; // Displays the name of the customization object
 
-    private ExplorationGameManager gameManager;
-    private Customization customization;
+    private ExplorationGameManager gameManager; // The manager of the exploration scene
+    private Customization customization;        // The customization object that is being displayed
 
     #endregion //end Variables
 
@@ -38,19 +41,28 @@ public class CustomizationMenuButton: MonoBehaviour
 
     #region
 
+    /// <summary>
+    /// Used to passed the necessary information to this object
+    /// </summary>
+    /// <param name="_customization">The customization object that will be displayed</param>
+    /// <param name="_gameManager">The manager of this component</param>
     public void Setup(Customization _customization, ExplorationGameManager _gameManager)
     {
+        // Set the display text to the customization object's name
         optionText.text = _customization.name;
 
+        // Store the passed information for later
         customization = _customization;
-
         gameManager = _gameManager;
-    }
+    }//end Setup
 
+    /// <summary>
+    /// Called by the button when it is clicked. Tells the manager it was clicked
+    /// </summary>
     public void OnClick()
     {
         gameManager.OnClickCustomizationOption(customization);
-    }
+    }//end OnClick
 
     #endregion
 }

@@ -5,16 +5,23 @@ using TMPro;
 using System.Threading.Tasks;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Used to track what should happen when the save file bar's are clicked
+/// </summary>
 public enum SaveFileScreenMode { Save, Load, NewGame }
 
+/// <summary>
+/// Used to display and control the player's save files
+/// </summary>
 public class SaveFileScreen: MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private Transform saveFileParent;
-    [SerializeField] private SaveFileBar saveFileBarPrefab;
-    [SerializeField] private TextMeshProUGUI screenModeText;
+    [SerializeField] private Transform saveFileParent;          // The parent transform for the save file bars
+    [SerializeField] private SaveFileBar saveFileBarPrefab;     // The prefab for the save file bar
+    [SerializeField] private TextMeshProUGUI screenModeText;    // The header text object used to display which mode the screen is in
 
+    // Stores the mode the screen is currently in
     private SaveFileScreenMode mode;
 
     #endregion //end Variables
@@ -41,8 +48,13 @@ public class SaveFileScreen: MonoBehaviour
 
     #endregion //end Unity Control Methods
 
-    #region
+    #region Screen Management
 
+    /// <summary>
+    /// Used to open the save file screen with the correct save data
+    /// </summary>
+    /// <param name="_mode">The mode the screen should act in</param>
+    /// <returns></returns>
     public async Task OpenSaveFileScreen(SaveFileScreenMode _mode)
     {
         // Store whether the menu is currently being used for saving or loading
@@ -101,8 +113,11 @@ public class SaveFileScreen: MonoBehaviour
         // Default to the save file that is currently being used (last file saved to)
         int currentSaveFile = SaveSystem.metaData.currentSaveFile;
         EventSystem.current.SetSelectedGameObject(bars[currentSaveFile].gameObject);
-    }
+    }//end OpenSaveFileScreen
 
+    /// <summary>
+    /// Used to close the save file screen
+    /// </summary>
     public void CloseSaveFileScreen()
     {
         // Deactivate the header text
@@ -113,27 +128,59 @@ public class SaveFileScreen: MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-    }
+    }//end CloseSaveFileScreen
 
-    public async void OnSaveFileBarClick(int index)
+    /// <summary>
+    /// Called by the save file bar button when it is clicked
+    /// </summary>
+    /// <param name="index">The index of the save file the button represents</param>
+    /// <param name="dataIsNull">Whether or not the save file passed to the button exists</param>
+    /// <returns></returns>
+    public async Task OnSaveFileBarClick(int index, bool dataIsNull)
     {
+        // If the screen is in load mode, load into the correct scene (assuming the save file exists)
         if(mode == SaveFileScreenMode.Load)
         {
             Debug.Log($"Trying to load from save file {index + 1}");
-            SaveSystem.SetCurrentSaveFile(index);
-            LevelManager.Instance.LoadScene(Scenes.HubWorld);
+            // If the save file exists
+            if(dataIsNull == false)
+            {
+                // Set this save file to be the current save file
+                await SaveSystem.SetCurrentSaveFile(index);
+                await Task.Delay(100);
+
+                //Make sure the game is no longer paused
+                Time.timeScale = 1f;
+
+                // Load into the correct scene
+                LevelManager.Instance.LoadScene(Scenes.HubWorld);
+            }
         }
+        // If the screen is in save mode, save the current save data
         else if(mode == SaveFileScreenMode.Save)
         {
             Debug.Log($"Trying to save to save file {index + 1}");
+            // Save the data
             await SaveSystem.SaveData(index);
+
+            // Refresh the save file screen
             await OpenSaveFileScreen(mode);
         }
+        // If the screen is in new game mode, create a new game save file and load into the correct scene
         else if(mode == SaveFileScreenMode.NewGame)
         {
             Debug.Log($"Trying to make a new save file using save file {index + 1}");
+            // Create the new game save file
+            await SaveSystem.MakeNewGameSaveFile(index);
+            await Task.Delay(100);
+
+            // Make sure the game is no longer paused
+            Time.timeScale = 1f;
+
+            // Load into the correct scene
+            LevelManager.Instance.LoadScene(Scenes.HubWorld);
         }
-    }
+    }//end OnSaveFileBarClick
 
     #endregion
 }

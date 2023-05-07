@@ -3,23 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Threading.Tasks;
-using UnityEngine.EventSystems;
 
+/// <summary>
+/// Used to map scene indecies to a readable name that can be easily updated
+/// </summary>
 public enum Scenes { Persistent = 0, MainMenu = 1, HubWorld = 2 }
 
+/// <summary>
+/// Used to manage scene loading and switching
+/// </summary>
 public class LevelManager: Singleton<LevelManager>
 {
     #region Variables
 
+    // Loading screen
     [SerializeField] private CanvasGroup loadingScreen;
-    private const float FADE_TIME = 0.25f;
+    private const float FADE_TIME = 0.25f;  // The time for the loading screen to fade in/out
 
+    // Variables in the persistent scene that need to be enabled/disabled during the loading sequence
     [SerializeField] private GameObject sceneCamera;
     [SerializeField] private GameObject eventSystem;
 
-    private Scenes currentScene;
+    private Scenes currentScene; // The current (primary) scene
 
-    private bool isLoading;
+    private bool isLoading; // Tracks whether or not the game is currently loading
 
     #endregion //end Variables
 
@@ -28,18 +35,21 @@ public class LevelManager: Singleton<LevelManager>
     // Awake is called before Start before the first frame update
     protected override void Awake()
     {
+        // Setup the singleton base class
         base.Awake();
 
+        // When the game starts, just the persistent scene is open
         currentScene = Scenes.Persistent;
     }//end Awake
 
     // Start is called before the first frame update
     async void Start()
     {
+        // If the game is in the persistent scene for long enough, load the main menu scene
         await Task.Delay(100);
         if(currentScene == Scenes.Persistent)
         {
-            await LoadMainMenu();
+            LoadScene(Scenes.MainMenu);
         }
     }//end Start
 
@@ -51,44 +61,28 @@ public class LevelManager: Singleton<LevelManager>
 
     #endregion //end Unity Control Methods
 
-    #region
+    #region Scene Management
 
-    private async Task LoadMainMenu()
+    /// <summary>
+    /// Used to load the persistent scene if the game starts in a different scene.
+    /// Exists for development purposes, not needed for production.
+    /// NOTE: NOT meant to be awaited
+    /// </summary>
+    /// <param name="_loadedFromScene">The scene that was already loaded</param>
+    /// <returns></returns>
+    public static async Task LoadPersistentScene(Scenes _loadedFromScene)
     {
-        isLoading = true;
-
-        AsyncOperation operation = SceneManager.LoadSceneAsync((int)Scenes.MainMenu, LoadSceneMode.Additive);
-
-        while (operation.isDone == false)
-        {
-            await Task.Yield();
-        }
-
-        sceneCamera.SetActive(false);
-        eventSystem.SetActive(false);
-        Camera.main.GetComponent<AudioListener>().enabled = true;
-
-        Instance.currentScene = Scenes.MainMenu;
-
-        while(isLoading)
-        {
-            await Task.Yield();
-        }
-
-        LeanTween.alphaCanvas(loadingScreen, 0f, FADE_TIME);
-        await Task.Delay((int)(FADE_TIME * 1000f));
-    }
-
-    public static async Task LoadPersistentScene(Scenes loadedFromScene)
-    {
+        // If the persistent scene is already loaded, this is unnecessary, so return
         if (Instance != null)
         {
             return;
         }
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync((int)Scenes.Persistent, LoadSceneMode.Additive);
+        // Start loading in the persistent scene
+        AsyncOperation _operation = SceneManager.LoadSceneAsync((int)Scenes.Persistent, LoadSceneMode.Additive);
 
-        while (operation.isDone == false)
+        // Wait until the persistent scene is loaded in
+        while (_operation.isDone == false)
         {
             await Task.Yield();
         }
@@ -99,63 +93,86 @@ public class LevelManager: Singleton<LevelManager>
         Instance.eventSystem.SetActive(false);
         Camera.main.GetComponent<AudioListener>().enabled = true;
 
-        Instance.currentScene = loadedFromScene;
+        Instance.currentScene = _loadedFromScene;
 
+        // Wait until the other scene says loading is done
         while (Instance.isLoading)
         {
             await Task.Yield();
         }
 
+        // Fade out the loading screen
         LeanTween.alphaCanvas(Instance.loadingScreen, 0f, FADE_TIME);
         await Task.Delay((int)(FADE_TIME * 1000f));
-    }
+    }//end LoadPersistentScene
 
+    /// <summary>
+    /// Used to end the loading screen from another script
+    /// </summary>
+    /// <returns></returns>
     public async Task SetLoadingFinished()
     {
+        // Fade out the loading screen
         await Task.Delay((int)(FADE_TIME * 1000f));
         isLoading = false;
-    }
+    }//end SetLoadingFinished
 
-    public async void LoadScene(Scenes sceneToLoad)
+    /// <summary>
+    /// Load the passed scene and unload the previous scene
+    /// </summary>
+    /// <param name="_sceneToLoad"></param>
+    public async void LoadScene(Scenes _sceneToLoad)
     {
+        // Mark that loading is happening
         isLoading = true;
 
+        // Fade in the loading screen
         LeanTween.alphaCanvas(loadingScreen, 1f, FADE_TIME);
         await Task.Delay((int)(FADE_TIME * 1000f));
 
+        // Enable the loading screen camera so there will always be at least one camera
         sceneCamera.SetActive(true);
 
+        // As long as the previous scene was not the persistent scene, unload it
         if (currentScene != Scenes.Persistent)
         {
-            AsyncOperation unloadOperation = SceneManager.UnloadSceneAsync((int)currentScene);
+            AsyncOperation _unloadOperatoin = SceneManager.UnloadSceneAsync((int)currentScene);
 
-            while (unloadOperation.isDone == false)
+            // Wait until the scene has been unloaded before continuing
+            while (_unloadOperatoin.isDone == false)
             {
                 await Task.Yield();
             }
         }
 
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync((int)sceneToLoad, LoadSceneMode.Additive);
+        // Load the new scene
+        AsyncOperation _loadOperation = SceneManager.LoadSceneAsync((int)_sceneToLoad, LoadSceneMode.Additive);
 
-        while (loadOperation.isDone == false)
+        // Wait until the new scene is loaded in before continuing
+        while (_loadOperation.isDone == false)
         {
             await Task.Yield();
         }
 
+        // Disable the loading screen now that loading has concluded
         sceneCamera.SetActive(false);
         eventSystem.SetActive(false);
         Camera.main.GetComponent<AudioListener>().enabled = true;
 
-        Instance.currentScene = sceneToLoad;
+        // Mark that the current scene is the one that was just loaded into
+        Instance.currentScene = _sceneToLoad;
 
+        // Wait until the new scene marks loading as completed
+        // Gives the scene time to do its own setup
         while (isLoading)
         {
             await Task.Yield();
         }
 
+        // Fade out the loading screen
         LeanTween.alphaCanvas(loadingScreen, 0f, FADE_TIME);
         await Task.Delay((int)(FADE_TIME * 1000f));
-    }
+    }//end LoadScene
 
     #endregion
 }

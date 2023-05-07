@@ -2,30 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to move the player character
+/// </summary>
 public class PlayerMovement: MonoBehaviour
 {
     #region Variables
 
-    [HideInInspector] public PlayerManager playerManager;
+    // References to other player control components
+    [HideInInspector] public PlayerManager PlayerManager;
     private PlayerInputHandler inputHandler;
     private UnitAnimator playerAnimator;
     private PlayerCamera playerCamera;
 
-    //Variables to control the movement speed
-    public float walkSpeed = 3f;
-    public float sprintSpeed = 6f;
-    public float currentSpeed;
+    // Variables to control the movement speed
+    [SerializeField] private float walkSpeed = 2f;
+    [SerializeField] private float sprintSpeed = 7f;
+    [SerializeField] private float currentSpeed;
 
-    //Variables to control the turn speed
-    public float turnSmoothTime = 0.1f;
-    private float turnSmoothVelocity;
+    // Variables to control the turn speed
+    [SerializeField] private float turnSmoothTime = 0.1f;
+    [SerializeField] private float turnSmoothVelocity;
 
-    public Transform groundCheckPoint;
-    public LayerMask groundMask;
-    public float minDistanceOff = 0.05f;
+    // Variables to keep the player on the ground
+    [SerializeField] private Transform groundCheckPoint;
+    [SerializeField] private LayerMask groundMask;
+    [SerializeField] private float minDistanceOff = 0.05f;
       
+    // The character controller responsible for actually moving
     private CharacterController controller;
 
+    // The manager for the exploration scene
     private ExplorationGameManager gameManager;
       
     #endregion //end Variables
@@ -41,10 +48,10 @@ public class PlayerMovement: MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Get the various references needed to operate
-        inputHandler = playerManager.inputHandler;
-        playerCamera = playerManager.playerCamera;
-        playerAnimator = playerManager.playerAnimator;
+        // Get the various references needed to operate
+        inputHandler = PlayerManager.InputHandler;
+        playerCamera = PlayerManager.PlayerCamera;
+        playerAnimator = PlayerManager.PlayerAnimator;
         controller = GetComponent<CharacterController>();
 
         currentSpeed = walkSpeed;
@@ -59,7 +66,7 @@ public class PlayerMovement: MonoBehaviour
         HandleGravity();
 
         // If the game is in explore mode, then the player should be able to move their character
-        if (gameManager.explorationState == ExplorationState.Explore)
+        if (gameManager.ExplorationState == ExplorationState.Explore)
         {
             // Move the player character according to input
             HandleMovement();
@@ -73,28 +80,30 @@ public class PlayerMovement: MonoBehaviour
 
     #region
 
-    //
+    /// <summary>
+    /// Move the player according to player input
+    /// </summary>
     private void HandleMovement()
     {
         //Get the direction of movement
-        Vector2 moveInput = inputHandler.moveInput;
-        Vector3 direction = new Vector3(moveInput.x, 0f, moveInput.y).normalized;
+        Vector2 _moveInput = inputHandler.MoveInput;
+        Vector3 _direction = new Vector3(_moveInput.x, 0f, _moveInput.y).normalized;
 
         //If there is movement input
-        if (direction.magnitude >= 0.1f)
+        if (_direction.magnitude >= 0.1f)
         {
             //Get and smooth the angle for the movement direction relative to the camera
-            float targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + playerCamera.mainCamera.transform.eulerAngles.y;
+            float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + playerCamera.MainCamera.transform.eulerAngles.y;
             float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
 
             //Rotate the player to the angle
             transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
 
             //Turn the move angle into a new movement direction
-            Vector3 moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            Vector3 _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
             //Set the current speed based on the sprint input
-            if (inputHandler.sprintInput)
+            if (inputHandler.SprintInput)
             {
                 currentSpeed = sprintSpeed;
             }
@@ -104,12 +113,12 @@ public class PlayerMovement: MonoBehaviour
             }
 
             //Move the character
-            controller.Move(moveDir.normalized * currentSpeed * Time.deltaTime);
+            controller.Move(_moveDir.normalized * currentSpeed * Time.deltaTime);
         }
         else
         {
             //Stop sprinting if there is no movement input
-            inputHandler.sprintInput = false;
+            inputHandler.SprintInput = false;
 
             //Set the current speed to 0 if there is no movement input
             currentSpeed = 0f;
@@ -123,19 +132,23 @@ public class PlayerMovement: MonoBehaviour
         }
 
         //Animate the character according to the current speed
-        playerAnimator.SetSpeedPercent(currentSpeed, walkSpeed, sprintSpeed, inputHandler.sprintInput);
+        playerAnimator.SetSpeedPercent(currentSpeed, walkSpeed, sprintSpeed, inputHandler.SprintInput);
     }
 
-    //
+    /// <summary>
+    /// Keep the player on the ground
+    /// </summary>
     public void HandleGravity()
     {
-        bool result = Physics.Raycast(groundCheckPoint.position, Vector3.down, out RaycastHit hitInfo, minDistanceOff, groundMask);
+        // Determine whether or not the player is currently on the ground
+        bool _result = Physics.Raycast(groundCheckPoint.position, Vector3.down, minDistanceOff, groundMask);
 
-        if (result == false)
+        // If the player is not currently on the ground, move it downward
+        if (_result == false)
         { 
-            float fallSpeed = 2f;
+            float _fallSpeed = 2f;
 
-            controller.Move(Vector3.down * fallSpeed * Time.deltaTime);
+            controller.Move(Vector3.down * _fallSpeed * Time.deltaTime);
         }
 
     }

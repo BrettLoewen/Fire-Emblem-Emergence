@@ -10,21 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5119f8bb763e83142bcebb3390b49b36, type: 3}
-  m_Name: Merchant
+  m_Name: Soldier
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: d6347c343a4822c47a96bdc77734ba6f, type: 2}
-  options:
-  - itemName: All_Helmet
-    itemIndex: 2
-    itemCategory: 2
+  Material: {fileID: 2100000, guid: d6347c343a4822c47a96bdc77734ba6f, type: 2}
+  Options:
   - itemName: All_Helmet
     itemIndex: 5
-    itemCategory: 2
-  - itemName: All_Helmet
-    itemIndex: 7
-    itemCategory: 2
-  - itemName: All_04_Back_Attachment
-    itemIndex: 12
     itemCategory: 2
   - itemName: All_05_Shoulder_Attachment_Right
     itemIndex: 6
