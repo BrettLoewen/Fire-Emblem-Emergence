@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
+/// <summary>
+/// Inherits from Interactable to allow the player to open a customization menu
+/// </summary>
 public class CustomizationMenuInteractable: Interactable
 {
     #region Variables
 
-    private ExplorationGameManager gameManager;
+    private ExplorationGameManager gameManager; // The manager of the exploration scene
 
     #endregion //end Variables
 
@@ -22,6 +24,7 @@ public class CustomizationMenuInteractable: Interactable
     // Start is called before the first frame update
     void Start()
     {
+        // Get the necessary reference
         gameManager = ExplorationGameManager.Instance;
     }//end Start
 
@@ -35,10 +38,13 @@ public class CustomizationMenuInteractable: Interactable
 
     #region
 
+    /// <summary>
+    /// Override the base interact method to open the customization menu
+    /// </summary>
     public override void Interact()
     {
         gameManager.OpenCustomizationMenu();
-    }
+    }//end Interact
 
     #endregion
 }

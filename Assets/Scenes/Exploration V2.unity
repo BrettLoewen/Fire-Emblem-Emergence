@@ -472,18 +472,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 437181744}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &216322957 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 840882322084260507, guid: de396bed7a14d1840a065ac8b26da895,
-    type: 3}
-  m_PrefabInstance: {fileID: 1362843284}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1210ba2448e4ff428a87407a022ecb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &263198624
 GameObject:
   m_ObjectHideFlags: 0
@@ -2380,11 +2368,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5719916234507701394, guid: de396bed7a14d1840a065ac8b26da895,
-        type: 3}
-      propertyPath: playerCustomizer
-      value: 
-      objectReference: {fileID: 216322957}
     - target: {fileID: 8977719847924397261, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
       propertyPath: m_LocalRotation.y

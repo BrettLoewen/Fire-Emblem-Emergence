@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to control a unit's animator component
+/// </summary>
 public class UnitAnimator: MonoBehaviour
 {
     #region Variables
 
-    [HideInInspector] public PlayerManager playerManager;
+    [SerializeField] private float speedSmoothTime;   // The time it takes to adjust the player's run speed animator value
 
-    public float speedSmoothTime;
-
-    public Animator animator;
+    public Animator Animator { get; private set; }   // References the unit's animator component
 
     #endregion //end Variables
 
@@ -19,7 +20,8 @@ public class UnitAnimator: MonoBehaviour
     // Awake is called before Start before the first frame update
     void Awake()
     {
-        animator = GetComponent<Animator>();
+        // Get the animator component
+        Animator = GetComponent<Animator>();
     }//end Awake
 
     // Start is called before the first frame update
@@ -38,11 +40,21 @@ public class UnitAnimator: MonoBehaviour
 
     #region
 
-    public void SetSpeedPercent(float currentSpeed, float walkSpeed, float runSpeed, bool isSprinting)
+    /// <summary>
+    /// Sets the `speedPercent` value in the animator according to the passed values
+    /// </summary>
+    /// <param name="_currentSpeed">The current speed that the unit is moving at</param>
+    /// <param name="_walkSpeed">The unit's walk speed (lower speed limit)</param>
+    /// <param name="_sprintSpeed">The unit's sprint speed (upper speed limit)</param>
+    /// <param name="_isSprinting">Says whether or not the unit is sprinting</param>
+    public void SetSpeedPercent(float _currentSpeed, float _walkSpeed, float _sprintSpeed, bool _isSprinting)
     {
-        float speedPercent = ((isSprinting) ? currentSpeed / runSpeed : currentSpeed / walkSpeed * .5f);
-        animator.SetFloat("speedPercent", speedPercent, speedSmoothTime, Time.deltaTime);
-    }
+        // Calculate the speed percent value using the passed values
+        float _speedPercent = ((_isSprinting) ? _currentSpeed / _sprintSpeed : _currentSpeed / _walkSpeed * .5f);
+
+        // Set the animator's `speedPercent` value smoothly according to the passed values
+        Animator.SetFloat("speedPercent", _speedPercent, speedSmoothTime, Time.deltaTime);
+    }//end SetSpeedPercent
 
     #endregion
 }

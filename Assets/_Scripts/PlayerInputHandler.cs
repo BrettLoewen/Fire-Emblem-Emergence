@@ -2,64 +2,80 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Events;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    [HideInInspector] public PlayerManager playerManager;
+    public Vector2 MoveInput;   //Stores input for movement
+    public Vector2 LookInput;   //Stores input for camera control
+    public bool SprintInput;    //Stores input for sprinting
+    public bool InteractInput;  //Stores input interacting
+    public bool MenuInput;      //Stores input for the menu button (opening/closing the menu)
+    public bool CancelInput;    //Stores input for canceling in a menu
 
-    public Vector2 moveInput; //Stores input for movement
-    public Vector2 lookInput; //Stores input for camera control
-    public bool sprintInput; //Stores input for sprinting
-    public bool interactInput; //Stores input interacting
-    public bool menuInput; //Stores input for the menu button (opening/closing the menu)
-    public bool cancelInput; //Stores input for canceling in a menu
-
-    //Receive and store the input for movement
-    public void OnMoveInput(InputAction.CallbackContext context)
+    /// <summary>
+    /// Receive and store the input for movement
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnMoveInput(InputAction.CallbackContext _context)
     {
-        moveInput = context.ReadValue<Vector2>();
+        MoveInput = _context.ReadValue<Vector2>();
+    }//end OnMoveInput
+
+    /// <summary>
+    /// Receive and store the input for looking
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnLookInput(InputAction.CallbackContext _context)
+    {
+        LookInput = _context.ReadValue<Vector2>();
     }
 
-    //Receive and store the input for looking
-    public void OnLookInput(InputAction.CallbackContext context)
+    /// <summary>
+    /// Receive and store the input for sprinting
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnSprintInput(InputAction.CallbackContext _context)
     {
-        lookInput = context.ReadValue<Vector2>();
+        SprintInput = !SprintInput;
     }
 
-    //Receive and store the input for sprinting
-    public void OnSprintInput(InputAction.CallbackContext context)
+    /// <summary>
+    /// Receive and store the input for interacting in the game world. Invoke methods associated with submitting in the menu
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnInteractInput(InputAction.CallbackContext _context)
     {
-        sprintInput = !sprintInput;
-    }
-
-    //Receive and store the input for interacting in the game world. Invoke methods associated with submitting in the menu
-    public void OnInteractInput(InputAction.CallbackContext context)
-    {
-        if(ExplorationGameManager.Instance.explorationState == ExplorationState.Explore)
+        // Only allow interacting while the game is in exploration mode
+        if(ExplorationGameManager.Instance.ExplorationState == ExplorationState.Explore)
         {
-            if (context.started)
+            if (_context.started)
             {
-                interactInput = true;
+                InteractInput = true;
             }
         }
     }
 
-    //Receive and store the input for the menu button
-    public void OnMenuInput(InputAction.CallbackContext context)
+    /// <summary>
+    /// Receive and store the input for the menu button
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnMenuInput(InputAction.CallbackContext _context)
     {
-        if (context.started)
+        if (_context.started)
         {
-            menuInput = true;
+            MenuInput = true;
         }
     }
 
-    //Receive and store the input for the cancel button
-    public void OnCancelInput(InputAction.CallbackContext context)
+    /// <summary>
+    /// Receive and store the input for the cancel button
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnCancelInput(InputAction.CallbackContext _context)
     {
-        if (context.started)
+        if (_context.started)
         {
-            cancelInput = true;
+            CancelInput = true;
         }
     }
 }

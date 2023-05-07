@@ -4,19 +4,22 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
+/// <summary>
+/// Used to display a given save file data object to the player
+/// </summary>
 public class SaveFileBar: MonoBehaviour
 {
     #region Variables
 
-    [SerializeField] private TextMeshProUGUI activityText;
-    [SerializeField] private TextMeshProUGUI timestampText;
-    [SerializeField] private GameObject emptySaveFileText;
+    [SerializeField] private TextMeshProUGUI activityText;  // Displays the player's activity
+    [SerializeField] private TextMeshProUGUI timestampText; // Displays the timestamp at which the save file was last updated
+    [SerializeField] private GameObject emptySaveFileText;  // Used when representing a save file that does not exist
 
-    public Button button { get; private set; }
+    public Button button { get; private set; }  // The button component
 
-    private SaveData data;
-    private int index;
-    private SaveFileScreen saveFileScreen;
+    private SaveData data;                  // The save data object being represented
+    private int index;                      // The file index of the save data object
+    private SaveFileScreen saveFileScreen;  // The save file screen this is a part of
 
     #endregion //end Variables
 
@@ -44,18 +47,27 @@ public class SaveFileBar: MonoBehaviour
 
     #region
 
+    /// <summary>
+    /// Used to setup the bar with the necessary information
+    /// </summary>
+    /// <param name="_data">The save data object to display</param>
+    /// <param name="_index">The file index of the passed save data object</param>
+    /// <param name="_saveFileScreen">The screen this component is a part of</param>
     public void Setup(SaveData _data, int _index, SaveFileScreen _saveFileScreen)
     {
+        // Store the passed information
         data = _data;
         index = _index;
         saveFileScreen = _saveFileScreen;
 
+        // If the save data object does not exist, display that
         if(data == null)
         {
             emptySaveFileText.SetActive(true);
             activityText.gameObject.SetActive(false);
             timestampText.gameObject.SetActive(false);
         }
+        // If the save data object does exist, display it
         else
         {
             emptySaveFileText.SetActive(false);
@@ -66,23 +78,36 @@ public class SaveFileBar: MonoBehaviour
             timestampText.text = data.savedAtTimestamp;
         }
 
+        // Store a reference to the button component
         button = GetComponent<Button>();
-    }
+    }//end Setup
 
-    public void SetNavigationLinks(SaveFileBar up, SaveFileBar down)
+    /// <summary>
+    /// Used to manage the navigation paths of the save file bars within the save file screen
+    /// </summary>
+    /// <param name="_up">The button "above" this one (the button to select when up is pressed)</param>
+    /// <param name="_down">The button "below" this one (the button to select when down is pressed)</param>
+    public void SetNavigationLinks(SaveFileBar _up, SaveFileBar _down)
     {
+        // Get the button's navigation object
         Navigation navigation = button.navigation;
 
-        navigation.selectOnUp = up.button;
-        navigation.selectOnDown = down.button;
+        // Set the navigation object according to the passed information
+        navigation.selectOnUp = _up.button;
+        navigation.selectOnDown = _down.button;
 
+        // Update the button's navigation to use the new values
         button.navigation = navigation;
-    }
+    }//end SetNavigationLinks
 
+    /// <summary>
+    /// Called by the button when it is clicked
+    /// </summary>
     public async void OnClick()
     {
+        // Tell the save file screen that this save file bar was clicked and whether or not its save data exists
         await saveFileScreen.OnSaveFileBarClick(index, data == null);
-    }
+    }//end OnClick
 
     #endregion
 }
