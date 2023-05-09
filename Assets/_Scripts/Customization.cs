@@ -19,7 +19,7 @@ public class Customization: ScriptableObject
 [System.Serializable]
 public struct CustomizationOption
 {
-    public string itemName;
+    public CustomizationName itemName;
     public int itemIndex;
     public CustomizationCategory itemCategory;
 }
@@ -29,3 +29,53 @@ public struct CustomizationOption
 /// </summary>
 [System.Serializable]
 public enum CustomizationCategory { Male, Female, All }
+
+/// <summary>
+/// Used to easily select customization areas
+/// </summary>
+[System.Serializable]
+public enum CustomizationName
+{
+    MaleHeadAllElements,
+    MaleHeadNoElements,
+    MaleEyebrows,
+    MaleFacialHair,
+    MaleTorso,
+    MaleArmUpperRight,
+    MaleArmUpperLeft,
+    MaleArmLowerRight,
+    MaleArmLowerLeft,
+    MaleHandRight,
+    MaleHandLeft,
+    MaleHips,
+    MaleLegRight,
+    MaleLegLeft,
+    FemaleHeadAllElements,
+    FemaleHeadNoElements,
+    FemaleEyebrows,
+    FemaleFacialHair,
+    FemaleTorso,
+    FemaleArmUpperRight,
+    FemaleArmUpperLeft,
+    FemaleArmLowerRight,
+    FemaleArmLowerLeft,
+    FemaleHandRight,
+    FemaleHandLeft,
+    FemaleHips,
+    FemaleLegRight,
+    FemaleLegLeft,
+    Hair,
+    Helmet,
+    HeadCoveringsBaseHair,
+    HeadCoveringsNoFacialHair,
+    HeadCoveringsNoHair,
+    ChestAttachment,
+    BackAttachment,
+    ShoulderAttachmentRight,
+    ShoulderAttachmentLeft,
+    ElbowAttachmentRight,
+    ElbowAttachmentLeft,
+    HipsAttachment,
+    KneeAttachmentRight,
+    KneeAttachmentLeft
+}
