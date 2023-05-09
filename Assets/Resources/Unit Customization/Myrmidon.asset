@@ -10,64 +10,64 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5119f8bb763e83142bcebb3390b49b36, type: 3}
-  m_Name: Knight
+  m_Name: Myrmidon
   m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: 45558052f6cb63a45ac890d839d69a6a, type: 2}
+  Material: {fileID: 2100000, guid: d6347c343a4822c47a96bdc77734ba6f, type: 2}
   Options:
-  - itemName: 29
+  - itemName: 32
     itemIndex: 2
-    itemCategory: 2
-  - itemName: 29
-    itemIndex: 5
-    itemCategory: 2
-  - itemName: 29
-    itemIndex: 7
-    itemCategory: 2
-  - itemName: 34
-    itemIndex: 12
     itemCategory: 2
   - itemName: 35
-    itemIndex: 6
+    itemIndex: 15
     itemCategory: 2
   - itemName: 36
-    itemIndex: 6
+    itemIndex: 20
     itemCategory: 2
   - itemName: 37
-    itemIndex: 2
+    itemIndex: 3
     itemCategory: 2
-  - itemName: 38
-    itemIndex: 2
+  - itemName: 40
+    itemIndex: 4
     itemCategory: 2
-  - itemName: 1
+  - itemName: 41
+    itemIndex: 4
+    itemCategory: 2
+  - itemName: 0
+    itemIndex: 16
+    itemCategory: 0
+  - itemName: 2
     itemIndex: 8
+    itemCategory: 0
+  - itemName: 3
+    itemIndex: 6
     itemCategory: 0
   - itemName: 4
-    itemIndex: 20
+    itemIndex: 26
     itemCategory: 0
   - itemName: 5
-    itemIndex: 4
+    itemIndex: 17
     itemCategory: 0
   - itemName: 6
-    itemIndex: 4
+    itemIndex: 17
     itemCategory: 0
   - itemName: 7
-    itemIndex: 18
+    itemIndex: 4
     itemCategory: 0
   - itemName: 8
-    itemIndex: 18
+    itemIndex: 4
     itemCategory: 0
   - itemName: 9
-    itemIndex: 4
-    itemCategory: 0
-  - itemName: 10
-    itemIndex: 4
-    itemCategory: 0
-  - itemName: 11
     itemIndex: 2
     itemCategory: 0
+  - itemName: 10
+    itemIndex: 2
+    itemCategory: 0
+  - itemName: 11
+    itemIndex: 9
+    itemCategory: 0
   - itemName: 12
-    itemIndex: 8
+    itemIndex: 17
     itemCategory: 0
   - itemName: 13
-    itemIndex: 8
+    itemIndex: 17
     itemCategory: 0

@@ -14,9 +14,54 @@ public class UnitCustomizer : MonoBehaviour
     private List<GameObject> enabledObjects = new List<GameObject>();   // List of enabed objects on character
 
     // Used to get and enable the correct objects
-    [SerializeField] private Dictionary<string, List<GameObject>> maleObjects = new Dictionary<string, List<GameObject>>();
-    [SerializeField] private Dictionary<string, List<GameObject>> femaleObjects = new Dictionary<string, List<GameObject>>();
-    [SerializeField] private Dictionary<string, List<GameObject>> allObjects = new Dictionary<string, List<GameObject>>();
+    [SerializeField] private Dictionary<CustomizationName, List<GameObject>> maleObjects = new Dictionary<CustomizationName, List<GameObject>>();
+    [SerializeField] private Dictionary<CustomizationName, List<GameObject>> femaleObjects = new Dictionary<CustomizationName, List<GameObject>>();
+    [SerializeField] private Dictionary<CustomizationName, List<GameObject>> allObjects = new Dictionary<CustomizationName, List<GameObject>>();
+
+    private string[] CUSTOMIZATION_NAMES = { 
+        "Male_Head_All_Elements",
+        "Male_Head_No_Elements",
+        "Male_01_Eyebrows",
+        "Male_02_FacialHair",
+        "Male_03_Torso",
+        "Male_04_Arm_Upper_Right",
+        "Male_05_Arm_Upper_Left",
+        "Male_06_Arm_Lower_Right",
+        "Male_07_Arm_Lower_Left",
+        "Male_08_Hand_Right",
+        "Male_09_Hand_Left",
+        "Male_10_Hips",
+        "Male_11_Leg_Right",
+        "Male_12_Leg_Left",
+        "Female_Head_All_Elements",
+        "Female_Head_No_Elements",
+        "Female_01_Eyebrows",
+        "Female_02_FacialHair",
+        "Female_03_Torso",
+        "Female_04_Arm_Upper_Right",
+        "Female_05_Arm_Upper_Left",
+        "Female_06_Arm_Lower_Right",
+        "Female_07_Arm_Lower_Left",
+        "Female_08_Hand_Right",
+        "Female_09_Hand_Left",
+        "Female_10_Hips",
+        "Female_11_Leg_Right",
+        "Female_12_Leg_Left",
+        "All_01_Hair",
+        "All_Helmet",
+        "HeadCoverings_Base_Hair",
+        "HeadCoverings_No_FacialHair",
+        "HeadCoverings_No_Hair",
+        "All_03_Chest_Attachment",
+        "All_04_Back_Attachment",
+        "All_05_Shoulder_Attachment_Right",
+        "All_06_Shoulder_Attachment_Left",
+        "All_07_Elbow_Attachment_Right",
+        "All_08_Elbow_Attachment_Left",
+        "All_09_Hips_Attachment",
+        "All_10_Knee_Attachement_Right",
+        "All_11_Knee_Attachement_Left"
+    };
 
     #endregion end Variables
 
@@ -135,6 +180,59 @@ public class UnitCustomizer : MonoBehaviour
     }//end EnableAllChildren
 
     /// <summary>
+    /// Use the currently enabled modular parts to fill out the script's customization object
+    /// </summary>
+    [ContextMenu("Utils/Write To Customization Object")]
+    private void WriteCustomizationOptionsToObject()
+    {
+        // Get all of the modular parts that are currently enabled
+        SkinnedMeshRenderer[] activeCharacterParts = GetComponentsInChildren<SkinnedMeshRenderer>();
+
+        // Prepare the customization object for new data
+        customization.Options = new CustomizationOption[activeCharacterParts.Length];
+
+        // Loop through each modular part that needs to be added to the customization object
+        int index = 0;
+        foreach (SkinnedMeshRenderer characterPart in activeCharacterParts)
+        {
+            // Get the necessary info from the modular character about the part
+            string partName = characterPart.transform.parent.name;
+            int partNumber = characterPart.transform.GetSiblingIndex();
+            char partCategory = partName[0];
+
+            // Get the customization name enum value for this modular part
+            int partIndex = System.Array.IndexOf(CUSTOMIZATION_NAMES, partName);
+            CustomizationName customizationName = (CustomizationName)partIndex;
+
+            // In case an enabled modular part is not included the options, log it
+            if (partIndex == -1)
+            {
+                Debug.LogWarning($"Part enum does not exist! Name: |{partName}|");
+            }
+
+            // Get the customization category for this modular part
+            CustomizationCategory customizationCategory = CustomizationCategory.All;
+            switch(partCategory)
+            {
+                case 'A':
+                    customizationCategory = CustomizationCategory.All;
+                    break;
+                case 'M':
+                    customizationCategory = CustomizationCategory.Male;
+                    break;
+                case 'F':
+                    customizationCategory = CustomizationCategory.Female;
+                    break;
+            }
+
+            // Create a new option for this modular part at the correct index
+            customization.Options[index] = new CustomizationOption() { itemName = customizationName, itemIndex = partNumber, itemCategory = customizationCategory };
+
+            index++;
+        }
+    }//end WriteCustomizationOptionsToObject
+
+    /// <summary>
     /// Enable game object and add it to the enabled objects list
     /// </summary>
     /// <param name="_go">The gameobject to be enabled</param>
@@ -154,53 +252,52 @@ public class UnitCustomizer : MonoBehaviour
     private void BuildLists()
     {
         // Build out male lists
-        BuildList(maleObjects, "Male_Head_All_Elements");
-        BuildList(maleObjects, "Male_Head_No_Elements");
-        BuildList(maleObjects, "Male_01_Eyebrows");
-        BuildList(maleObjects, "Male_02_FacialHair");
-        BuildList(maleObjects, "Male_03_Torso");
-        BuildList(maleObjects, "Male_04_Arm_Upper_Right");
-        BuildList(maleObjects, "Male_05_Arm_Upper_Left");
-        BuildList(maleObjects, "Male_06_Arm_Lower_Right");
-        BuildList(maleObjects, "Male_07_Arm_Lower_Left");
-        BuildList(maleObjects, "Male_08_Hand_Right");
-        BuildList(maleObjects, "Male_09_Hand_Left");
-        BuildList(maleObjects, "Male_10_Hips");
-        BuildList(maleObjects, "Male_11_Leg_Right");
-        BuildList(maleObjects, "Male_12_Leg_Left");
+        BuildList(maleObjects, CustomizationName.MaleHeadAllElements);
+        BuildList(maleObjects, CustomizationName.MaleHeadNoElements);
+        BuildList(maleObjects, CustomizationName.MaleEyebrows);
+        BuildList(maleObjects, CustomizationName.MaleFacialHair);
+        BuildList(maleObjects, CustomizationName.MaleTorso);
+        BuildList(maleObjects, CustomizationName.MaleArmUpperRight);
+        BuildList(maleObjects, CustomizationName.MaleArmUpperLeft);
+        BuildList(maleObjects, CustomizationName.MaleArmLowerRight);
+        BuildList(maleObjects, CustomizationName.MaleArmLowerLeft);
+        BuildList(maleObjects, CustomizationName.MaleHandRight);
+        BuildList(maleObjects, CustomizationName.MaleHandLeft);
+        BuildList(maleObjects, CustomizationName.MaleHips);
+        BuildList(maleObjects, CustomizationName.MaleLegRight);
+        BuildList(maleObjects, CustomizationName.MaleLegLeft);
 
         // Build out female lists
-        BuildList(femaleObjects, "Female_Head_All_Elements");
-        BuildList(femaleObjects, "Female_Head_No_Elements");
-        BuildList(femaleObjects, "Female_01_Eyebrows");
-        BuildList(femaleObjects, "Female_02_FacialHair");
-        BuildList(femaleObjects, "Female_03_Torso");
-        BuildList(femaleObjects, "Female_04_Arm_Upper_Right");
-        BuildList(femaleObjects, "Female_05_Arm_Upper_Left");
-        BuildList(femaleObjects, "Female_06_Arm_Lower_Right");
-        BuildList(femaleObjects, "Female_07_Arm_Lower_Left");
-        BuildList(femaleObjects, "Female_08_Hand_Right");
-        BuildList(femaleObjects, "Female_09_Hand_Left");
-        BuildList(femaleObjects, "Female_10_Hips");
-        BuildList(femaleObjects, "Female_11_Leg_Right");
-        BuildList(femaleObjects, "Female_12_Leg_Left");
+        BuildList(femaleObjects, CustomizationName.FemaleHeadAllElements);
+        BuildList(femaleObjects, CustomizationName.FemaleHeadNoElements);
+        BuildList(femaleObjects, CustomizationName.FemaleEyebrows);
+        BuildList(femaleObjects, CustomizationName.FemaleFacialHair);
+        BuildList(femaleObjects, CustomizationName.FemaleTorso);
+        BuildList(femaleObjects, CustomizationName.FemaleArmUpperRight);
+        BuildList(femaleObjects, CustomizationName.FemaleArmUpperLeft);
+        BuildList(femaleObjects, CustomizationName.FemaleArmLowerRight);
+        BuildList(femaleObjects, CustomizationName.FemaleArmLowerLeft);
+        BuildList(femaleObjects, CustomizationName.FemaleHandRight);
+        BuildList(femaleObjects, CustomizationName.FemaleHandLeft);
+        BuildList(femaleObjects, CustomizationName.FemaleHips);
+        BuildList(femaleObjects, CustomizationName.FemaleLegRight);
+        BuildList(femaleObjects, CustomizationName.FemaleLegLeft);
 
         // Build out all gender lists
-        BuildList(allObjects, "All_01_Hair");
-        BuildList(allObjects, "All_Helmet");
-        BuildList(allObjects, "HeadCoverings_Base_Hair");
-        BuildList(allObjects, "HeadCoverings_No_FacialHair");
-        BuildList(allObjects, "HeadCoverings_No_Hair");
-        BuildList(allObjects, "All_03_Chest_Attachment");
-        BuildList(allObjects, "All_04_Back_Attachment");
-        BuildList(allObjects, "All_05_Shoulder_Attachment_Right");
-        BuildList(allObjects, "All_06_Shoulder_Attachment_Left");
-        BuildList(allObjects, "All_07_Elbow_Attachment_Right");
-        BuildList(allObjects, "All_08_Elbow_Attachment_Left");
-        BuildList(allObjects, "All_09_Hips_Attachment");
-        BuildList(allObjects, "All_10_Knee_Attachement_Right");
-        BuildList(allObjects, "All_11_Knee_Attachement_Left");
-        BuildList(allObjects, "Elf_Ear");
+        BuildList(allObjects, CustomizationName.Hair);
+        BuildList(allObjects, CustomizationName.Helmet);
+        BuildList(allObjects, CustomizationName.HeadCoveringsBaseHair);
+        BuildList(allObjects, CustomizationName.HeadCoveringsNoFacialHair);
+        BuildList(allObjects, CustomizationName.HeadCoveringsNoHair);
+        BuildList(allObjects, CustomizationName.ChestAttachment);
+        BuildList(allObjects, CustomizationName.BackAttachment);
+        BuildList(allObjects, CustomizationName.ShoulderAttachmentRight);
+        BuildList(allObjects, CustomizationName.ShoulderAttachmentLeft);
+        BuildList(allObjects, CustomizationName.ElbowAttachmentRight);
+        BuildList(allObjects, CustomizationName.ElbowAttachmentLeft);
+        BuildList(allObjects, CustomizationName.HipsAttachment);
+        BuildList(allObjects, CustomizationName.KneeAttachmentRight);
+        BuildList(allObjects, CustomizationName.KneeAttachmentLeft);
     }//end BuildLists
 
     /// <summary>
@@ -208,10 +305,11 @@ public class UnitCustomizer : MonoBehaviour
     /// </summary>
     /// <param name="_objects">The dictionary the list will be added into</param>
     /// <param name="_characterPart">The character part to generate the list of modular parts for</param>
-    private void BuildList(Dictionary<string, List<GameObject>> _objects, string _characterPart)
+    private void BuildList(Dictionary<CustomizationName, List<GameObject>> _objects, CustomizationName _characterPart)
     {
         List<GameObject> _targetList = new List<GameObject>();
         Transform[] _rootTransform = gameObject.GetComponentsInChildren<Transform>(true);
+        string _characterPartString = CustomizationNameToString(_characterPart);
 
         // Declare target root transform
         Transform _targetRoot = null;
@@ -219,7 +317,7 @@ public class UnitCustomizer : MonoBehaviour
         // Find character parts parent object in the scene
         foreach (Transform t in _rootTransform)
         {
-            if (t.gameObject.name == _characterPart)
+            if (t.gameObject.name == _characterPartString)
             {
                 _targetRoot = t;
                 break;
@@ -248,6 +346,16 @@ public class UnitCustomizer : MonoBehaviour
         // Add the constructed list to the dictionary
         _objects.Add(_characterPart, _targetList);
     }//end Build List
+
+    /// <summary>
+    /// Converts the customization name enum to the appropriate string (object name in the modular character) and return the string
+    /// </summary>
+    /// <param name="customizationName">The customization name enum value to convert to a string</param>
+    /// <returns></returns>
+    private string CustomizationNameToString(CustomizationName customizationName)
+    {
+        return CUSTOMIZATION_NAMES[(int)customizationName];
+    }//end CustomizationNameToString
 
     #endregion
 }
