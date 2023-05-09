@@ -14,60 +14,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Material: {fileID: 2100000, guid: 45558052f6cb63a45ac890d839d69a6a, type: 2}
   Options:
-  - itemName: All_Helmet
+  - itemName: 29
     itemIndex: 2
     itemCategory: 2
-  - itemName: All_Helmet
+  - itemName: 29
     itemIndex: 5
     itemCategory: 2
-  - itemName: All_Helmet
+  - itemName: 29
     itemIndex: 7
     itemCategory: 2
-  - itemName: All_04_Back_Attachment
+  - itemName: 34
     itemIndex: 12
     itemCategory: 2
-  - itemName: All_05_Shoulder_Attachment_Right
+  - itemName: 35
     itemIndex: 6
     itemCategory: 2
-  - itemName: All_06_Shoulder_Attachment_Left
+  - itemName: 36
     itemIndex: 6
     itemCategory: 2
-  - itemName: All_07_Elbow_Attachment_Right
+  - itemName: 37
     itemIndex: 2
     itemCategory: 2
-  - itemName: All_08_Elbow_Attachment_Left
+  - itemName: 38
     itemIndex: 2
     itemCategory: 2
-  - itemName: Male_Head_No_Elements
+  - itemName: 1
     itemIndex: 8
     itemCategory: 0
-  - itemName: Male_03_Torso
+  - itemName: 4
     itemIndex: 20
     itemCategory: 0
-  - itemName: Male_04_Arm_Upper_Right
+  - itemName: 5
     itemIndex: 4
     itemCategory: 0
-  - itemName: Male_05_Arm_Upper_Left
+  - itemName: 6
     itemIndex: 4
     itemCategory: 0
-  - itemName: Male_06_Arm_Lower_Right
+  - itemName: 7
     itemIndex: 18
     itemCategory: 0
-  - itemName: Male_07_Arm_Lower_Left
+  - itemName: 8
     itemIndex: 18
     itemCategory: 0
-  - itemName: Male_08_Hand_Right
+  - itemName: 9
     itemIndex: 4
     itemCategory: 0
-  - itemName: Male_09_Hand_Left
+  - itemName: 10
     itemIndex: 4
     itemCategory: 0
-  - itemName: Male_10_Hips
+  - itemName: 11
     itemIndex: 2
     itemCategory: 0
-  - itemName: Male_11_Leg_Right
+  - itemName: 12
     itemIndex: 8
     itemCategory: 0
-  - itemName: Male_12_Leg_Left
+  - itemName: 13
     itemIndex: 8
     itemCategory: 0

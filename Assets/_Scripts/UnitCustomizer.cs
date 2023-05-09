@@ -180,32 +180,37 @@ public class UnitCustomizer : MonoBehaviour
     }//end EnableAllChildren
 
     /// <summary>
-    /// 
+    /// Use the currently enabled modular parts to fill out the script's customization object
     /// </summary>
     [ContextMenu("Utils/Write To Customization Object")]
     private void WriteCustomizationOptionsToObject()
     {
-        // 
+        // Get all of the modular parts that are currently enabled
         SkinnedMeshRenderer[] activeCharacterParts = GetComponentsInChildren<SkinnedMeshRenderer>();
 
-        //
+        // Prepare the customization object for new data
         customization.Options = new CustomizationOption[activeCharacterParts.Length];
 
+        // Loop through each modular part that needs to be added to the customization object
         int index = 0;
         foreach (SkinnedMeshRenderer characterPart in activeCharacterParts)
         {
+            // Get the necessary info from the modular character about the part
             string partName = characterPart.transform.parent.name;
             int partNumber = characterPart.transform.GetSiblingIndex();
             char partCategory = partName[0];
-            //Debug.Log(partName + " ||| " + partNumber + " ||| " + partCategory);
 
+            // Get the customization name enum value for this modular part
             int partIndex = System.Array.IndexOf(CUSTOMIZATION_NAMES, partName);
-            if(partIndex == -1)
+            CustomizationName customizationName = (CustomizationName)partIndex;
+
+            // In case an enabled modular part is not included the options, log it
+            if (partIndex == -1)
             {
                 Debug.LogWarning($"Part enum does not exist! Name: |{partName}|");
             }
-            CustomizationName customizationName = (CustomizationName)partIndex;
 
+            // Get the customization category for this modular part
             CustomizationCategory customizationCategory = CustomizationCategory.All;
             switch(partCategory)
             {
@@ -220,13 +225,12 @@ public class UnitCustomizer : MonoBehaviour
                     break;
             }
 
-            //Debug.Log(customizationName.ToString() + " ||| " + partNumber + " ||| " + partCategory);
-
+            // Create a new option for this modular part at the correct index
             customization.Options[index] = new CustomizationOption() { itemName = customizationName, itemIndex = partNumber, itemCategory = customizationCategory };
 
             index++;
         }
-    }
+    }//end WriteCustomizationOptionsToObject
 
     /// <summary>
     /// Enable game object and add it to the enabled objects list
