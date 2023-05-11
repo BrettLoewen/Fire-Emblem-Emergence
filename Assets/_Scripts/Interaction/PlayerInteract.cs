@@ -64,7 +64,7 @@ public class PlayerInteract: MonoBehaviour
         }
 
         // If there is a target interactable
-        if(targetInteractable != null)
+        if(targetInteractable != null && gameManager.ExplorationState == ExplorationState.Explore)
         {
             // Enable the interaction popup
             interactionPrompt.SetActive(true);
