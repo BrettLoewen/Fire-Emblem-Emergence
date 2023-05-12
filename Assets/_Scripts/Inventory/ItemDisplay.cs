@@ -52,5 +52,14 @@ public class ItemDisplay: MonoBehaviour
         itemCostText.text = "" + itemData.BuyPrice;
     }
 
+    /// <summary>
+    /// Called by the `Select` event trigger on the game object. Used to signal when this object is navigated to so the scroll view can be updated
+    /// </summary>
+    public void OnSelect()
+    {
+        // Tell the ItemList that this ItemDisplay was navigated to
+        itemList.OnSelectItemDisplay(transform);
+    }//end OnSelect
+
     #endregion
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 /// Used to define the category this weapon is in
 /// </summary>
 [System.Serializable]
-public enum WeaponType { Sword, Lance, Axe }
+public enum WeaponType { Sword, Lance, Axe, Bow, Brawl, Rune }
 
 /// <summary>
 /// Used to define which stats should be used for damage calculation

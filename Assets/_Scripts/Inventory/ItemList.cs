@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemList: MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class ItemList: MonoBehaviour
 
     [SerializeField] private Transform itemDisplayContent;
     [SerializeField] private ItemDisplay itemDisplayPrefab;
+    private ScrollRect scrollView;
+    private Rect scrollRect;
 
     #endregion //end Variables
 
@@ -16,7 +19,9 @@ public class ItemList: MonoBehaviour
     // Awake is called before Start before the first frame update
     void Awake()
     {
-        
+        // Get the necessary reference
+        scrollView = GetComponent<ScrollRect>();
+        scrollRect = (scrollView.transform as RectTransform).rect;
     }//end Awake
 
     // Start is called before the first frame update
@@ -67,6 +72,27 @@ public class ItemList: MonoBehaviour
         }
 
         return null;
+    }
+
+
+    public void OnSelectItemDisplay(Transform _transform)
+    {
+        float _scroll = 1 - (_transform.GetSiblingIndex() / (float)itemDisplayContent.childCount);
+        float bottomBound = 0.2f;
+        float topBound = 0.9f;
+
+
+        if(_scroll < bottomBound)
+        {
+            _scroll = 0f;
+        }
+
+        if(_scroll > topBound)
+        {
+            _scroll = 1f;
+        }
+
+        scrollView.verticalNormalizedPosition = _scroll;
     }
 
     #endregion

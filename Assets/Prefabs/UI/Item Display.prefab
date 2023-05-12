@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 359842430700993481}
   - component: {fileID: 1910978063427664457}
   - component: {fileID: 65988791077760663}
+  - component: {fileID: 4557316784054868956}
   m_Layer: 5
   m_Name: Item Display
   m_TagString: Untagged
@@ -94,8 +95,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
+    m_Mode: 2
+    m_WrapAround: 1
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -140,6 +141,35 @@ MonoBehaviour:
   itemIconImage: {fileID: 9051813112049150128}
   itemNameText: {fileID: 7950873787979671534}
   itemCostText: {fileID: 5424198889623547597}
+--- !u!114 &4557316784054868956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139360897246100207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 9
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 65988791077760663}
+          m_TargetAssemblyTypeName: ItemDisplay, Assembly-CSharp
+          m_MethodName: OnSelect
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &2408045060877935223
 GameObject:
   m_ObjectHideFlags: 0
