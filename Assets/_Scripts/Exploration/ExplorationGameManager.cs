@@ -13,7 +13,7 @@ public enum ExplorationState { Setup, Explore, Menu, Customization, Market }
 /// <summary>
 /// The state of the exploration pause menu
 /// </summary>
-public enum ExplorationMenuState { Selection, Save, Load }
+public enum ExplorationMenuState { Selection, Save, Load, Inventory }
 
 /// <summary>
 /// The state of the market menu
@@ -41,7 +41,9 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject saveButton;
     [SerializeField] private GameObject loadButton;
+    [SerializeField] private GameObject inventoryButton;
     [SerializeField] private SaveFileScreen saveFileScreen;
+    [SerializeField] private ItemList inventoryMenuScreen;
 
     [Header("Customization Menu")]
     // Variables for the customization menu
@@ -114,7 +116,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             {
                 ExplorationState = ExplorationState.Menu;
                 menuState = ExplorationMenuState.Selection;
-                EventSystem.current.SetSelectedGameObject(saveButton);
+                EventSystem.current.SetSelectedGameObject(inventoryButton);
                 Time.timeScale = 0f;
             }
             // If the game was in menu mode, switch to exploration mode
@@ -149,6 +151,12 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
                             saveFileScreen.CloseSaveFileScreen();
                             EventSystem.current.SetSelectedGameObject(saveButton);
                             break;
+                        // If cancel was pressed while on the inventory screen, go back to the selection screen
+                        case ExplorationMenuState.Inventory:
+                            menuState = ExplorationMenuState.Selection;
+                            CloseInventoryMenu();
+                            EventSystem.current.SetSelectedGameObject(inventoryButton);
+                            break;
                         // If cancel was pressed while on the selection screen, close the pause menu
                         case ExplorationMenuState.Selection:
                             menuState = ExplorationMenuState.Selection;
@@ -176,6 +184,14 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
     #region Pause Menu
 
+
+    public void Inventory()
+    {
+        // Open the inventory screen
+        menuState = ExplorationMenuState.Inventory;
+        OpenInventoryMenu();
+    }
+
     /// <summary>
     /// Called by the save button to open the save screen
     /// </summary>
@@ -202,6 +218,31 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         Application.Quit();
         Debug.Log("Quitting...");
     }//end Quit
+
+
+    private async void OpenInventoryMenu()
+    {
+        // Enable the inventory screen
+        inventoryMenuScreen.gameObject.SetActive(true);
+
+        // Setup the item list in 'inventory' mode
+        inventoryMenuScreen.SpawnItemList(ItemListMode.Inventory);
+
+        await Task.Yield();
+
+        // Set the selected object for UI navigation to the first item display in the item list
+        EventSystem.current.SetSelectedGameObject(inventoryMenuScreen.GetTopItemDisplay());
+    }
+
+
+    private void CloseInventoryMenu()
+    {
+        // Ensure the inventory screen cleans itself up
+        inventoryMenuScreen.ClearList();
+
+        // Disable the inventory screen
+        inventoryMenuScreen.gameObject.SetActive(false);
+    }
 
     #endregion
 
@@ -316,30 +357,34 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     /// <param name="_openBuyMenu">If true, open the menu in 'Buy' mode. If false, open the menu in 'Sell' mode</param>
     public void OnClickMarketOption(bool _openBuyMenu)
     {
+        // Hide the buy and sell buttons
+        buySellButtonParent.SetActive(false);
+
         // Use the passed menu mode to set the market menu state
-        if(_openBuyMenu)
+        if (_openBuyMenu)
         {
             marketMenuState = MarketMenuState.Buy;
+
+            // Setup the item list
+            marketItemList.SpawnItemList(ItemListMode.Buy);
         }
         else
         {
             marketMenuState = MarketMenuState.Sell;
+
+            // Setup the item list
+            marketItemList.SpawnItemList(ItemListMode.Sell);
         }
 
-        // Hide the buy and sell buttons
-        buySellButtonParent.SetActive(false);
-
-        // Setup the item list
-        marketItemList.SpawnItemList();
-
-        //
+        // Set the selected object for UI navigation to the first item display in the item list
         EventSystem.current.SetSelectedGameObject(marketItemList.GetTopItemDisplay());
     }//end OnClickMarketOption
 
     /// <summary>
     /// Close the market menu and unpause the game
     /// </summary>
-    private async void CloseMarketMenu()
+    #pragma warning disable CS1998
+    public async void CloseMarketMenu()
     {
         // If the player closed the menu while selecting between the buy and sell options, the market menu should close
         if(marketMenuState == MarketMenuState.Selection)
@@ -354,17 +399,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         // If the player closed the menu while in a buying or selling, the market menu should return to the selection menu
         else
         {
-            // Update the market menu state to be correct
-            marketMenuState = MarketMenuState.Selection;
-
-            // Wipe away the item list
-            marketItemList.ClearList();
-
-            // Gives time for the children to be destroyed
-            await Task.Yield();
-
-            // Enable the buy and sell buttons so the player can decide which market menu they want to enter
-            buySellButtonParent.SetActive(true);
+            OpenMarketMenu(marketMenuState);
         }
     }//end CloseMarketMenu
 

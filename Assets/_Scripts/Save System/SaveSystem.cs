@@ -16,6 +16,8 @@ public static class SaveSystem
     private static string DIRECTORY_PATH = $"{Application.persistentDataPath}/{SAVE_DATA_DIRECTORY_NAME}";
     private static string FILE_PATH = $"{Application.persistentDataPath}/{SAVE_DATA_DIRECTORY_NAME}/";
 
+    private const char INVENTORY_ITEM_SEPARATOR = ',';
+
     public static SaveMetaData metaData { get; private set; } = null;       // The current save meta data object
     public static SaveData currentSaveData { get; private set; } = null;    // The current save data object
 
@@ -271,6 +273,66 @@ public static class SaveSystem
         currentSaveData.playerCustomization = _customizationObjectName;
     }//end SetPlayerCustomization
 
+    /// <summary>
+    /// Convert the player's inventory into a string representation and update the save data with it and the player's money
+    /// </summary>
+    /// <param name="_inventory"></param>
+    /// <param name="_money"></param>
+    public static void SetPlayerInventoryData(List<Item> _inventory, int _money)
+    {
+        // Start with an empty string
+        string _inventoryAsString = "";
+
+        // Add each item's string representation to the string
+        for (int i = 0; i < _inventory.Count; i++)
+        {
+            _inventoryAsString += _inventory[i].ToString();
+
+            if (i < _inventory.Count - 1)
+            {
+                _inventoryAsString += INVENTORY_ITEM_SEPARATOR;
+            }
+        }
+
+        // Update the save data
+        currentSaveData.playerInventory = _inventoryAsString;
+        currentSaveData.playerMoney = _money;
+    }//end SetPlayerInventoryData
+
+    /// <summary>
+    /// Convert the string representation of the player's inventory used for saving to a list of item objects
+    /// </summary>
+    /// <returns></returns>
+    public static List<Item> GetPlayerInventory()
+    {
+        // Create a list to add items to and return
+        List<Item> _inventory = new List<Item>();
+
+        // Get each string that represents an item (the ToString value of Item)
+        string[] _itemsAsString = currentSaveData.playerInventory.Split(INVENTORY_ITEM_SEPARATOR);
+        
+        // Get all of the item data objects in the game
+        List<ItemData> _itemDatas = DataManager.GetItems();
+
+        // Create a dictionary to map item data objects to their name
+        Dictionary<string, ItemData> _itemDataStringMap = new Dictionary<string, ItemData>();
+
+        // Generate the contents of the item data object - name map dictionary
+        foreach (ItemData data in _itemDatas)
+        {
+            _itemDataStringMap.Add(data.Name, data);
+        }
+
+        // Use the dictionary generated above to convert each item string into an item and add it to the inventory
+        foreach (string item in _itemsAsString)
+        {
+            _inventory.Add(new Item(_itemDataStringMap[item]));
+        }
+
+        // Return the generated list of items
+        return _inventory;
+    }//end GetPlayerInventory
+
     #endregion
 }//end SaveSystem
 
@@ -287,6 +349,9 @@ public class SaveData
     public string savedAtTimestamp;     // Stores the timestamp at which this save data was last updated
     public string activity;             // Stores the activity that the player was doing at the time of saving
 
+    public string playerInventory;
+    public int playerMoney;
+
     /// <summary>
     /// Used to create a new save data object.
     /// Defines default values for the save data object
@@ -299,6 +364,8 @@ public class SaveData
         playerCustomization = "Knight";
         savedAtTimestamp = DateTime.Now.ToString();
         activity = "New Game";
+        playerInventory = "";
+        playerMoney = 5000;
     }//end constructor
 
     /// <summary>
@@ -307,7 +374,14 @@ public class SaveData
     /// <returns></returns>
     public override string ToString()
     {
-        return $"Position: {playerPosition}\nRotation: {playerRotation}\nCamera: {playerPosition}\nCustomization: {playerCustomization}\nActivity: {activity}\nTimestamp: {savedAtTimestamp}";
+        return $"Position: {playerPosition}\n" +
+            $"Rotation: {playerRotation}\n" +
+            $"Camera: {playerPosition}\n" +
+            $"Customization: {playerCustomization}\n" +
+            $"Activity: {activity}\n" +
+            $"Timestamp: {savedAtTimestamp}\n" +
+            $"Inventory: {playerInventory}\n" +
+            $"Money: {playerMoney}";
     }//end ToString
 }//end SaveData
 

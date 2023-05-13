@@ -9,6 +9,21 @@ using UnityEngine;
 public class Item
 {
     public ItemData ItemData { get; private set; }  // The data object for this item
+
+    /// <summary>
+    /// Create a new item using the passed item data object
+    /// </summary>
+    /// <param name="_data"></param>
+    public Item(ItemData _data)
+    {
+        ItemData = _data;
+    }//end constructor
+
+
+    public override string ToString()
+    {
+        return $"{ItemData.Name}";
+    }//end ToString
 }
 
 /// <summary>

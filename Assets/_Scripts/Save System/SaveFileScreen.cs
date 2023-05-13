@@ -67,30 +67,30 @@ public class SaveFileScreen: MonoBehaviour
         }
 
         // Load the save files
-        SaveData[] data = await SaveSystem.LoadSaveFiles();
+        SaveData[] _data = await SaveSystem.LoadSaveFiles();
 
         // Create an empty list to store references to the save file bars as they are instantiated
-        List<SaveFileBar> bars = new List<SaveFileBar>();
+        List<SaveFileBar> _bars = new List<SaveFileBar>();
 
         // For every save file in the data
-        for (int i = 0; i < data.Length; i++)
+        for (int i = 0; i < _data.Length; i++)
         {
-            SaveFileBar bar = Instantiate(saveFileBarPrefab, saveFileParent);   // Create a save file bar for the save file
-            bar.Setup(data[i], i, this);                                        // Give the save tile bar its save data
-            bars.Add(bar);                                                      // Add the bar to the list for later
+            SaveFileBar bar = Instantiate(saveFileBarPrefab, saveFileParent);    // Create a save file bar for the save file
+            bar.Setup(_data[i], i, this);                                        // Give the save tile bar its save data
+            _bars.Add(bar);                                                      // Add the bar to the list for later
         }
 
         // For every save file bar that was created
-        for (int i = 0; i < bars.Count; i++)
+        for (int i = 0; i < _bars.Count; i++)
         {
             // Calculate the index of the save file bar that is below and above it
             // Math below is to make sure it wraps properly
-            int end = bars.Count - 1;
+            int end = _bars.Count - 1;
             int up = i > 0 ? i - 1 : end;
             int down = i < end ? i + 1 : 0;
 
             // Tell the save file bar to setup its UI navigation links according to the above calculations
-            bars[i].SetNavigationLinks(bars[up], bars[down]);
+            _bars[i].SetNavigationLinks(_bars[up], _bars[down]);
         }
 
         // Setup the header text so the user knows which save/load mode they are in
@@ -111,8 +111,8 @@ public class SaveFileScreen: MonoBehaviour
         screenModeText.text = modeText;
 
         // Default to the save file that is currently being used (last file saved to)
-        int currentSaveFile = SaveSystem.metaData.currentSaveFile;
-        EventSystem.current.SetSelectedGameObject(bars[currentSaveFile].gameObject);
+        int _currentSaveFile = SaveSystem.metaData.currentSaveFile;
+        EventSystem.current.SetSelectedGameObject(_bars[_currentSaveFile].gameObject);
     }//end OpenSaveFileScreen
 
     /// <summary>
