@@ -108,5 +108,10 @@ public class ItemDisplay: MonoBehaviour
     }//end SetNavigationLinks
 
 
+    public Item GetItem()
+    {
+        return item;
+    }
+
     #endregion
 }

@@ -176,6 +176,29 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             }
         }
 
+
+        if(ExplorationState != ExplorationState.Explore)
+        {
+            if (playerInput.SprintInput)
+            {
+                // Cancel the button press
+                playerInput.SprintInput = false;
+
+                if (Tooltip.Instance.IsActive)
+                {
+                    Tooltip.Instance.DisableTooltip();
+                }
+                else
+                {
+                    Tooltip.Instance.EnableTooltip();
+                }
+            }
+        }
+        else
+        {
+            Tooltip.Instance.DisableTooltip();
+        }
+
         // If the game is in menu mode, enable the menu
         pauseMenu.SetActive(ExplorationState == ExplorationState.Menu);
     }//end Update
@@ -189,6 +212,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     {
         // Open the inventory screen
         menuState = ExplorationMenuState.Inventory;
+        Tooltip.Instance.DisableTooltip();
         OpenInventoryMenu();
     }
 
@@ -346,6 +370,8 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
                 EventSystem.current.SetSelectedGameObject(sellButton);
             }
         }
+
+        Tooltip.Instance.DisableTooltip();
 
         // Pause the game
         Time.timeScale = 0f;
