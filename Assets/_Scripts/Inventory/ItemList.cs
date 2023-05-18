@@ -109,16 +109,16 @@ public class ItemList: MonoBehaviour
             _displays.Add(_display);
         }
 
-        // For every save file bar that was created
+        // For every item display that was created
         for (int i = 0; i < _displays.Count; i++)
         {
-            // Calculate the index of the save file bar that is below and above it
+            // Calculate the index of the item display that is below and above it
             // Math below is to make sure it wraps properly
             int end = _displays.Count - 1;
             int up = i > 0 ? i - 1 : end;
             int down = i < end ? i + 1 : 0;
 
-            // Tell the save file bar to setup its UI navigation links according to the above calculations
+            // Tell the item display to setup its UI navigation links according to the above calculations
             _displays[i].SetNavigationLinks(_displays[up], _displays[down]);
         }
     }

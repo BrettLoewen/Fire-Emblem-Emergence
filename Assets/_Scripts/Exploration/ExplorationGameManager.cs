@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Threading.Tasks;
+using TMPro;
 
 /// <summary>
 /// The state of the exploration scene
@@ -13,7 +14,7 @@ public enum ExplorationState { Setup, Explore, Menu, Customization, Market }
 /// <summary>
 /// The state of the exploration pause menu
 /// </summary>
-public enum ExplorationMenuState { Selection, Save, Load, Inventory }
+public enum ExplorationMenuState { Selection, Save, Load, Inventory, Units }
 
 /// <summary>
 /// The state of the market menu
@@ -36,14 +37,21 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     public ExplorationState ExplorationState { get; private set; }
     private ExplorationMenuState menuState;
 
-    [Header("Pause Menu")]
+    [Header("Pause Menu Buttons")]
     // Variables for the pause menu
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject saveButton;
     [SerializeField] private GameObject loadButton;
     [SerializeField] private GameObject inventoryButton;
+    [SerializeField] private GameObject unitsButton;
+
+    [Header("Pause Menu Screen Specific Variables")]
     [SerializeField] private SaveFileScreen saveFileScreen;
     [SerializeField] private ItemList inventoryMenuScreen;
+    [SerializeField] private GameObject unitsScreen;
+    [SerializeField] private UnitDetailsScreen unitDetailsScreen;
+    [SerializeField] private Transform unitButtonParent;
+    [SerializeField] private UnitSelectionButton unitButtonPrefab;
 
     [Header("Customization Menu")]
     // Variables for the customization menu
@@ -157,6 +165,12 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
                             CloseInventoryMenu();
                             EventSystem.current.SetSelectedGameObject(inventoryButton);
                             break;
+                        // If cancel was pressed while on the inventory screen, go back to the selection screen
+                        case ExplorationMenuState.Units:
+                            menuState = ExplorationMenuState.Selection;
+                            CloseUnitsScreen();
+                            EventSystem.current.SetSelectedGameObject(unitsScreen);
+                            break;
                         // If cancel was pressed while on the selection screen, close the pause menu
                         case ExplorationMenuState.Selection:
                             menuState = ExplorationMenuState.Selection;
@@ -214,6 +228,14 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         menuState = ExplorationMenuState.Inventory;
         Tooltip.Instance.DisableTooltip();
         OpenInventoryMenu();
+    }
+
+
+    public void Units()
+    {
+        // Open the units screen
+        menuState = ExplorationMenuState.Units;
+        OpenUnitsScreen();
     }
 
     /// <summary>
@@ -430,4 +452,58 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     }//end CloseMarketMenu
 
     #endregion
+
+    
+    private async void OpenUnitsScreen()
+    {
+        unitsScreen.SetActive(true);
+
+        foreach (Transform button in unitButtonParent)
+        {
+            Destroy(button.gameObject);
+        }
+
+        await Task.Yield();
+
+        List<Unit> _units = DataManager.GetUnits();
+
+        List<UnitSelectionButton> _buttons = new List<UnitSelectionButton>();
+
+        for (int i = 0; i < _units.Count; i++)
+        {
+            UnitSelectionButton _button = Instantiate(unitButtonPrefab, unitButtonParent);
+            _button.Setup(_units[i]);
+            _buttons.Add(_button);
+        }
+
+        // For every unit button that was created
+        for (int i = 0; i < _buttons.Count; i++)
+        {
+            // Calculate the index of the unit button that is below and above it
+            // Math below is to make sure it wraps properly
+            int end = _buttons.Count - 1;
+            int up = i > 0 ? i - 1 : end;
+            int down = i < end ? i + 1 : 0;
+
+            // Tell the unit button to setup its UI navigation links according to the above calculations
+            _buttons[i].SetNavigationLinks(_buttons[up], _buttons[down]);
+        }
+
+        EventSystem.current.SetSelectedGameObject(unitButtonParent.GetChild(0).gameObject);
+    }
+
+    public void OnSelectUnit(Unit _unit)
+    {
+        unitDetailsScreen.Setup(_unit);
+    }
+
+    public void OnClickUnit()
+    {
+        Debug.Log("Clicked a unit");
+    }
+
+    private void CloseUnitsScreen()
+    {
+        unitsScreen.SetActive(false);
+    }
 }
