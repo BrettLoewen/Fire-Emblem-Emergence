@@ -21388,7 +21388,7 @@ GameObject:
   - component: {fileID: 7599367725220078623}
   - component: {fileID: 4500076781468271894}
   m_Layer: 0
-  m_Name: Modular Character
+  m_Name: Modular Character V1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
