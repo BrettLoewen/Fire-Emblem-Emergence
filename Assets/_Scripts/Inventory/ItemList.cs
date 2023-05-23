@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Used to easily get different behaviour from the item list
 /// </summary>
-public enum ItemListMode { Buy, Sell, Inventory }
+public enum ItemListMode { Buy, Sell, Inventory, UnitDetails }
 
 public class ItemList: MonoBehaviour
 {
@@ -93,6 +93,24 @@ public class ItemList: MonoBehaviour
 
             // Add every item data object to the menu
             SetupItemDisplays(_inventory);
+        }
+    }
+
+
+    public void SpawnItemList(ItemListMode _mode, Item[] _items)
+    {
+        // Ensure the mode is stored for later
+        Mode = _mode;
+
+        // Ensure the list is empty
+        ClearList();
+
+        // Enable the list
+        background.enabled = true;
+
+        if (Mode == ItemListMode.UnitDetails)
+        {
+            SetupItemDisplays(_items);
         }
     }
 

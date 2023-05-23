@@ -9,6 +9,7 @@ public class UnitDetailsScreen : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI unitNameText;
     [SerializeField] private UnitCustomizer unitDisplay;
+    [SerializeField] private ItemList unitInventoryDisplay;
 
     private Unit unit;
 
@@ -45,6 +46,8 @@ public class UnitDetailsScreen : MonoBehaviour
 
         unitNameText.text = unit.UnitData.Name;
         unitDisplay.SetCustomization(unit.UnitData.Customization);
+
+        unitInventoryDisplay.SpawnItemList(ItemListMode.UnitDetails, unit.GetItems());
     }
 
     #endregion

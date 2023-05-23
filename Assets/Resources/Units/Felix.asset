@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Felix
   Customization: {fileID: 11400000, guid: 72ec1b84b18dd0f428e2a900f674f58c, type: 2}
+  DefaultItems:
+  - {fileID: 11400000, guid: d9bf4a0b33c4ce340a2fe877f5a912b0, type: 2}
+  - {fileID: 11400000, guid: b893c352af8cc9a4caf672b578181c63, type: 2}

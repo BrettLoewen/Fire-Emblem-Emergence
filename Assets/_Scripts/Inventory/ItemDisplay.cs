@@ -70,6 +70,10 @@ public class ItemDisplay: MonoBehaviour
         {
             itemCostText.gameObject.SetActive(false);
         }
+        else if(itemList.Mode == ItemListMode.UnitDetails)
+        {
+            itemCostText.gameObject.SetActive(false);
+        }
     }//end Setup
 
     /// <summary>

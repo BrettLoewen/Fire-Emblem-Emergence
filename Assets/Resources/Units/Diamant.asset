@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Diamant
   Customization: {fileID: 11400000, guid: 376585377cb3fcf43a8a6e3e9d083f1e, type: 2}
+  DefaultItems:
+  - {fileID: 11400000, guid: 20cf2db714bfa7d4c8c26a3748d87f1c, type: 2}
+  - {fileID: 11400000, guid: e36ca1f884db7f24cac96449d130b854, type: 2}
+  - {fileID: 11400000, guid: 796c175c0d0a6914b82b9105bbbf6e87, type: 2}

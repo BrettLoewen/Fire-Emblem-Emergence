@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Casey
   Customization: {fileID: 11400000, guid: d1c43c77e06b82b44ae02b0d9c2f3e2d, type: 2}
+  DefaultItems:
+  - {fileID: 11400000, guid: 6c930735bce130146838987ca287e1a6, type: 2}

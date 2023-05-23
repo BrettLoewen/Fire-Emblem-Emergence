@@ -85,6 +85,12 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         // Start in the setup state
         ExplorationState = ExplorationState.Setup;
 
+        // Disable anything that could be enabled incorrectly
+        pauseMenu.SetActive(false);
+        customizationMenu.SetActive(false);
+        marketMenu.SetActive(false);
+        unitsScreen.SetActive(false);
+
         // In case the persistent scene is not loaded, load it
 #pragma warning disable CS4014
         LevelManager.LoadPersistentScene(Scenes.HubWorld);
