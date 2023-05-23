@@ -11,7 +11,9 @@ public class UnitAnimator: MonoBehaviour
 
     [SerializeField] private float speedSmoothTime;   // The time it takes to adjust the player's run speed animator value
 
-    public Animator Animator { get; private set; }   // References the unit's animator component
+    //public Animator Animator { get; private set; }   // References the unit's animator component
+
+    [SerializeField] private UnitAnimationExtension animatorExtension;
 
     #endregion //end Variables
 
@@ -21,7 +23,7 @@ public class UnitAnimator: MonoBehaviour
     void Awake()
     {
         // Get the animator component
-        Animator = GetComponent<Animator>();
+        //Animator = GetComponent<Animator>();
     }//end Awake
 
     // Start is called before the first frame update
@@ -53,7 +55,7 @@ public class UnitAnimator: MonoBehaviour
         float _speedPercent = ((_isSprinting) ? _currentSpeed / _sprintSpeed : _currentSpeed / _walkSpeed * .5f);
 
         // Set the animator's `speedPercent` value smoothly according to the passed values
-        Animator.SetFloat("speedPercent", _speedPercent, speedSmoothTime, Time.deltaTime);
+        animatorExtension.Animator.SetFloat("speedPercent", _speedPercent, speedSmoothTime, Time.deltaTime);
     }//end SetSpeedPercent
 
     #endregion

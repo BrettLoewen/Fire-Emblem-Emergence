@@ -32,7 +32,7 @@ Transform:
   - {fileID: 3812710768769414905}
   - {fileID: 8654015825915396060}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1811700343799746976
 GameObject:
@@ -706,7 +706,7 @@ MonoBehaviour:
   <InputHandler>k__BackingField: {fileID: 6919153084228603470}
   <PlayerMovement>k__BackingField: {fileID: 4003871324891218238}
   <PlayerCamera>k__BackingField: {fileID: 8036712648887783013}
-  <PlayerAnimator>k__BackingField: {fileID: 6678399916442979218}
+  <PlayerAnimator>k__BackingField: {fileID: 2716765989130418057}
   <PlayerCustomizer>k__BackingField: {fileID: 7070236892263277569}
   <PlayerInteract>k__BackingField: {fileID: 2199232418424803731}
 --- !u!114 &2199232418424803731
@@ -878,7 +878,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5523706894209505588}
-  m_LocalRotation: {x: -0.14035752, y: -0.000000029802322, z: 0.000000007450581, w: -0.9901009}
+  m_LocalRotation: {x: -0.14035752, y: -0.00000008940697, z: 0.000000014901161, w: -0.9901009}
   m_LocalPosition: {x: -0.0000014305115, y: 3.776, z: -5.000001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1173,7 +1173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8712483952789491538}
-  m_LocalRotation: {x: -0.14035752, y: -0.00000008940697, z: 0.000000007450581, w: -0.9901009}
+  m_LocalRotation: {x: -0.14035752, y: -0.00000011920929, z: 0.0000000037252903, w: -0.9901009}
   m_LocalPosition: {x: 0.00000023841858, y: 0, z: -0.0000038146973}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1381,9 +1381,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6db498cd6d165bd468c3bfbb1f112ae8, type: 3}
---- !u!114 &6678399916442979218 stripped
+--- !u!114 &2716765989130418057 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5745293126374555200, guid: 6db498cd6d165bd468c3bfbb1f112ae8,
+  m_CorrespondingSourceObject: {fileID: 3938104005500224091, guid: 6db498cd6d165bd468c3bfbb1f112ae8,
     type: 3}
   m_PrefabInstance: {fileID: 1375023950909240786}
   m_PrefabAsset: {fileID: 0}

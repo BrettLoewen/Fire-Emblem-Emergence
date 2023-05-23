@@ -51578,7 +51578,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2325666999083242170}
   - component: {fileID: 7252821643549799143}
-  - component: {fileID: 5745293126374555200}
+  - component: {fileID: 5589884583735914690}
   m_Layer: 0
   m_Name: Modular Human
   m_TagString: Untagged
@@ -51624,7 +51624,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5745293126374555200
+--- !u!114 &5589884583735914690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51633,10 +51633,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6626999818233128592}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04db276e499d16b46893b023b30afcb9, type: 3}
+  m_Script: {fileID: 11500000, guid: 64c2a18229794c74797104f2df83670d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedSmoothTime: 0.2
 --- !u!1 &6634496709667310235
 GameObject:
   m_ObjectHideFlags: 0
@@ -66060,6 +66059,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7047381867903450170}
   - component: {fileID: 8145769286073291219}
+  - component: {fileID: 3938104005500224091}
   m_Layer: 0
   m_Name: Modular Character V2
   m_TagString: Untagged
@@ -66096,6 +66096,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customization: {fileID: 11400000, guid: 376585377cb3fcf43a8a6e3e9d083f1e, type: 2}
+--- !u!114 &3938104005500224091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779570504803570058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04db276e499d16b46893b023b30afcb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedSmoothTime: 0.2
+  animatorExtension: {fileID: 5589884583735914690}
 --- !u!1 &8781361903806864117
 GameObject:
   m_ObjectHideFlags: 0
