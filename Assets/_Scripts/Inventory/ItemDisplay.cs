@@ -13,7 +13,7 @@ public class ItemDisplay: MonoBehaviour
 
     [SerializeField] private Image itemIconImage;
     [SerializeField] private TextMeshProUGUI itemNameText;
-    [SerializeField] private TextMeshProUGUI itemCostText;
+    [SerializeField] private TextMeshProUGUI itemExtraText;
     private Button button;
 
     #endregion //end Variables
@@ -60,19 +60,27 @@ public class ItemDisplay: MonoBehaviour
         // Setup the display according to item values depending on the mode of the item list
         if(itemList.Mode == ItemListMode.Buy)
         {
-            itemCostText.text = "" + item.ItemData.BuyPrice;
+            itemExtraText.text = "" + item.ItemData.BuyPrice;
         }
         else if(itemList.Mode == ItemListMode.Sell)
         {
-            itemCostText.text = "" + item.ItemData.SellPrice;
+            itemExtraText.text = "" + item.ItemData.SellPrice;
         }
-        else if(itemList.Mode == ItemListMode.Inventory)
+        else if(itemList.Mode == ItemListMode.Inventory || itemList.Mode == ItemListMode.UnitInventoryUnit || itemList.Mode == ItemListMode.UnitInventoryPlayer)
         {
-            itemCostText.gameObject.SetActive(false);
+            string _unitName = DataManager.GetNameOfUnit(item.OwnerId);
+            if(_unitName == null)
+            {
+                itemExtraText.text = "";
+            }
+            else
+            {
+                itemExtraText.text = $"{DataManager.GetNameOfUnit(item.OwnerId)}";
+            }
         }
         else if(itemList.Mode == ItemListMode.UnitDetails)
         {
-            itemCostText.gameObject.SetActive(false);
+            itemExtraText.gameObject.SetActive(false);
         }
     }//end Setup
 
@@ -94,11 +102,11 @@ public class ItemDisplay: MonoBehaviour
     }//end OnClick
 
     /// <summary>
-    /// Used to manage the navigation paths of the item displays within the item list
+    /// Used to manage the navigation paths of the item displays within the item list (vertically)
     /// </summary>
     /// <param name="_up">The button "above" this one (the button to select when up is pressed)</param>
     /// <param name="_down">The button "below" this one (the button to select when down is pressed)</param>
-    public void SetNavigationLinks(ItemDisplay _up, ItemDisplay _down)
+    public void SetNavigationLinksVertical(ItemDisplay _up, ItemDisplay _down)
     {
         // Get the button's navigation object
         Navigation navigation = button.navigation;
@@ -106,6 +114,24 @@ public class ItemDisplay: MonoBehaviour
         // Set the navigation object according to the passed information
         navigation.selectOnUp = _up.button;
         navigation.selectOnDown = _down.button;
+
+        // Update the button's navigation to use the new values
+        button.navigation = navigation;
+    }//end SetNavigationLinks
+
+    /// <summary>
+    /// Used to manage the navigation paths of the item displays within the item list (horizontally)
+    /// </summary>
+    /// <param name="_left">The button "to the left" of this one (the button to select when left is pressed)</param>
+    /// <param name="_right">The button "to the right" of this one (the button to select when right is pressed)</param>
+    public void SetNavigationLinksHorizontal(ItemDisplay _left, ItemDisplay _right)
+    {
+        // Get the button's navigation object
+        Navigation navigation = button.navigation;
+
+        // Set the navigation object according to the passed information
+        navigation.selectOnLeft = _left.button;
+        navigation.selectOnRight = _right.button;
 
         // Update the button's navigation to use the new values
         button.navigation = navigation;

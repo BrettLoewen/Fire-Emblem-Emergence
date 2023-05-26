@@ -16,6 +16,9 @@ public enum ExplorationState { Setup, Explore, Menu, Customization, Market }
 /// </summary>
 public enum ExplorationMenuState { Selection, Save, Load, Inventory, Units }
 
+
+public enum UnitMenuState { Main, Inventory }
+
 /// <summary>
 /// The state of the market menu
 /// </summary>
@@ -37,21 +40,29 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     public ExplorationState ExplorationState { get; private set; }
     private ExplorationMenuState menuState;
 
-    [Header("Pause Menu Buttons")]
+    [Header("Pause Menu")]
     // Variables for the pause menu
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject saveButton;
     [SerializeField] private GameObject loadButton;
     [SerializeField] private GameObject inventoryButton;
     [SerializeField] private GameObject unitsButton;
-
-    [Header("Pause Menu Screen Specific Variables")]
     [SerializeField] private SaveFileScreen saveFileScreen;
     [SerializeField] private ItemList inventoryMenuScreen;
+
+    [Header("Units Screen Specific Variables")]
+    // Variables for the units screen in the pause menu
     [SerializeField] private GameObject unitsScreen;
+    [SerializeField] private GameObject unitsMainView;
+    [SerializeField] private GameObject unitInventoryView;
     [SerializeField] private UnitDetailsScreen unitDetailsScreen;
     [SerializeField] private Transform unitButtonParent;
     [SerializeField] private UnitSelectionButton unitButtonPrefab;
+    [SerializeField] private ItemList unitInventoryList;
+    [SerializeField] private ItemList playerInventoryList;
+    [SerializeField] private TextMeshProUGUI unitNameText;
+    private UnitMenuState unitMenuState;
+    private Unit currentUnit = null;
 
     [Header("Customization Menu")]
     // Variables for the customization menu
@@ -171,11 +182,21 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
                             CloseInventoryMenu();
                             EventSystem.current.SetSelectedGameObject(inventoryButton);
                             break;
-                        // If cancel was pressed while on the inventory screen, go back to the selection screen
+                        // If cancel was pressed while on the units screen...
                         case ExplorationMenuState.Units:
-                            menuState = ExplorationMenuState.Selection;
-                            CloseUnitsScreen();
-                            EventSystem.current.SetSelectedGameObject(unitsScreen);
+                            switch(unitMenuState)
+                            {
+                                // If cancel was pressed on the main units view, go back to the selection screen
+                                case UnitMenuState.Main:
+                                    menuState = ExplorationMenuState.Selection;
+                                    CloseUnitsScreen();
+                                    EventSystem.current.SetSelectedGameObject(unitsButton);
+                                    break;
+                                // If cancel was pressed on the unit inventory view, go back to the main units view
+                                case UnitMenuState.Inventory:
+                                    OpenUnitsScreen();
+                                    break;
+                            }
                             break;
                         // If cancel was pressed while on the selection screen, close the pause menu
                         case ExplorationMenuState.Selection:
@@ -463,6 +484,10 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     private async void OpenUnitsScreen()
     {
         unitsScreen.SetActive(true);
+        unitsMainView.SetActive(true);
+        unitInventoryView.SetActive(false);
+
+        unitMenuState = UnitMenuState.Main;
 
         foreach (Transform button in unitButtonParent)
         {
@@ -470,6 +495,8 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         }
 
         await Task.Yield();
+
+        GameObject _selectedUnitButton = null;
 
         List<Unit> _units = DataManager.GetUnits();
 
@@ -480,6 +507,11 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             UnitSelectionButton _button = Instantiate(unitButtonPrefab, unitButtonParent);
             _button.Setup(_units[i]);
             _buttons.Add(_button);
+
+            if(_units[i].Equals(currentUnit))
+            {
+                _selectedUnitButton = _button.gameObject;
+            }
         }
 
         // For every unit button that was created
@@ -495,17 +527,80 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
             _buttons[i].SetNavigationLinks(_buttons[up], _buttons[down]);
         }
 
-        EventSystem.current.SetSelectedGameObject(unitButtonParent.GetChild(0).gameObject);
+        if(_selectedUnitButton == null)
+        {
+            _selectedUnitButton = unitButtonParent.GetChild(0).gameObject;
+        }
+
+        EventSystem.current.SetSelectedGameObject(_selectedUnitButton);
     }
 
     public void OnSelectUnit(Unit _unit)
     {
+        currentUnit = _unit;
         unitDetailsScreen.Setup(_unit);
     }
 
     public void OnClickUnit()
     {
-        Debug.Log("Clicked a unit");
+        SetupUnitInvetoryView();
+    }
+
+    private void SetupUnitInvetoryView()
+    {
+        unitMenuState = UnitMenuState.Inventory;
+
+        unitInventoryView.SetActive(true);
+        unitsMainView.SetActive(false);
+
+        unitNameText.text = currentUnit.UnitData.Name;
+
+        SetupUnitInventoryViewItemLists();
+    }
+
+    private async void SetupUnitInventoryViewItemLists()
+    {
+        unitInventoryList.SpawnItemList(ItemListMode.UnitInventoryUnit, currentUnit.GetItems());
+        playerInventoryList.SpawnItemList(ItemListMode.UnitInventoryPlayer, DataManager.GetPlayerInventory());
+
+        await Task.Yield();
+
+        GameObject _selectedObject = unitInventoryList.GetTopItemDisplay();
+        bool _unitInventoryHasItems = true;
+
+        if (_selectedObject == null)
+        {
+            _selectedObject = playerInventoryList.GetTopItemDisplay();
+            _unitInventoryHasItems = false;
+        }
+
+        if (_selectedObject == null)
+        {
+            Debug.LogWarning("Trying to Access an Empty Inventory");
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(_selectedObject);
+        }
+
+        if(_unitInventoryHasItems)
+        {
+            unitInventoryList.ConnectHorizontallyToItemList(playerInventoryList);
+        }
+    }
+
+    public void UpdateItemOwner(string _itemId, ItemListMode _mode)
+    {
+        string _newOwnerId = null;
+
+        if(_mode == ItemListMode.UnitInventoryPlayer)
+        {
+            _newOwnerId = currentUnit.Id;
+        }
+
+        DataManager.UpdateItemOwner(_itemId, _newOwnerId);
+
+        SetupUnitInventoryViewItemLists();
     }
 
     private void CloseUnitsScreen()

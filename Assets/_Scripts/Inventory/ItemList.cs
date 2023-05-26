@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Used to easily get different behaviour from the item list
 /// </summary>
-public enum ItemListMode { Buy, Sell, Inventory, UnitDetails }
+public enum ItemListMode { Buy, Sell, Inventory, UnitDetails, UnitInventoryUnit, UnitInventoryPlayer }
 
 public class ItemList: MonoBehaviour
 {
@@ -108,10 +108,7 @@ public class ItemList: MonoBehaviour
         // Enable the list
         background.enabled = true;
 
-        if (Mode == ItemListMode.UnitDetails)
-        {
-            SetupItemDisplays(_items);
-        }
+        SetupItemDisplays(_items);
     }
 
 
@@ -137,7 +134,7 @@ public class ItemList: MonoBehaviour
             int down = i < end ? i + 1 : 0;
 
             // Tell the item display to setup its UI navigation links according to the above calculations
-            _displays[i].SetNavigationLinks(_displays[up], _displays[down]);
+            _displays[i].SetNavigationLinksVertical(_displays[up], _displays[down]);
         }
     }
 
@@ -224,6 +221,50 @@ public class ItemList: MonoBehaviour
             }
 
             MoneyDisplay.UpdateMoneyDisplay();
+        }
+        else if(Mode == ItemListMode.UnitInventoryUnit || Mode == ItemListMode.UnitInventoryPlayer)
+        {
+            ExplorationGameManager.Instance.UpdateItemOwner(_item.Id, Mode);
+        }
+    }
+
+
+    public GameObject[] GetChildren()
+    {
+        List<GameObject> _children = new List<GameObject>();
+
+        foreach (Transform child in itemDisplayContent)
+        {
+            _children.Add(child.gameObject);
+        }
+
+        return _children.ToArray();
+    }
+
+    /// <summary>
+    /// Will connect the navigation of this ItemList's ItemDisplays to the ItemDisplays of the passed ItemList
+    /// </summary>
+    /// <param name="_listToConnect">The ItemList to connect to this list to</param>
+    public void ConnectHorizontallyToItemList(ItemList _listToConnect)
+    {
+        GameObject[] _childrenToConnect = _listToConnect.GetChildren();
+
+        foreach (Transform _child in itemDisplayContent)
+        {
+            ItemDisplay _itemDisplay = _child.GetComponent<ItemDisplay>();
+
+            ItemDisplay _connectedItemDisplay = _childrenToConnect[0].GetComponent<ItemDisplay>();
+
+            _itemDisplay.SetNavigationLinksHorizontal(_connectedItemDisplay, _connectedItemDisplay);
+        }
+
+        foreach (GameObject _connectedChild in _childrenToConnect)
+        {
+            ItemDisplay _connectedItemDisplay = _connectedChild.GetComponent<ItemDisplay>();
+
+            ItemDisplay _itemDisplay = GetTopItemDisplay().GetComponent<ItemDisplay>();
+
+            _connectedItemDisplay.SetNavigationLinksHorizontal(_itemDisplay, _itemDisplay);
         }
     }
 
