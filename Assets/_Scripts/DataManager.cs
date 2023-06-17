@@ -9,9 +9,13 @@ public static class DataManager
 {
     private const string UNIT_CUTOMIZATION_PATH = "Unit Customization"; // The name of the directory in the resources folder that holds customization objects
     private const string ITEM_PATH = "Items"; // The name of the directory in the resources folder that holds item data objects
+    private const string UNIT_PATH = "Units"; // The name of the directory in the resources folder that holds unit data objects
 
     private static List<Item> playerInventory = new List<Item>(); // The player's inventory of items
     private static int playerMoney = -1;
+    private static List<Unit> playerUnits = new List<Unit>();
+
+    #region Customization
 
     /// <summary>
     /// Gets and returns all customization objects in the game data
@@ -33,6 +37,10 @@ public static class DataManager
         // Load and return the customization object that has the passed file name
         return Resources.Load<Customization>($"{UNIT_CUTOMIZATION_PATH}/{_customizationObjectName}");
     }//end GetCustomizationFromString
+
+    #endregion
+
+    #region Inventory
 
     /// <summary>
     /// Gets and returns all item objects in the game data
@@ -108,6 +116,19 @@ public static class DataManager
     }//end RemoveItemFromPlayerInventory
 
 
+    public static void UpdateItemOwner(string _itemId, string _newOwnerId)
+    {
+        foreach (Item item in playerInventory)
+        {
+            if (item.Id == _itemId)
+            {
+                item.SetOwnerId(_newOwnerId);
+                return;
+            }
+        }
+    }
+
+
     public static int GetPlayerMoney()
     {
         if(playerMoney < 0)
@@ -129,4 +150,69 @@ public static class DataManager
         playerMoney += _amount;
         return true;
     }
+
+    #endregion
+
+    #region Units
+
+    /// <summary>
+    /// Gets all unit data objects in the game data, creates unit objects for them, and returns them
+    /// </summary>
+    /// <returns></returns>
+    public static List<Unit> GetUnits()
+    {
+        if (playerUnits == null || playerUnits.Count == 0)
+        {
+            List<Unit> units = new List<Unit>();
+
+            // Load and return every unit data object in the game data
+            UnitData[] unitDatas = Resources.LoadAll<UnitData>(UNIT_PATH);
+
+            // Create a unit object for every unit data object
+            for (int i = 0; i < unitDatas.Length; i++)
+            {
+                units.Add(new Unit(unitDatas[i]));
+            }
+
+            playerUnits = units;
+        }
+
+        return playerUnits;
+    }
+
+
+    public static Item[] GetItemsForUnit(string _unitId)
+    {
+        List<Item> _itemsForUnit = new List<Item>();
+
+        foreach (Item item in playerInventory)
+        {
+            if(item.OwnerId == _unitId)
+            {
+                _itemsForUnit.Add(item);
+            }    
+        }
+
+        return _itemsForUnit.ToArray();
+    }
+
+    public static string GetNameOfUnit(string _unitId)
+    {
+        if (playerUnits == null || playerUnits.Count == 0)
+        {
+            GetUnits();
+        }
+
+        foreach (Unit unit in playerUnits)
+        {
+            if(unit.Id == _unitId)
+            {
+                return unit.UnitData.name;
+            }
+        }
+
+        return null;
+    }
+
+    #endregion
 }

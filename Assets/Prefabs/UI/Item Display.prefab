@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemIconImage: {fileID: 9051813112049150128}
   itemNameText: {fileID: 7950873787979671534}
-  itemCostText: {fileID: 5424198889623547597}
+  itemExtraText: {fileID: 5424198889623547597}
 --- !u!114 &4557316784054868956
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Threading.Tasks;
+using TMPro;
 
 /// <summary>
 /// The state of the exploration scene
@@ -13,7 +14,10 @@ public enum ExplorationState { Setup, Explore, Menu, Customization, Market }
 /// <summary>
 /// The state of the exploration pause menu
 /// </summary>
-public enum ExplorationMenuState { Selection, Save, Load, Inventory }
+public enum ExplorationMenuState { Selection, Save, Load, Inventory, Units }
+
+
+public enum UnitMenuState { Main, Inventory }
 
 /// <summary>
 /// The state of the market menu
@@ -42,8 +46,23 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     [SerializeField] private GameObject saveButton;
     [SerializeField] private GameObject loadButton;
     [SerializeField] private GameObject inventoryButton;
+    [SerializeField] private GameObject unitsButton;
     [SerializeField] private SaveFileScreen saveFileScreen;
     [SerializeField] private ItemList inventoryMenuScreen;
+
+    [Header("Units Screen Specific Variables")]
+    // Variables for the units screen in the pause menu
+    [SerializeField] private GameObject unitsScreen;
+    [SerializeField] private GameObject unitsMainView;
+    [SerializeField] private GameObject unitInventoryView;
+    [SerializeField] private UnitDetailsScreen unitDetailsScreen;
+    [SerializeField] private Transform unitButtonParent;
+    [SerializeField] private UnitSelectionButton unitButtonPrefab;
+    [SerializeField] private ItemList unitInventoryList;
+    [SerializeField] private ItemList playerInventoryList;
+    [SerializeField] private TextMeshProUGUI unitNameText;
+    private UnitMenuState unitMenuState;
+    private Unit currentUnit = null;
 
     [Header("Customization Menu")]
     // Variables for the customization menu
@@ -76,6 +95,12 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
         // Start in the setup state
         ExplorationState = ExplorationState.Setup;
+
+        // Disable anything that could be enabled incorrectly
+        pauseMenu.SetActive(false);
+        customizationMenu.SetActive(false);
+        marketMenu.SetActive(false);
+        unitsScreen.SetActive(false);
 
         // In case the persistent scene is not loaded, load it
 #pragma warning disable CS4014
@@ -157,6 +182,22 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
                             CloseInventoryMenu();
                             EventSystem.current.SetSelectedGameObject(inventoryButton);
                             break;
+                        // If cancel was pressed while on the units screen...
+                        case ExplorationMenuState.Units:
+                            switch(unitMenuState)
+                            {
+                                // If cancel was pressed on the main units view, go back to the selection screen
+                                case UnitMenuState.Main:
+                                    menuState = ExplorationMenuState.Selection;
+                                    CloseUnitsScreen();
+                                    EventSystem.current.SetSelectedGameObject(unitsButton);
+                                    break;
+                                // If cancel was pressed on the unit inventory view, go back to the main units view
+                                case UnitMenuState.Inventory:
+                                    OpenUnitsScreen();
+                                    break;
+                            }
+                            break;
                         // If cancel was pressed while on the selection screen, close the pause menu
                         case ExplorationMenuState.Selection:
                             menuState = ExplorationMenuState.Selection;
@@ -214,6 +255,14 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         menuState = ExplorationMenuState.Inventory;
         Tooltip.Instance.DisableTooltip();
         OpenInventoryMenu();
+    }
+
+
+    public void Units()
+    {
+        // Open the units screen
+        menuState = ExplorationMenuState.Units;
+        OpenUnitsScreen();
     }
 
     /// <summary>
@@ -430,4 +479,132 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     }//end CloseMarketMenu
 
     #endregion
+
+    
+    private async void OpenUnitsScreen()
+    {
+        unitsScreen.SetActive(true);
+        unitsMainView.SetActive(true);
+        unitInventoryView.SetActive(false);
+
+        unitMenuState = UnitMenuState.Main;
+
+        foreach (Transform button in unitButtonParent)
+        {
+            Destroy(button.gameObject);
+        }
+
+        await Task.Yield();
+
+        GameObject _selectedUnitButton = null;
+
+        List<Unit> _units = DataManager.GetUnits();
+
+        List<UnitSelectionButton> _buttons = new List<UnitSelectionButton>();
+
+        for (int i = 0; i < _units.Count; i++)
+        {
+            UnitSelectionButton _button = Instantiate(unitButtonPrefab, unitButtonParent);
+            _button.Setup(_units[i]);
+            _buttons.Add(_button);
+
+            if(_units[i].Equals(currentUnit))
+            {
+                _selectedUnitButton = _button.gameObject;
+            }
+        }
+
+        // For every unit button that was created
+        for (int i = 0; i < _buttons.Count; i++)
+        {
+            // Calculate the index of the unit button that is below and above it
+            // Math below is to make sure it wraps properly
+            int end = _buttons.Count - 1;
+            int up = i > 0 ? i - 1 : end;
+            int down = i < end ? i + 1 : 0;
+
+            // Tell the unit button to setup its UI navigation links according to the above calculations
+            _buttons[i].SetNavigationLinks(_buttons[up], _buttons[down]);
+        }
+
+        if(_selectedUnitButton == null)
+        {
+            _selectedUnitButton = unitButtonParent.GetChild(0).gameObject;
+        }
+
+        EventSystem.current.SetSelectedGameObject(_selectedUnitButton);
+    }
+
+    public void OnSelectUnit(Unit _unit)
+    {
+        currentUnit = _unit;
+        unitDetailsScreen.Setup(_unit);
+    }
+
+    public void OnClickUnit()
+    {
+        SetupUnitInvetoryView();
+    }
+
+    private void SetupUnitInvetoryView()
+    {
+        unitMenuState = UnitMenuState.Inventory;
+
+        unitInventoryView.SetActive(true);
+        unitsMainView.SetActive(false);
+
+        unitNameText.text = currentUnit.UnitData.Name;
+
+        SetupUnitInventoryViewItemLists();
+    }
+
+    private async void SetupUnitInventoryViewItemLists()
+    {
+        unitInventoryList.SpawnItemList(ItemListMode.UnitInventoryUnit, currentUnit.GetItems());
+        playerInventoryList.SpawnItemList(ItemListMode.UnitInventoryPlayer, DataManager.GetPlayerInventory());
+
+        await Task.Yield();
+
+        GameObject _selectedObject = unitInventoryList.GetTopItemDisplay();
+        bool _unitInventoryHasItems = true;
+
+        if (_selectedObject == null)
+        {
+            _selectedObject = playerInventoryList.GetTopItemDisplay();
+            _unitInventoryHasItems = false;
+        }
+
+        if (_selectedObject == null)
+        {
+            Debug.LogWarning("Trying to Access an Empty Inventory");
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(_selectedObject);
+        }
+
+        if(_unitInventoryHasItems)
+        {
+            unitInventoryList.ConnectHorizontallyToItemList(playerInventoryList);
+        }
+    }
+
+    public void UpdateItemOwner(string _itemId, ItemListMode _mode)
+    {
+        string _newOwnerId = null;
+
+        if(_mode == ItemListMode.UnitInventoryPlayer)
+        {
+            _newOwnerId = currentUnit.Id;
+        }
+
+        DataManager.UpdateItemOwner(_itemId, _newOwnerId);
+
+        SetupUnitInventoryViewItemLists();
+    }
+
+    private void CloseUnitsScreen()
+    {
+        unitsScreen.SetActive(false);
+    }
 }
