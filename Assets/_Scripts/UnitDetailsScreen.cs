@@ -39,7 +39,9 @@ public class UnitDetailsScreen : MonoBehaviour
 
     #region
 
-
+    /// <summary>
+    /// Used to setup the screen so it references the correct Unit
+    /// </summary>
     public void Setup(Unit _unit)
     {
         unit = _unit;
@@ -48,7 +50,7 @@ public class UnitDetailsScreen : MonoBehaviour
         unitDisplay.SetCustomization(unit.UnitData.Customization);
 
         unitInventoryDisplay.SpawnItemList(ItemListMode.UnitDetails, unit.GetItems());
-    }
+    }//end Setup
 
     #endregion
 }

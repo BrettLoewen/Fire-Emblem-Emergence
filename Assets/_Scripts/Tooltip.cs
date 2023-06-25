@@ -4,6 +4,9 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Used to control an information providing tooltip in menus
+/// </summary>
 public class Tooltip: Singleton<Tooltip>
 {
     #region Variables
@@ -90,12 +93,8 @@ public class Tooltip: Singleton<Tooltip>
 
         RectTransform selectableTransform = selectable.transform as RectTransform;
         RectTransform tooltipTransform = transform as RectTransform;
-        Debug.Log(selectableTransform.position);
-        //tooltipTransform.rect.Set(selectableTransform.rect.xMin, selectableTransform.rect.yMax, tooltipTransform.rect.width, tooltipTransform.rect.height);
-        //tooltipTransform.ForceUpdateRectTransforms();
 
         tooltipTransform.position = new Vector2(selectableTransform.position.x, selectableTransform.position.y) + (Vector2.down * selectableTransform.rect.height);
-        Debug.Log(tooltipTransform.position);
 
         TooltipSelectableType type = selectable.Type;
 

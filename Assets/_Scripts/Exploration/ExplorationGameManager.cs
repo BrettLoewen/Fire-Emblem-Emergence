@@ -248,22 +248,26 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
     #region Pause Menu
 
-
+    /// <summary>
+    /// Open the inventory menu
+    /// </summary>
     public void Inventory()
     {
         // Open the inventory screen
         menuState = ExplorationMenuState.Inventory;
         Tooltip.Instance.DisableTooltip();
         OpenInventoryMenu();
-    }
+    }//end Inventory
 
-
+    /// <summary>
+    /// Open the units menu
+    /// </summary>
     public void Units()
     {
         // Open the units screen
         menuState = ExplorationMenuState.Units;
         OpenUnitsScreen();
-    }
+    }//end Units
 
     /// <summary>
     /// Called by the save button to open the save screen
@@ -292,7 +296,13 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         Debug.Log("Quitting...");
     }//end Quit
 
+    #endregion
 
+    #region Inventory
+
+    /// <summary>
+    /// Open the inventory menu and generate the item list
+    /// </summary>
     private async void OpenInventoryMenu()
     {
         // Enable the inventory screen
@@ -305,9 +315,11 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
         // Set the selected object for UI navigation to the first item display in the item list
         EventSystem.current.SetSelectedGameObject(inventoryMenuScreen.GetTopItemDisplay());
-    }
+    }//end OpenInventoryMenu
 
-
+    /// <summary>
+    /// Close the inventory menu
+    /// </summary>
     private void CloseInventoryMenu()
     {
         // Ensure the inventory screen cleans itself up
@@ -315,7 +327,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
         // Disable the inventory screen
         inventoryMenuScreen.gameObject.SetActive(false);
-    }
+    }//end CloseInventoryMenu
 
     #endregion
 
@@ -480,9 +492,15 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
     #endregion
 
-    
+    #region Units
+
+    /// <summary>
+    /// Open the units screen and setup the unit buttons
+    /// </summary>
     private async void OpenUnitsScreen()
     {
+        // Open the units screen
+
         unitsScreen.SetActive(true);
         unitsMainView.SetActive(true);
         unitInventoryView.SetActive(false);
@@ -496,12 +514,15 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
 
         await Task.Yield();
 
+        // Setup the unit buttons
+
         GameObject _selectedUnitButton = null;
 
         List<Unit> _units = DataManager.GetUnits();
 
         List<UnitSelectionButton> _buttons = new List<UnitSelectionButton>();
 
+        // Create a button for each of the player's units
         for (int i = 0; i < _units.Count; i++)
         {
             UnitSelectionButton _button = Instantiate(unitButtonPrefab, unitButtonParent);
@@ -533,19 +554,29 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         }
 
         EventSystem.current.SetSelectedGameObject(_selectedUnitButton);
-    }
+    }//end OpenUnitsScreen
 
+    /// <summary>
+    /// Called when a unit button is navigated to. Used to keep the unit details screen up to date
+    /// </summary>
+    /// <param name="_unit"></param>
     public void OnSelectUnit(Unit _unit)
     {
         currentUnit = _unit;
         unitDetailsScreen.Setup(_unit);
-    }
+    }//end OnSelectUnit
 
+    /// <summary>
+    /// Called when a unit button is clicked. Used to open the unit inventory menu
+    /// </summary>
     public void OnClickUnit()
     {
         SetupUnitInvetoryView();
-    }
+    }//end OnClickUnit
 
+    /// <summary>
+    /// Open the unit inventory menu and setup the item lists
+    /// </summary>
     private void SetupUnitInvetoryView()
     {
         unitMenuState = UnitMenuState.Inventory;
@@ -556,8 +587,11 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         unitNameText.text = currentUnit.UnitData.Name;
 
         SetupUnitInventoryViewItemLists();
-    }
+    }//end SetupUnitInvetoryView
 
+    /// <summary>
+    /// Setup the item lists for the unit's items and the player inventory
+    /// </summary>
     private async void SetupUnitInventoryViewItemLists()
     {
         unitInventoryList.SpawnItemList(ItemListMode.UnitInventoryUnit, currentUnit.GetItems());
@@ -587,8 +621,13 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         {
             unitInventoryList.ConnectHorizontallyToItemList(playerInventoryList);
         }
-    }
+    }//end SetupUnitInventoryViewItemLists
 
+    /// <summary>
+    /// Update the ownership of an item
+    /// </summary>
+    /// <param name="_itemId"></param>
+    /// <param name="_mode"></param>
     public void UpdateItemOwner(string _itemId, ItemListMode _mode)
     {
         string _newOwnerId = null;
@@ -601,10 +640,15 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         DataManager.UpdateItemOwner(_itemId, _newOwnerId);
 
         SetupUnitInventoryViewItemLists();
-    }
+    }//end UpdateItemOwner
 
+    /// <summary>
+    /// Close the units menu
+    /// </summary>
     private void CloseUnitsScreen()
     {
         unitsScreen.SetActive(false);
-    }
+    }//end CloseUnitsScreen
+
+    #endregion
 }
