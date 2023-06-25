@@ -137,11 +137,14 @@ public class ItemDisplay: MonoBehaviour
         button.navigation = navigation;
     }//end SetNavigationLinks
 
-
+    /// <summary>
+    /// Return the item that is being displayed
+    /// </summary>
+    /// <returns></returns>
     public Item GetItem()
     {
         return item;
-    }
+    }//end GetItem
 
     #endregion
 }

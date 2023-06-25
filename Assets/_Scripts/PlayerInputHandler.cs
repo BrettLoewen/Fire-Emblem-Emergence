@@ -28,7 +28,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnLookInput(InputAction.CallbackContext _context)
     {
         LookInput = _context.ReadValue<Vector2>();
-    }
+    }//end OnLookInput
 
     /// <summary>
     /// Receive and store the input for sprinting
@@ -37,7 +37,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void OnSprintInput(InputAction.CallbackContext _context)
     {
         SprintInput = !SprintInput;
-    }
+    }//end OnSprintInput
 
     /// <summary>
     /// Receive and store the input for interacting in the game world. Invoke methods associated with submitting in the menu
@@ -53,7 +53,7 @@ public class PlayerInputHandler : MonoBehaviour
                 InteractInput = true;
             }
         }
-    }
+    }//end OnInteractInput
 
     /// <summary>
     /// Receive and store the input for the menu button
@@ -65,7 +65,7 @@ public class PlayerInputHandler : MonoBehaviour
         {
             MenuInput = true;
         }
-    }
+    }//end OnMenuInput
 
     /// <summary>
     /// Receive and store the input for the cancel button
@@ -77,5 +77,5 @@ public class PlayerInputHandler : MonoBehaviour
         {
             CancelInput = true;
         }
-    }
+    }//end OnCancelInput
 }

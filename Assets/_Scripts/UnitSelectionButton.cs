@@ -41,14 +41,16 @@ public class UnitSelectionButton: MonoBehaviour
 
     #region
 
-
+    /// <summary>
+    /// Used to setup this button so it references the correct Unit
+    /// </summary>
     public void Setup(Unit _unit)
     {
         gameManager = ExplorationGameManager.Instance;
         unit = _unit;
 
         unitNameText.text = unit.UnitData.Name;
-    }
+    }//end Setup
 
     /// <summary>
     /// Called by the `Select` event trigger on the game object. Used to signal when this object is navigated

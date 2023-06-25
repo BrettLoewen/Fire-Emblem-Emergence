@@ -51,7 +51,10 @@ public class ItemList: MonoBehaviour
 
     #region List Control
 
-
+    /// <summary>
+    /// Generate the item displays based on the passed mode
+    /// </summary>
+    /// <param name="_mode"></param>
     public void SpawnItemList(ItemListMode _mode)
     {
         // Ensure the mode is stored for later
@@ -68,22 +71,15 @@ public class ItemList: MonoBehaviour
             // Get all of the item data objects in the game
             List<ItemData> _itemDatas = DataManager.GetItems();
 
-            // 
             Item[] _items = new Item[_itemDatas.Count];
 
-            //// Add every item data object to the menu
-            //foreach (ItemData itemData in _itemDatas)
-            //{
-            //    Item _item = new Item(itemData);
-            //    ItemDisplay _display = Instantiate(itemDisplayPrefab, itemDisplayContent);
-            //    _display.Setup(_item, this);
-            //}
-
+            // Create the items
             for (int i = 0; i < _itemDatas.Count; i++)
             {
                 _items[i] = new Item(_itemDatas[i]);
             }
 
+            // Add every item to the menu
             SetupItemDisplays(_items);
         }
         else if(Mode == ItemListMode.Sell || Mode == ItemListMode.Inventory)
@@ -91,12 +87,16 @@ public class ItemList: MonoBehaviour
             // Get the player's inventory
             Item[] _inventory = DataManager.GetPlayerInventory();
 
-            // Add every item data object to the menu
+            // Add every item to the menu
             SetupItemDisplays(_inventory);
         }
-    }
+    }//end SpawnItemList
 
-
+    /// <summary>
+    /// Generate the item displays based on the passed mode and a given list of items
+    /// </summary>
+    /// <param name="_mode"></param>
+    /// <param name="_items"></param>
     public void SpawnItemList(ItemListMode _mode, Item[] _items)
     {
         // Ensure the mode is stored for later
@@ -108,10 +108,14 @@ public class ItemList: MonoBehaviour
         // Enable the list
         background.enabled = true;
 
+        // Add every item to the menu
         SetupItemDisplays(_items);
-    }
+    }//end SpawnItemList
 
-
+    /// <summary>
+    /// Create the item displays for a given array of items
+    /// </summary>
+    /// <param name="_items"></param>
     private void SetupItemDisplays(Item[] _items)
     {
         List<ItemDisplay> _displays = new List<ItemDisplay>();
@@ -136,9 +140,11 @@ public class ItemList: MonoBehaviour
             // Tell the item display to setup its UI navigation links according to the above calculations
             _displays[i].SetNavigationLinksVertical(_displays[up], _displays[down]);
         }
-    }
+    }//end SetupItemDisplays
 
-
+    /// <summary>
+    /// Delete every item display currently in the item list
+    /// </summary>
     public void ClearList()
     {
         // Ensure there are no pre-existing buttons on the screen
@@ -149,8 +155,12 @@ public class ItemList: MonoBehaviour
 
         // Disable the background
         background.enabled = false;
-    }
+    }//end ClearList
 
+    /// <summary>
+    /// Returns the item display at the top of the item list
+    /// </summary>
+    /// <returns></returns>
     public GameObject GetTopItemDisplay()
     {
         if(itemDisplayContent.childCount > 0)
@@ -159,9 +169,12 @@ public class ItemList: MonoBehaviour
         }
 
         return null;
-    }
+    }//end GetTopItemDisplay
 
-
+    /// <summary>
+    /// Dynamically scroll the item list according to which item display is currently being selected
+    /// </summary>
+    /// <param name="_transform"></param>
     public void OnSelectItemDisplay(Transform _transform)
     {
         float _scroll = 1 - (_transform.GetSiblingIndex() / (float)itemDisplayContent.childCount);
@@ -180,11 +193,16 @@ public class ItemList: MonoBehaviour
         }
 
         scrollView.verticalNormalizedPosition = _scroll;
-    }
+    }//end OnSelectItemDisplay
 
-
+    /// <summary>
+    /// Perform different actions when an item display is selected passed on the current mode of the item list
+    /// </summary>
+    /// <param name="_item"></param>
+    /// <param name="_display"></param>
     public async void OnClickItemDisplay(Item _item, ItemDisplay _display)
     {
+        // If the mode is Buy, attempt to purchase the item and add it to the player's inventory
         if (Mode == ItemListMode.Buy)
         {
             bool hasEnough = DataManager.ModifyPlayerMoney(-_item.ItemData.BuyPrice);
@@ -196,6 +214,7 @@ public class ItemList: MonoBehaviour
 
             MoneyDisplay.UpdateMoneyDisplay();
         }
+        // If the mode is Sell, remove the player's item and update the item list to remove that item
         else if (Mode == ItemListMode.Sell)
         {
             int _childIndex = _display.transform.GetSiblingIndex();
@@ -222,13 +241,17 @@ public class ItemList: MonoBehaviour
 
             MoneyDisplay.UpdateMoneyDisplay();
         }
+        // If the mode was in the unit's inventory, update the item's owner ID
         else if(Mode == ItemListMode.UnitInventoryUnit || Mode == ItemListMode.UnitInventoryPlayer)
         {
             ExplorationGameManager.Instance.UpdateItemOwner(_item.Id, Mode);
         }
-    }
+    }//end OnClickItemDisplay
 
-
+    /// <summary>
+    /// Return the item displays
+    /// </summary>
+    /// <returns></returns>
     public GameObject[] GetChildren()
     {
         List<GameObject> _children = new List<GameObject>();
@@ -239,7 +262,7 @@ public class ItemList: MonoBehaviour
         }
 
         return _children.ToArray();
-    }
+    }//end GetChildren
 
     /// <summary>
     /// Will connect the navigation of this ItemList's ItemDisplays to the ItemDisplays of the passed ItemList
@@ -266,7 +289,7 @@ public class ItemList: MonoBehaviour
 
             _connectedItemDisplay.SetNavigationLinksHorizontal(_itemDisplay, _itemDisplay);
         }
-    }
+    }//end ConnectHorizontallyToItemList
 
     #endregion
 }

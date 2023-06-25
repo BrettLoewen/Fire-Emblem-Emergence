@@ -12,7 +12,7 @@ public static class DataManager
     private const string UNIT_PATH = "Units"; // The name of the directory in the resources folder that holds unit data objects
 
     private static List<Item> playerInventory = new List<Item>(); // The player's inventory of items
-    private static int playerMoney = -1;
+    private static int playerMoney = 5000;
     private static List<Unit> playerUnits = new List<Unit>();
 
     #region Customization
@@ -54,9 +54,6 @@ public static class DataManager
         // Load every item data object in the game data
         items.AddRange(Resources.LoadAll<ItemData>(ITEM_PATH));
 
-        // Load every weapon data object in the game data
-        //items.AddRange(Resources.LoadAll<WeaponData>(WEAPON_PATH));
-
         // Return the generated list of items
         return items;
     }//end GetItems
@@ -89,7 +86,10 @@ public static class DataManager
         return _copyOfInventory;
     }//end GetPlayerInventory
 
-
+    /// <summary>
+    /// Adds the passed item to the player's list of items
+    /// </summary>
+    /// <param name="_itemToAdd"></param>
     public static void AddItemToPlayerInventory(Item _itemToAdd)
     {
         // Ensure the DataManager has an up to date version of the player inventory
@@ -102,7 +102,10 @@ public static class DataManager
         SaveSystem.SetPlayerInventoryData(playerInventory, playerMoney);
     }//end AddItemToPlayerInventory
 
-
+    /// <summary>
+    /// Removes the passed item from the player's list of items
+    /// </summary>
+    /// <param name="_itemToRemove"></param>
     public static void RemoveItemFromPlayerInventory(Item _itemToRemove)
     {
         // Ensure the DataManager has an up to date version of the player inventory
@@ -115,33 +118,48 @@ public static class DataManager
         SaveSystem.SetPlayerInventoryData(playerInventory, playerMoney);
     }//end RemoveItemFromPlayerInventory
 
-
+    /// <summary>
+    /// Modifies the item whose ID matches the passed item ID to update it's owner ID
+    /// </summary>
+    /// <param name="_itemId"></param>
+    /// <param name="_newOwnerId"></param>
     public static void UpdateItemOwner(string _itemId, string _newOwnerId)
     {
+        // Loop through each item until the matching one is found
         foreach (Item item in playerInventory)
         {
             if (item.Id == _itemId)
             {
+                // Update the item's owner ID
                 item.SetOwnerId(_newOwnerId);
                 return;
             }
         }
-    }
+    }//end UpdateItemOwner
 
-
+    /// <summary>
+    /// Returns the amount of money the player currently has
+    /// </summary>
+    /// <returns></returns>
     public static int GetPlayerMoney()
     {
+        // If the player has < 0 money, then the save data has not been read from yet, so read from it
         if(playerMoney < 0)
         {
             playerMoney = SaveSystem.currentSaveData.playerMoney;
         }
 
         return playerMoney;
-    }
+    }//end GetPlayerMoney
 
-
+    /// <summary>
+    /// Updates the player's money with the passed amount. To decrease, pass a negative value. Returns false if the modification is impossible.
+    /// </summary>
+    /// <param name="_amount"></param>
+    /// <returns>True if the modification succeeded and false if it did not (modification would cause negative money)</returns>
     public static bool ModifyPlayerMoney(int _amount)
     {
+        // If the modification would cause the player to have negative money, return false
         if(playerMoney + _amount < 0)
         {
             return false;
@@ -149,7 +167,7 @@ public static class DataManager
 
         playerMoney += _amount;
         return true;
-    }
+    }//end ModifyPlayerMoney
 
     #endregion
 
@@ -161,6 +179,7 @@ public static class DataManager
     /// <returns></returns>
     public static List<Unit> GetUnits()
     {
+        // If the unit data has not been loaded yet, load it
         if (playerUnits == null || playerUnits.Count == 0)
         {
             List<Unit> units = new List<Unit>();
@@ -178,13 +197,18 @@ public static class DataManager
         }
 
         return playerUnits;
-    }
+    }//end GetUnits
 
-
+    /// <summary>
+    /// Get the items that the passed unit (by ID) owns by searching the player's inventory
+    /// </summary>
+    /// <param name="_unitId"></param>
+    /// <returns></returns>
     public static Item[] GetItemsForUnit(string _unitId)
     {
         List<Item> _itemsForUnit = new List<Item>();
 
+        // Loop through every item in the player's inventory to find the ones the passed unit owns
         foreach (Item item in playerInventory)
         {
             if(item.OwnerId == _unitId)
@@ -194,15 +218,22 @@ public static class DataManager
         }
 
         return _itemsForUnit.ToArray();
-    }
+    }//end GetItemsForUnit
 
+    /// <summary>
+    /// Return the name of the unit whose id matches the passed id
+    /// </summary>
+    /// <param name="_unitId"></param>
+    /// <returns></returns>
     public static string GetNameOfUnit(string _unitId)
     {
+        // Ensure the unit data has been loaded
         if (playerUnits == null || playerUnits.Count == 0)
         {
             GetUnits();
         }
 
+        // Loop through every unit to find the matching one
         foreach (Unit unit in playerUnits)
         {
             if(unit.Id == _unitId)
@@ -212,7 +243,7 @@ public static class DataManager
         }
 
         return null;
-    }
+    }//end GetNameOfUnit
 
     #endregion
 }

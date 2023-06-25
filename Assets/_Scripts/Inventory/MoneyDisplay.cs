@@ -43,10 +43,13 @@ public class MoneyDisplay: Singleton<MoneyDisplay>
 
     #region
 
+    /// <summary>
+    /// Used to update the money text staticly
+    /// </summary>
     public static void UpdateMoneyDisplay()
     {
         Instance.moneyText.text = $"{DataManager.GetPlayerMoney()}";
-    }
+    }//end UpdateMoneyDisplay
 
     #endregion
 }

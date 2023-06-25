@@ -133,7 +133,7 @@ public class PlayerMovement: MonoBehaviour
 
         //Animate the character according to the current speed
         playerAnimator.SetSpeedPercent(currentSpeed, walkSpeed, sprintSpeed, inputHandler.SprintInput);
-    }
+    }//end HandleMovement
 
     /// <summary>
     /// Keep the player on the ground
@@ -150,8 +150,7 @@ public class PlayerMovement: MonoBehaviour
 
             controller.Move(Vector3.down * _fallSpeed * Time.deltaTime);
         }
-
-    }
+    }//end HandleGravity
 
     #endregion
 }

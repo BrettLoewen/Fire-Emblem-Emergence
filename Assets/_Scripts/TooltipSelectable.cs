@@ -5,6 +5,9 @@ using UnityEngine;
 
 public enum TooltipSelectableType { Generic, ItemDisplay }
 
+/// <summary>
+/// Used to show a UI element can be linked to a tooltip
+/// </summary>
 public class TooltipSelectable: MonoBehaviour
 {
     #region Variables

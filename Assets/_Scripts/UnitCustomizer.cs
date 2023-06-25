@@ -18,6 +18,7 @@ public class UnitCustomizer : MonoBehaviour
     [SerializeField] private Dictionary<CustomizationName, List<GameObject>> femaleObjects = new Dictionary<CustomizationName, List<GameObject>>();
     [SerializeField] private Dictionary<CustomizationName, List<GameObject>> allObjects = new Dictionary<CustomizationName, List<GameObject>>();
 
+    // Used to reference body parts of the modular character
     private string[] CUSTOMIZATION_NAMES = { 
         "Male_Head_All_Elements",
         "Male_Head_No_Elements",

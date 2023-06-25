@@ -11,8 +11,6 @@ public class UnitAnimator: MonoBehaviour
 
     [SerializeField] private float speedSmoothTime;   // The time it takes to adjust the player's run speed animator value
 
-    //public Animator Animator { get; private set; }   // References the unit's animator component
-
     [SerializeField] private UnitAnimationExtension animatorExtension;
 
     #endregion //end Variables
@@ -22,8 +20,7 @@ public class UnitAnimator: MonoBehaviour
     // Awake is called before Start before the first frame update
     void Awake()
     {
-        // Get the animator component
-        //Animator = GetComponent<Animator>();
+        
     }//end Awake
 
     // Start is called before the first frame update

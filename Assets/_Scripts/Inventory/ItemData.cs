@@ -15,7 +15,7 @@ public class Item
     /// <summary>
     /// Create a new item using the passed item data object
     /// </summary>
-    /// <param name="_data"></param>
+    /// <param name="_data">The data object that defines the properties of this item</param>
     /// <param name="_ownerId">The Id of the Unit that is holding this item. Defaults to null</param>
     public Item(ItemData _data, string _ownerId = null)
     {
@@ -26,13 +26,13 @@ public class Item
         OwnerId = _ownerId;
     }//end constructor
 
-
+    // Update the item's owner ID to the passed value
     public void SetOwnerId(string _newOwnerId)
     {
         OwnerId = _newOwnerId;
     }
 
-
+    // Return a string representation of the item
     public override string ToString()
     {
         return $"{ItemData.Name}";
