@@ -490,10 +490,16 @@ MonoBehaviour:
   - {fileID: 1043217691}
   - {fileID: 1813676905}
   - {fileID: 123389634}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1011844878}
   tileTypeDisplay: {fileID: 1934008979}
   detectionPoint: {fileID: 1549734632}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -1906,10 +1912,16 @@ MonoBehaviour:
   - {fileID: 773076232}
   - {fileID: 165172185}
   - {fileID: 1322282453}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1415896959}
   tileTypeDisplay: {fileID: 1532454177}
   detectionPoint: {fileID: 49161219}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -2075,10 +2087,16 @@ MonoBehaviour:
   - {fileID: 72678671}
   - {fileID: 1700386385}
   - {fileID: 1705770495}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1251882411}
   tileTypeDisplay: {fileID: 1761679626}
   detectionPoint: {fileID: 1771217063}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -2902,10 +2920,16 @@ MonoBehaviour:
   - {fileID: 1698664243}
   - {fileID: 1366362333}
   - {fileID: 1529064016}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2037408339}
   tileTypeDisplay: {fileID: 1613707133}
   detectionPoint: {fileID: 1657734019}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -4350,10 +4374,16 @@ MonoBehaviour:
   - {fileID: 783330829}
   - {fileID: 416102822}
   - {fileID: 1080290445}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 532598175}
   tileTypeDisplay: {fileID: 878040537}
   detectionPoint: {fileID: 562212694}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -4550,10 +4580,16 @@ MonoBehaviour:
   - {fileID: 594486718}
   - {fileID: 1840562750}
   - {fileID: 460118440}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 460898744}
   tileTypeDisplay: {fileID: 1105217270}
   detectionPoint: {fileID: 504974865}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -4812,10 +4848,16 @@ MonoBehaviour:
   - {fileID: 998487169}
   - {fileID: 1163916581}
   - {fileID: 67760695}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1370295429}
   tileTypeDisplay: {fileID: 2007793990}
   detectionPoint: {fileID: 376798981}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5088,10 +5130,16 @@ MonoBehaviour:
   - {fileID: 1032179897}
   - {fileID: 406654411}
   - {fileID: 284603904}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1105684001}
   tileTypeDisplay: {fileID: 1391754457}
   detectionPoint: {fileID: 1654329845}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5499,10 +5547,16 @@ MonoBehaviour:
   - {fileID: 163102399}
   - {fileID: 634184193}
   - {fileID: 1667210163}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1990843968}
   tileTypeDisplay: {fileID: 984140519}
   detectionPoint: {fileID: 421457001}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -5775,10 +5829,16 @@ MonoBehaviour:
   - {fileID: 1874168509}
   - {fileID: 1010157308}
   - {fileID: 1467546529}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1058992016}
   tileTypeDisplay: {fileID: 2084403907}
   detectionPoint: {fileID: 968163619}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -6641,10 +6701,16 @@ MonoBehaviour:
   - {fileID: 1550720838}
   - {fileID: 1474959800}
   - {fileID: 873507011}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 141681126}
   tileTypeDisplay: {fileID: 617174543}
   detectionPoint: {fileID: 528099976}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -7439,10 +7505,16 @@ MonoBehaviour:
   - {fileID: 1343481420}
   - {fileID: 78988918}
   - {fileID: 959280465}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2119413879}
   tileTypeDisplay: {fileID: 826091943}
   detectionPoint: {fileID: 223482756}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8094,10 +8166,16 @@ MonoBehaviour:
   - {fileID: 2018981115}
   - {fileID: 39286408}
   - {fileID: 1688557637}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 247794908}
   tileTypeDisplay: {fileID: 1341395262}
   detectionPoint: {fileID: 458975614}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -8660,10 +8738,16 @@ MonoBehaviour:
   - {fileID: 1179283475}
   - {fileID: 925631790}
   - {fileID: 502059411}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 710585201}
   tileTypeDisplay: {fileID: 1057330789}
   detectionPoint: {fileID: 575595428}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9096,10 +9180,16 @@ MonoBehaviour:
   - {fileID: 581646360}
   - {fileID: 913342124}
   - {fileID: 697033993}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1453252248}
   tileTypeDisplay: {fileID: 764289216}
   detectionPoint: {fileID: 1645597502}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9403,10 +9493,16 @@ MonoBehaviour:
   - {fileID: 2101528751}
   - {fileID: 2059888839}
   - {fileID: 149552486}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1624731964}
   tileTypeDisplay: {fileID: 196861791}
   detectionPoint: {fileID: 400353808}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -9959,10 +10055,16 @@ MonoBehaviour:
   - {fileID: 57944890}
   - {fileID: 1989502594}
   - {fileID: 1858668726}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2129142429}
   tileTypeDisplay: {fileID: 1558702045}
   detectionPoint: {fileID: 284594938}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -10380,10 +10482,16 @@ MonoBehaviour:
   - {fileID: 1624820754}
   - {fileID: 1196314244}
   - {fileID: 1746087193}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 802341108}
   tileTypeDisplay: {fileID: 164380058}
   detectionPoint: {fileID: 621872551}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -10466,10 +10574,16 @@ MonoBehaviour:
   - {fileID: 307684469}
   - {fileID: 1991481619}
   - {fileID: 843840167}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2113282268}
   tileTypeDisplay: {fileID: 1487276794}
   detectionPoint: {fileID: 274440328}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -10670,10 +10784,16 @@ MonoBehaviour:
   - {fileID: 885920963}
   - {fileID: 1244795952}
   - {fileID: 1640659901}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 341006533}
   tileTypeDisplay: {fileID: 1350516238}
   detectionPoint: {fileID: 458416256}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -11119,10 +11239,16 @@ MonoBehaviour:
   - {fileID: 897929228}
   - {fileID: 1898196149}
   - {fileID: 587930527}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 295466471}
   tileTypeDisplay: {fileID: 243693878}
   detectionPoint: {fileID: 298856393}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -12301,10 +12427,16 @@ MonoBehaviour:
   - {fileID: 1405973357}
   - {fileID: 595074748}
   - {fileID: 1920669871}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 14894562}
   tileTypeDisplay: {fileID: 940378014}
   detectionPoint: {fileID: 1189912207}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -12922,10 +13054,16 @@ MonoBehaviour:
   - {fileID: 60789731}
   - {fileID: 1922359302}
   - {fileID: 323273212}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1266022525}
   tileTypeDisplay: {fileID: 881491343}
   detectionPoint: {fileID: 1583428488}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -13447,10 +13585,16 @@ MonoBehaviour:
   - {fileID: 1584609232}
   - {fileID: 1165191515}
   - {fileID: 295187994}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 450487423}
   tileTypeDisplay: {fileID: 1574137159}
   detectionPoint: {fileID: 1691168753}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -13692,10 +13836,16 @@ MonoBehaviour:
   - {fileID: 984273118}
   - {fileID: 696231301}
   - {fileID: 1036297448}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1310006601}
   tileTypeDisplay: {fileID: 576003560}
   detectionPoint: {fileID: 107632573}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -14016,10 +14166,16 @@ MonoBehaviour:
   - {fileID: 1927675314}
   - {fileID: 756918614}
   - {fileID: 304847822}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 416483296}
   tileTypeDisplay: {fileID: 1158046342}
   detectionPoint: {fileID: 302345851}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -14164,10 +14320,16 @@ MonoBehaviour:
   - {fileID: 1786736883}
   - {fileID: 206921264}
   - {fileID: 1247307698}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1664765753}
   tileTypeDisplay: {fileID: 1918060899}
   detectionPoint: {fileID: 649214191}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -14637,10 +14799,16 @@ MonoBehaviour:
   - {fileID: 1537154968}
   - {fileID: 1294095719}
   - {fileID: 97673491}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2037726423}
   tileTypeDisplay: {fileID: 1513485219}
   detectionPoint: {fileID: 128580151}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -15056,6 +15224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8545ba6600b360d44bc15c2b8d75b61a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movement: 5
 --- !u!1 &250357021
 GameObject:
   m_ObjectHideFlags: 0
@@ -15111,10 +15280,16 @@ MonoBehaviour:
   - {fileID: 501827723}
   - {fileID: 1019936099}
   - {fileID: 115857490}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1574163023}
   tileTypeDisplay: {fileID: 178873994}
   detectionPoint: {fileID: 1179668579}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -16334,10 +16509,16 @@ MonoBehaviour:
   - {fileID: 1725834315}
   - {fileID: 1051370697}
   - {fileID: 28139299}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 58828889}
   tileTypeDisplay: {fileID: 350892796}
   detectionPoint: {fileID: 210752056}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -18330,10 +18511,16 @@ MonoBehaviour:
   - {fileID: 1377343739}
   - {fileID: 1773148292}
   - {fileID: 1006707935}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 813325440}
   tileTypeDisplay: {fileID: 640929782}
   detectionPoint: {fileID: 1661558967}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -18768,10 +18955,16 @@ MonoBehaviour:
   - {fileID: 1871078126}
   - {fileID: 1866834464}
   - {fileID: 205327431}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 768209083}
   tileTypeDisplay: {fileID: 1896117630}
   detectionPoint: {fileID: 640926902}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -18854,10 +19047,16 @@ MonoBehaviour:
   - {fileID: 260290065}
   - {fileID: 1710041783}
   - {fileID: 743517918}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 539999236}
   tileTypeDisplay: {fileID: 839827301}
   detectionPoint: {fileID: 1453871349}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -19144,10 +19343,16 @@ MonoBehaviour:
   - {fileID: 1750799138}
   - {fileID: 1880222595}
   - {fileID: 1772438393}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 943307393}
   tileTypeDisplay: {fileID: 147550884}
   detectionPoint: {fileID: 1638380682}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -19292,10 +19497,16 @@ MonoBehaviour:
   - {fileID: 1533636170}
   - {fileID: 288822530}
   - {fileID: 1628555523}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1236385961}
   tileTypeDisplay: {fileID: 1497032419}
   detectionPoint: {fileID: 126378992}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -20086,10 +20297,16 @@ MonoBehaviour:
   - {fileID: 982618546}
   - {fileID: 1499210194}
   - {fileID: 291434662}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 499434004}
   tileTypeDisplay: {fileID: 728679123}
   detectionPoint: {fileID: 941551400}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -20252,10 +20469,16 @@ MonoBehaviour:
   - {fileID: 1888744966}
   - {fileID: 1995823210}
   - {fileID: 462506514}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 47244304}
   tileTypeDisplay: {fileID: 1838945402}
   detectionPoint: {fileID: 1842820674}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -21015,10 +21238,16 @@ MonoBehaviour:
   - {fileID: 597283757}
   - {fileID: 830359201}
   - {fileID: 1772868970}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 533102842}
   tileTypeDisplay: {fileID: 1915697570}
   detectionPoint: {fileID: 1414413408}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -21101,10 +21330,16 @@ MonoBehaviour:
   - {fileID: 866814920}
   - {fileID: 1801688992}
   - {fileID: 240664529}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 327008862}
   tileTypeDisplay: {fileID: 1953401769}
   detectionPoint: {fileID: 132060348}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -21218,10 +21453,16 @@ MonoBehaviour:
   - {fileID: 637235084}
   - {fileID: 214514695}
   - {fileID: 1358810070}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1154894782}
   tileTypeDisplay: {fileID: 976219209}
   detectionPoint: {fileID: 1742763049}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -21988,10 +22229,16 @@ MonoBehaviour:
   - {fileID: 703504753}
   - {fileID: 388686324}
   - {fileID: 740860337}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 478938113}
   tileTypeDisplay: {fileID: 1077270616}
   detectionPoint: {fileID: 485202739}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -23029,10 +23276,16 @@ MonoBehaviour:
   - {fileID: 1442689781}
   - {fileID: 892216196}
   - {fileID: 468540572}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 573550358}
   tileTypeDisplay: {fileID: 444454081}
   detectionPoint: {fileID: 1642296063}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -23115,10 +23368,16 @@ MonoBehaviour:
   - {fileID: 1664925474}
   - {fileID: 1322795653}
   - {fileID: 444858860}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 589575300}
   tileTypeDisplay: {fileID: 627524288}
   detectionPoint: {fileID: 744194091}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -23709,10 +23968,16 @@ MonoBehaviour:
   - {fileID: 707776219}
   - {fileID: 804387627}
   - {fileID: 837433367}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 581779208}
   tileTypeDisplay: {fileID: 1981838858}
   detectionPoint: {fileID: 1650446801}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -23923,10 +24188,16 @@ MonoBehaviour:
   - {fileID: 1925876509}
   - {fileID: 209284478}
   - {fileID: 1480546551}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1783605756}
   tileTypeDisplay: {fileID: 1283152134}
   detectionPoint: {fileID: 1664555607}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -24155,10 +24426,16 @@ MonoBehaviour:
   - {fileID: 563355325}
   - {fileID: 260807863}
   - {fileID: 1946252470}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1015384956}
   tileTypeDisplay: {fileID: 1038418820}
   detectionPoint: {fileID: 1799058336}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -24562,10 +24839,16 @@ MonoBehaviour:
   - {fileID: 129710603}
   - {fileID: 979159559}
   - {fileID: 882934889}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 843682075}
   tileTypeDisplay: {fileID: 1820102134}
   detectionPoint: {fileID: 1094239101}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -24679,10 +24962,16 @@ MonoBehaviour:
   - {fileID: 1266093369}
   - {fileID: 1560547964}
   - {fileID: 1376288916}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1590518762}
   tileTypeDisplay: {fileID: 757114301}
   detectionPoint: {fileID: 1856794837}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -24907,10 +25196,16 @@ MonoBehaviour:
   - {fileID: 2064740142}
   - {fileID: 60344697}
   - {fileID: 774588893}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1676463082}
   tileTypeDisplay: {fileID: 334804672}
   detectionPoint: {fileID: 1654093203}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -25800,10 +26095,16 @@ MonoBehaviour:
   - {fileID: 785936536}
   - {fileID: 1557190050}
   - {fileID: 1592996862}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2532823}
   tileTypeDisplay: {fileID: 1830235180}
   detectionPoint: {fileID: 1959086867}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -26124,10 +26425,16 @@ MonoBehaviour:
   - {fileID: 1149763352}
   - {fileID: 790057580}
   - {fileID: 1127557858}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 844355063}
   tileTypeDisplay: {fileID: 1238889631}
   detectionPoint: {fileID: 1307044755}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -26697,10 +27004,16 @@ MonoBehaviour:
   - {fileID: 439877096}
   - {fileID: 1574882350}
   - {fileID: 1774927926}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1636782076}
   tileTypeDisplay: {fileID: 1148344914}
   detectionPoint: {fileID: 1510186432}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -27514,10 +27827,16 @@ MonoBehaviour:
   - {fileID: 694254987}
   - {fileID: 73626062}
   - {fileID: 1471603689}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 858455026}
   tileTypeDisplay: {fileID: 293947751}
   detectionPoint: {fileID: 1715743647}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -27891,10 +28210,16 @@ MonoBehaviour:
   - {fileID: 363589487}
   - {fileID: 611754561}
   - {fileID: 122535910}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 932614803}
   tileTypeDisplay: {fileID: 2097988293}
   detectionPoint: {fileID: 2065502348}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -28457,10 +28782,16 @@ MonoBehaviour:
   - {fileID: 1038739100}
   - {fileID: 1486712499}
   - {fileID: 1647861110}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 634002757}
   tileTypeDisplay: {fileID: 1474683934}
   detectionPoint: {fileID: 934927509}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -29230,10 +29561,16 @@ MonoBehaviour:
   - {fileID: 288321877}
   - {fileID: 463053365}
   - {fileID: 729457008}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 514228317}
   tileTypeDisplay: {fileID: 1953098327}
   detectionPoint: {fileID: 955168396}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -29430,10 +29767,16 @@ MonoBehaviour:
   - {fileID: 2134828707}
   - {fileID: 850496328}
   - {fileID: 1444147914}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 891224271}
   tileTypeDisplay: {fileID: 1033697834}
   detectionPoint: {fileID: 169341729}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -29516,10 +29859,16 @@ MonoBehaviour:
   - {fileID: 128508631}
   - {fileID: 1306562216}
   - {fileID: 313553098}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 872811412}
   tileTypeDisplay: {fileID: 1954081185}
   detectionPoint: {fileID: 489084109}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -29664,10 +30013,16 @@ MonoBehaviour:
   - {fileID: 777896337}
   - {fileID: 1431291940}
   - {fileID: 307561831}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 115032179}
   tileTypeDisplay: {fileID: 1187666045}
   detectionPoint: {fileID: 2009192922}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -29864,10 +30219,16 @@ MonoBehaviour:
   - {fileID: 1772867030}
   - {fileID: 842181918}
   - {fileID: 436384838}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1760505152}
   tileTypeDisplay: {fileID: 1595770389}
   detectionPoint: {fileID: 1758385818}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -30017,10 +30378,16 @@ MonoBehaviour:
   - {fileID: 488991674}
   - {fileID: 186002121}
   - {fileID: 1476390669}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1309442589}
   tileTypeDisplay: {fileID: 2017613329}
   detectionPoint: {fileID: 1738673403}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -30886,10 +31253,16 @@ MonoBehaviour:
   - {fileID: 997947997}
   - {fileID: 1999822346}
   - {fileID: 1872210523}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1890781423}
   tileTypeDisplay: {fileID: 284830008}
   detectionPoint: {fileID: 1760434289}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -31297,10 +31670,16 @@ MonoBehaviour:
   - {fileID: 1065595517}
   - {fileID: 246526052}
   - {fileID: 203651470}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1338517734}
   tileTypeDisplay: {fileID: 1836738409}
   detectionPoint: {fileID: 1881594386}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -31836,10 +32215,16 @@ MonoBehaviour:
   - {fileID: 14037481}
   - {fileID: 488055880}
   - {fileID: 957204103}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 23513480}
   tileTypeDisplay: {fileID: 806283026}
   detectionPoint: {fileID: 2065108587}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -32316,10 +32701,16 @@ MonoBehaviour:
   - {fileID: 415188751}
   - {fileID: 1518206477}
   - {fileID: 304045651}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1633761144}
   tileTypeDisplay: {fileID: 50628387}
   detectionPoint: {fileID: 1093729817}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -32464,10 +32855,16 @@ MonoBehaviour:
   - {fileID: 996253023}
   - {fileID: 198578395}
   - {fileID: 1430512212}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 850466309}
   tileTypeDisplay: {fileID: 84795545}
   detectionPoint: {fileID: 604863439}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -32633,10 +33030,16 @@ MonoBehaviour:
   - {fileID: 1020183546}
   - {fileID: 1757543626}
   - {fileID: 1219621582}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1661858803}
   tileTypeDisplay: {fileID: 689323045}
   detectionPoint: {fileID: 1011954567}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -32992,10 +33395,16 @@ MonoBehaviour:
   - {fileID: 591792019}
   - {fileID: 796975580}
   - {fileID: 372092589}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1186544867}
   tileTypeDisplay: {fileID: 1431362382}
   detectionPoint: {fileID: 858964099}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -33345,6 +33754,7 @@ MonoBehaviour:
   tileMaterialWall: {fileID: 2100000, guid: a0528136dfcbbb94abf762bd4346eb74, type: 2}
   tileMaterialWalkable: {fileID: 2100000, guid: 6907e2e510a43d84dbe9fa3c41421aa7,
     type: 2}
+  tileMaterialNothing: {fileID: 2100000, guid: f73557124760a5c4f9537d6472c42391, type: 2}
 --- !u!4 &569923150
 Transform:
   m_ObjectHideFlags: 0
@@ -33655,10 +34065,16 @@ MonoBehaviour:
   - {fileID: 1264179430}
   - {fileID: 1718469373}
   - {fileID: 172495035}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1342703475}
   tileTypeDisplay: {fileID: 1435726806}
   detectionPoint: {fileID: 139101476}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -33741,10 +34157,16 @@ MonoBehaviour:
   - {fileID: 1250331930}
   - {fileID: 1655803917}
   - {fileID: 1030841780}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1106184223}
   tileTypeDisplay: {fileID: 1073722558}
   detectionPoint: {fileID: 1327255470}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -33862,10 +34284,16 @@ MonoBehaviour:
   - {fileID: 46813641}
   - {fileID: 1871792509}
   - {fileID: 1099795581}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 326323960}
   tileTypeDisplay: {fileID: 1130828623}
   detectionPoint: {fileID: 2037257936}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -34892,10 +35320,16 @@ MonoBehaviour:
   - {fileID: 180504657}
   - {fileID: 1712365476}
   - {fileID: 997552378}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 549127953}
   tileTypeDisplay: {fileID: 950229151}
   detectionPoint: {fileID: 1131440004}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -35441,10 +35875,16 @@ MonoBehaviour:
   - {fileID: 1319751205}
   - {fileID: 551556582}
   - {fileID: 1366913142}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 943285651}
   tileTypeDisplay: {fileID: 954291271}
   detectionPoint: {fileID: 1666579415}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -35527,10 +35967,16 @@ MonoBehaviour:
   - {fileID: 1345979227}
   - {fileID: 1337173850}
   - {fileID: 211604525}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1977547708}
   tileTypeDisplay: {fileID: 1979586188}
   detectionPoint: {fileID: 919957516}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -35675,10 +36121,16 @@ MonoBehaviour:
   - {fileID: 463840077}
   - {fileID: 1772058720}
   - {fileID: 987994627}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 678784811}
   tileTypeDisplay: {fileID: 511443053}
   detectionPoint: {fileID: 187126437}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -36245,10 +36697,16 @@ MonoBehaviour:
   - {fileID: 2107591450}
   - {fileID: 1590396915}
   - {fileID: 937223791}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 263055767}
   tileTypeDisplay: {fileID: 141405186}
   detectionPoint: {fileID: 1899676885}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -37180,10 +37638,16 @@ MonoBehaviour:
   - {fileID: 2079100534}
   - {fileID: 206977205}
   - {fileID: 1744419080}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1375760120}
   tileTypeDisplay: {fileID: 1291898381}
   detectionPoint: {fileID: 963838324}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -37473,10 +37937,16 @@ MonoBehaviour:
   - {fileID: 418538566}
   - {fileID: 313188305}
   - {fileID: 1487978936}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1710593508}
   tileTypeDisplay: {fileID: 1856898106}
   detectionPoint: {fileID: 1374135451}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -39320,10 +39790,16 @@ MonoBehaviour:
   - {fileID: 1399635912}
   - {fileID: 125787318}
   - {fileID: 1648068311}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 8024974}
   tileTypeDisplay: {fileID: 920547351}
   detectionPoint: {fileID: 1203515280}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -39963,10 +40439,16 @@ MonoBehaviour:
   - {fileID: 1254160253}
   - {fileID: 1965588842}
   - {fileID: 155789723}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1223025987}
   tileTypeDisplay: {fileID: 97749396}
   detectionPoint: {fileID: 903967599}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -40049,10 +40531,16 @@ MonoBehaviour:
   - {fileID: 933916952}
   - {fileID: 1752108851}
   - {fileID: 2098935509}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1246547750}
   tileTypeDisplay: {fileID: 780804395}
   detectionPoint: {fileID: 735107656}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -40197,10 +40685,16 @@ MonoBehaviour:
   - {fileID: 1694638924}
   - {fileID: 1297967046}
   - {fileID: 54767544}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 934182886}
   tileTypeDisplay: {fileID: 1136788656}
   detectionPoint: {fileID: 1775173310}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -40560,10 +41054,16 @@ MonoBehaviour:
   - {fileID: 1128486712}
   - {fileID: 1037218562}
   - {fileID: 1501939157}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 964729604}
   tileTypeDisplay: {fileID: 1621328586}
   detectionPoint: {fileID: 1611896378}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -40708,10 +41208,16 @@ MonoBehaviour:
   - {fileID: 92030457}
   - {fileID: 356432590}
   - {fileID: 1132782072}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 847724964}
   tileTypeDisplay: {fileID: 1429446017}
   detectionPoint: {fileID: 670986309}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -40794,10 +41300,16 @@ MonoBehaviour:
   - {fileID: 1483947452}
   - {fileID: 1507185265}
   - {fileID: 1591512780}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 292455396}
   tileTypeDisplay: {fileID: 1345450686}
   detectionPoint: {fileID: 789402986}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -41350,10 +41862,16 @@ MonoBehaviour:
   - {fileID: 607183408}
   - {fileID: 465283756}
   - {fileID: 1286934090}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1361840422}
   tileTypeDisplay: {fileID: 1924050120}
   detectionPoint: {fileID: 2087780888}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -42199,10 +42717,16 @@ MonoBehaviour:
   - {fileID: 25724633}
   - {fileID: 1558018355}
   - {fileID: 203967093}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1208425146}
   tileTypeDisplay: {fileID: 234681245}
   detectionPoint: {fileID: 338442103}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -42945,10 +43469,16 @@ MonoBehaviour:
   - {fileID: 1965186392}
   - {fileID: 72128650}
   - {fileID: 257719049}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 52328020}
   tileTypeDisplay: {fileID: 1689343858}
   detectionPoint: {fileID: 1804517397}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -43379,10 +43909,16 @@ MonoBehaviour:
   - {fileID: 65336997}
   - {fileID: 1101718515}
   - {fileID: 273288251}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 877709107}
   tileTypeDisplay: {fileID: 279269975}
   detectionPoint: {fileID: 1321296295}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -43548,10 +44084,16 @@ MonoBehaviour:
   - {fileID: 1386306608}
   - {fileID: 492336642}
   - {fileID: 168415998}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 989800221}
   tileTypeDisplay: {fileID: 1659330380}
   detectionPoint: {fileID: 1197325218}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -43841,10 +44383,16 @@ MonoBehaviour:
   - {fileID: 1054920343}
   - {fileID: 840349880}
   - {fileID: 1317444693}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 597798202}
   tileTypeDisplay: {fileID: 462242981}
   detectionPoint: {fileID: 663748116}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -44346,10 +44894,16 @@ MonoBehaviour:
   - {fileID: 1879446537}
   - {fileID: 1579284438}
   - {fileID: 1676741529}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1943274977}
   tileTypeDisplay: {fileID: 858972637}
   detectionPoint: {fileID: 740998632}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -45322,10 +45876,16 @@ MonoBehaviour:
   - {fileID: 36529873}
   - {fileID: 321695454}
   - {fileID: 1147729139}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1259838611}
   tileTypeDisplay: {fileID: 577070571}
   detectionPoint: {fileID: 1870090562}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -45667,10 +46227,16 @@ MonoBehaviour:
   - {fileID: 141882731}
   - {fileID: 1110759428}
   - {fileID: 1164783808}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 547048196}
   tileTypeDisplay: {fileID: 267071544}
   detectionPoint: {fileID: 650979632}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -46635,10 +47201,16 @@ MonoBehaviour:
   - {fileID: 763869603}
   - {fileID: 368684617}
   - {fileID: 917979077}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 324277735}
   tileTypeDisplay: {fileID: 51308175}
   detectionPoint: {fileID: 877245832}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -46752,10 +47324,16 @@ MonoBehaviour:
   - {fileID: 800959920}
   - {fileID: 1535825745}
   - {fileID: 1997122598}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 59249597}
   tileTypeDisplay: {fileID: 1092230886}
   detectionPoint: {fileID: 168452972}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -47256,10 +47834,16 @@ MonoBehaviour:
   - {fileID: 2102292392}
   - {fileID: 567606793}
   - {fileID: 153042180}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1632325592}
   tileTypeDisplay: {fileID: 1870018248}
   detectionPoint: {fileID: 1735418146}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -47342,10 +47926,16 @@ MonoBehaviour:
   - {fileID: 1128121262}
   - {fileID: 887439004}
   - {fileID: 145538501}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1009304254}
   tileTypeDisplay: {fileID: 296045454}
   detectionPoint: {fileID: 1430189308}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -48312,10 +48902,16 @@ MonoBehaviour:
   - {fileID: 1226088010}
   - {fileID: 1762688472}
   - {fileID: 1150508166}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 648452365}
   tileTypeDisplay: {fileID: 1269674217}
   detectionPoint: {fileID: 545441293}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -48398,10 +48994,16 @@ MonoBehaviour:
   - {fileID: 1863982108}
   - {fileID: 1876283902}
   - {fileID: 95523737}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 454520801}
   tileTypeDisplay: {fileID: 617764262}
   detectionPoint: {fileID: 810968140}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -48695,10 +49297,16 @@ MonoBehaviour:
   - {fileID: 1048102359}
   - {fileID: 1138856437}
   - {fileID: 915076579}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1984255634}
   tileTypeDisplay: {fileID: 241923326}
   detectionPoint: {fileID: 738614739}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -49387,10 +49995,16 @@ MonoBehaviour:
   - {fileID: 1482159083}
   - {fileID: 1915968221}
   - {fileID: 1457196575}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 384332088}
   tileTypeDisplay: {fileID: 1908872267}
   detectionPoint: {fileID: 1295014124}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -50372,10 +50986,16 @@ MonoBehaviour:
   - {fileID: 889386988}
   - {fileID: 266397876}
   - {fileID: 1520515154}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1716087350}
   tileTypeDisplay: {fileID: 1146515706}
   detectionPoint: {fileID: 928228874}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -51011,10 +51631,16 @@ MonoBehaviour:
   - {fileID: 1151986531}
   - {fileID: 1116088800}
   - {fileID: 764195534}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1840196270}
   tileTypeDisplay: {fileID: 1716924415}
   detectionPoint: {fileID: 597119755}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -52209,10 +52835,16 @@ MonoBehaviour:
   - {fileID: 854311998}
   - {fileID: 142019822}
   - {fileID: 1195485121}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1346952256}
   tileTypeDisplay: {fileID: 1022246350}
   detectionPoint: {fileID: 1528163899}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -52423,10 +53055,16 @@ MonoBehaviour:
   - {fileID: 993762901}
   - {fileID: 951723892}
   - {fileID: 944908564}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 3922409}
   tileTypeDisplay: {fileID: 1729438307}
   detectionPoint: {fileID: 1694434009}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -52571,10 +53209,16 @@ MonoBehaviour:
   - {fileID: 614270025}
   - {fileID: 1932488863}
   - {fileID: 1869434265}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 357131185}
   tileTypeDisplay: {fileID: 1505395596}
   detectionPoint: {fileID: 2043749439}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -52657,10 +53301,16 @@ MonoBehaviour:
   - {fileID: 730809379}
   - {fileID: 1570332423}
   - {fileID: 1933569607}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 876631335}
   tileTypeDisplay: {fileID: 1698673656}
   detectionPoint: {fileID: 1555115121}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -53240,10 +53890,16 @@ MonoBehaviour:
   - {fileID: 1976643400}
   - {fileID: 1739656580}
   - {fileID: 914299505}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1784590194}
   tileTypeDisplay: {fileID: 378077685}
   detectionPoint: {fileID: 1583580452}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -53409,10 +54065,16 @@ MonoBehaviour:
   - {fileID: 22594088}
   - {fileID: 1816021353}
   - {fileID: 454116049}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 306040654}
   tileTypeDisplay: {fileID: 1437824551}
   detectionPoint: {fileID: 467141307}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -53892,10 +54554,16 @@ MonoBehaviour:
   - {fileID: 82487039}
   - {fileID: 1426247592}
   - {fileID: 1774190564}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 356510488}
   tileTypeDisplay: {fileID: 1144223800}
   detectionPoint: {fileID: 1141519759}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -54040,10 +54708,16 @@ MonoBehaviour:
   - {fileID: 1974253561}
   - {fileID: 1972370632}
   - {fileID: 1909216577}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 212268640}
   tileTypeDisplay: {fileID: 480608637}
   detectionPoint: {fileID: 1274503942}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -54552,10 +55226,16 @@ MonoBehaviour:
   - {fileID: 642251394}
   - {fileID: 2075812936}
   - {fileID: 495647788}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1920166009}
   tileTypeDisplay: {fileID: 1803097191}
   detectionPoint: {fileID: 230967429}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -54938,10 +55618,16 @@ MonoBehaviour:
   - {fileID: 338597077}
   - {fileID: 1421906552}
   - {fileID: 1894657593}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1160332831}
   tileTypeDisplay: {fileID: 633466441}
   detectionPoint: {fileID: 1677759053}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -55316,10 +56002,16 @@ MonoBehaviour:
   - {fileID: 909510822}
   - {fileID: 1287893666}
   - {fileID: 808140080}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 43430877}
   tileTypeDisplay: {fileID: 73654486}
   detectionPoint: {fileID: 1940859785}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -55547,10 +56239,16 @@ MonoBehaviour:
   - {fileID: 246234772}
   - {fileID: 1166820629}
   - {fileID: 2138446393}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 999615438}
   tileTypeDisplay: {fileID: 1546260352}
   detectionPoint: {fileID: 1225685782}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -55875,10 +56573,16 @@ MonoBehaviour:
   - {fileID: 1463591111}
   - {fileID: 1313831734}
   - {fileID: 1308302715}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 205367230}
   tileTypeDisplay: {fileID: 1052056128}
   detectionPoint: {fileID: 2005388323}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -57209,10 +57913,16 @@ MonoBehaviour:
   - {fileID: 2018563571}
   - {fileID: 424889201}
   - {fileID: 1500934227}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 603958112}
   tileTypeDisplay: {fileID: 1568541306}
   detectionPoint: {fileID: 1054754104}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -57554,10 +58264,16 @@ MonoBehaviour:
   - {fileID: 876628678}
   - {fileID: 574109200}
   - {fileID: 923215349}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 33768420}
   tileTypeDisplay: {fileID: 874721737}
   detectionPoint: {fileID: 1508279467}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -59005,10 +59721,16 @@ MonoBehaviour:
   - {fileID: 15505586}
   - {fileID: 2058707346}
   - {fileID: 1960012242}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1182794769}
   tileTypeDisplay: {fileID: 575482363}
   detectionPoint: {fileID: 1419315141}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -59425,10 +60147,16 @@ MonoBehaviour:
   - {fileID: 1590910465}
   - {fileID: 731820680}
   - {fileID: 1697357841}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 454431809}
   tileTypeDisplay: {fileID: 1609659107}
   detectionPoint: {fileID: 1024151854}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -59511,10 +60239,16 @@ MonoBehaviour:
   - {fileID: 292500558}
   - {fileID: 189040725}
   - {fileID: 18070772}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1633021379}
   tileTypeDisplay: {fileID: 158363134}
   detectionPoint: {fileID: 2074741738}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -60307,10 +61041,16 @@ MonoBehaviour:
   - {fileID: 1991989506}
   - {fileID: 477941509}
   - {fileID: 1155516380}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1499538888}
   tileTypeDisplay: {fileID: 1967003969}
   detectionPoint: {fileID: 907980723}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -60881,10 +61621,16 @@ MonoBehaviour:
   - {fileID: 1228946091}
   - {fileID: 1272931457}
   - {fileID: 1202925762}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 981047595}
   tileTypeDisplay: {fileID: 1923377345}
   detectionPoint: {fileID: 336077631}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -61336,10 +62082,16 @@ MonoBehaviour:
   - {fileID: 1735032227}
   - {fileID: 132072173}
   - {fileID: 926203189}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1362006666}
   tileTypeDisplay: {fileID: 1696429288}
   detectionPoint: {fileID: 420388299}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -66258,10 +67010,16 @@ MonoBehaviour:
   - {fileID: 66459792}
   - {fileID: 95553630}
   - {fileID: 713732328}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1444441175}
   tileTypeDisplay: {fileID: 1696145949}
   detectionPoint: {fileID: 777274387}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -66489,10 +67247,16 @@ MonoBehaviour:
   - {fileID: 603143636}
   - {fileID: 711700613}
   - {fileID: 13755656}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 51793022}
   tileTypeDisplay: {fileID: 967959360}
   detectionPoint: {fileID: 729364206}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -66896,10 +67660,16 @@ MonoBehaviour:
   - {fileID: 1746045827}
   - {fileID: 204201811}
   - {fileID: 2143006153}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 645289901}
   tileTypeDisplay: {fileID: 1522833902}
   detectionPoint: {fileID: 827221464}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -67768,10 +68538,16 @@ MonoBehaviour:
   - {fileID: 581754739}
   - {fileID: 2107977013}
   - {fileID: 80259130}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 971956045}
   tileTypeDisplay: {fileID: 2113788113}
   detectionPoint: {fileID: 130654298}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -68715,10 +69491,16 @@ MonoBehaviour:
   - {fileID: 283873055}
   - {fileID: 2138148463}
   - {fileID: 1250962989}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 568046668}
   tileTypeDisplay: {fileID: 1828996495}
   detectionPoint: {fileID: 342504299}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -68832,10 +69614,16 @@ MonoBehaviour:
   - {fileID: 1157161399}
   - {fileID: 1522889990}
   - {fileID: 575852659}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 659110173}
   tileTypeDisplay: {fileID: 616532335}
   detectionPoint: {fileID: 1090301183}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -69032,10 +69820,16 @@ MonoBehaviour:
   - {fileID: 567431987}
   - {fileID: 1784152498}
   - {fileID: 778164278}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1717636567}
   tileTypeDisplay: {fileID: 1427742599}
   detectionPoint: {fileID: 874072699}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -69228,10 +70022,16 @@ MonoBehaviour:
   - {fileID: 273526933}
   - {fileID: 415068328}
   - {fileID: 2093939773}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1784500891}
   tileTypeDisplay: {fileID: 401185252}
   detectionPoint: {fileID: 1066931594}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -69560,10 +70360,16 @@ MonoBehaviour:
   - {fileID: 316548443}
   - {fileID: 2100381938}
   - {fileID: 493191733}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1527000591}
   tileTypeDisplay: {fileID: 949168308}
   detectionPoint: {fileID: 1820331169}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -70883,10 +71689,16 @@ MonoBehaviour:
   - {fileID: 1221128661}
   - {fileID: 1907167758}
   - {fileID: 1949107791}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1160309283}
   tileTypeDisplay: {fileID: 1247933676}
   detectionPoint: {fileID: 1514911809}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -72648,10 +73460,16 @@ MonoBehaviour:
   - {fileID: 1866963956}
   - {fileID: 805741450}
   - {fileID: 1769036936}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 281622202}
   tileTypeDisplay: {fileID: 1132635452}
   detectionPoint: {fileID: 971923736}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -72883,10 +73701,16 @@ MonoBehaviour:
   - {fileID: 1355428888}
   - {fileID: 1025464856}
   - {fileID: 1501477986}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1630691716}
   tileTypeDisplay: {fileID: 1616481046}
   detectionPoint: {fileID: 723394026}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -73083,10 +73907,16 @@ MonoBehaviour:
   - {fileID: 1264794160}
   - {fileID: 1761269054}
   - {fileID: 1990922742}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1055056224}
   tileTypeDisplay: {fileID: 1812073615}
   detectionPoint: {fileID: 842051644}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -73262,10 +74092,16 @@ MonoBehaviour:
   - {fileID: 1483208343}
   - {fileID: 881209836}
   - {fileID: 805341745}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1520306213}
   tileTypeDisplay: {fileID: 1034586690}
   detectionPoint: {fileID: 1076009541}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -74260,10 +75096,16 @@ MonoBehaviour:
   - {fileID: 1803455353}
   - {fileID: 1817062508}
   - {fileID: 850606668}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1045452944}
   tileTypeDisplay: {fileID: 560603792}
   detectionPoint: {fileID: 614142272}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -74864,10 +75706,16 @@ MonoBehaviour:
   - {fileID: 1253659913}
   - {fileID: 1491878861}
   - {fileID: 520343616}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1511791541}
   tileTypeDisplay: {fileID: 1510806763}
   detectionPoint: {fileID: 1252802314}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -75074,10 +75922,16 @@ MonoBehaviour:
   - {fileID: 591692965}
   - {fileID: 1972569566}
   - {fileID: 481399793}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 658196671}
   tileTypeDisplay: {fileID: 551389606}
   detectionPoint: {fileID: 1630795588}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -75419,10 +76273,16 @@ MonoBehaviour:
   - {fileID: 1306628836}
   - {fileID: 1001506045}
   - {fileID: 1343329471}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1545069371}
   tileTypeDisplay: {fileID: 488639736}
   detectionPoint: {fileID: 1503401468}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -75785,10 +76645,16 @@ MonoBehaviour:
   - {fileID: 1387807996}
   - {fileID: 573013802}
   - {fileID: 789806688}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1508759516}
   tileTypeDisplay: {fileID: 1239600521}
   detectionPoint: {fileID: 554892676}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -76295,10 +77161,16 @@ MonoBehaviour:
   - {fileID: 935193648}
   - {fileID: 260165313}
   - {fileID: 1101959234}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1060742353}
   tileTypeDisplay: {fileID: 1732108431}
   detectionPoint: {fileID: 312398508}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -76412,10 +77284,16 @@ MonoBehaviour:
   - {fileID: 754636057}
   - {fileID: 1632351334}
   - {fileID: 1353943354}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1041463874}
   tileTypeDisplay: {fileID: 1144731082}
   detectionPoint: {fileID: 1425643601}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -76850,10 +77728,16 @@ MonoBehaviour:
   - {fileID: 390282968}
   - {fileID: 159256152}
   - {fileID: 1435186922}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1185967581}
   tileTypeDisplay: {fileID: 1208702863}
   detectionPoint: {fileID: 1783107064}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -76936,10 +77820,16 @@ MonoBehaviour:
   - {fileID: 1368442631}
   - {fileID: 1232756328}
   - {fileID: 1875872127}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1692212495}
   tileTypeDisplay: {fileID: 866272396}
   detectionPoint: {fileID: 134067215}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -77088,10 +77978,16 @@ MonoBehaviour:
   - {fileID: 2068279267}
   - {fileID: 401562171}
   - {fileID: 2076300879}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 200076612}
   tileTypeDisplay: {fileID: 1259647933}
   detectionPoint: {fileID: 1316801100}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -77633,10 +78529,16 @@ MonoBehaviour:
   - {fileID: 427331954}
   - {fileID: 1618702291}
   - {fileID: 2003159801}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1229352870}
   tileTypeDisplay: {fileID: 342398789}
   detectionPoint: {fileID: 517877386}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -78904,10 +79806,16 @@ MonoBehaviour:
   - {fileID: 829222435}
   - {fileID: 2010802284}
   - {fileID: 690612439}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1694507991}
   tileTypeDisplay: {fileID: 868996724}
   detectionPoint: {fileID: 1051713415}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -79756,10 +80664,16 @@ MonoBehaviour:
   - {fileID: 1453153165}
   - {fileID: 2072946954}
   - {fileID: 2093160793}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1103595266}
   tileTypeDisplay: {fileID: 2101010964}
   detectionPoint: {fileID: 354065187}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -79842,10 +80756,16 @@ MonoBehaviour:
   - {fileID: 17109354}
   - {fileID: 1848509821}
   - {fileID: 204635502}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1660896410}
   tileTypeDisplay: {fileID: 1264093891}
   detectionPoint: {fileID: 1328582511}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -80160,10 +81080,16 @@ MonoBehaviour:
   - {fileID: 806542319}
   - {fileID: 355822172}
   - {fileID: 199145837}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1803362362}
   tileTypeDisplay: {fileID: 1301696463}
   detectionPoint: {fileID: 716371760}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -80799,10 +81725,16 @@ MonoBehaviour:
   - {fileID: 367879430}
   - {fileID: 400352535}
   - {fileID: 968870998}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1504083090}
   tileTypeDisplay: {fileID: 664657963}
   detectionPoint: {fileID: 1695288573}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -81158,10 +82090,16 @@ MonoBehaviour:
   - {fileID: 1003571290}
   - {fileID: 1386003126}
   - {fileID: 1836184311}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 197318440}
   tileTypeDisplay: {fileID: 987808687}
   detectionPoint: {fileID: 543070254}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -82236,10 +83174,16 @@ MonoBehaviour:
   - {fileID: 925792660}
   - {fileID: 1364047709}
   - {fileID: 2109782253}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1270021035}
   tileTypeDisplay: {fileID: 253032765}
   detectionPoint: {fileID: 1922157690}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -83245,10 +84189,16 @@ MonoBehaviour:
   - {fileID: 1583805854}
   - {fileID: 671670989}
   - {fileID: 452073220}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1180731137}
   tileTypeDisplay: {fileID: 792937835}
   detectionPoint: {fileID: 1205500738}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -85087,10 +86037,16 @@ MonoBehaviour:
   - {fileID: 1448549539}
   - {fileID: 2145197124}
   - {fileID: 705115634}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 466440278}
   tileTypeDisplay: {fileID: 1972498508}
   detectionPoint: {fileID: 791746663}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -85208,10 +86164,16 @@ MonoBehaviour:
   - {fileID: 1611845902}
   - {fileID: 310425616}
   - {fileID: 775629804}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1058917455}
   tileTypeDisplay: {fileID: 1240590023}
   detectionPoint: {fileID: 390841508}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -86846,10 +87808,16 @@ MonoBehaviour:
   - {fileID: 1987250341}
   - {fileID: 626154879}
   - {fileID: 1210113307}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 727818810}
   tileTypeDisplay: {fileID: 1161409555}
   detectionPoint: {fileID: 719063710}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -88647,10 +89615,16 @@ MonoBehaviour:
   - {fileID: 1026064852}
   - {fileID: 1677091865}
   - {fileID: 880161574}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 120508990}
   tileTypeDisplay: {fileID: 2121396796}
   detectionPoint: {fileID: 1143623971}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -88733,10 +89707,16 @@ MonoBehaviour:
   - {fileID: 1071603784}
   - {fileID: 973191058}
   - {fileID: 1083573207}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1691666053}
   tileTypeDisplay: {fileID: 550328197}
   detectionPoint: {fileID: 1824952277}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -89831,10 +90811,16 @@ MonoBehaviour:
   - {fileID: 923379586}
   - {fileID: 269342303}
   - {fileID: 1009626526}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 122269715}
   tileTypeDisplay: {fileID: 2097558943}
   detectionPoint: {fileID: 767103048}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -89948,10 +90934,16 @@ MonoBehaviour:
   - {fileID: 731809203}
   - {fileID: 1785255271}
   - {fileID: 316694530}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1241578572}
   tileTypeDisplay: {fileID: 367806552}
   detectionPoint: {fileID: 766892889}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -90210,10 +91202,16 @@ MonoBehaviour:
   - {fileID: 1432236024}
   - {fileID: 39884943}
   - {fileID: 605065770}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2098304573}
   tileTypeDisplay: {fileID: 1502882673}
   detectionPoint: {fileID: 638688845}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -90490,10 +91488,16 @@ MonoBehaviour:
   - {fileID: 1661554421}
   - {fileID: 150780261}
   - {fileID: 1523271381}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1061891722}
   tileTypeDisplay: {fileID: 379366469}
   detectionPoint: {fileID: 308365672}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -90607,10 +91611,16 @@ MonoBehaviour:
   - {fileID: 263614853}
   - {fileID: 167408704}
   - {fileID: 1925639268}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 282272176}
   tileTypeDisplay: {fileID: 752177153}
   detectionPoint: {fileID: 709021579}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -91799,10 +92809,16 @@ MonoBehaviour:
   - {fileID: 1083123044}
   - {fileID: 2011564823}
   - {fileID: 1748857615}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1878700332}
   tileTypeDisplay: {fileID: 1457988272}
   detectionPoint: {fileID: 753910098}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -91999,10 +93015,16 @@ MonoBehaviour:
   - {fileID: 735394497}
   - {fileID: 62924827}
   - {fileID: 2095135919}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 653483383}
   tileTypeDisplay: {fileID: 611479557}
   detectionPoint: {fileID: 1816305099}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -94082,10 +95104,16 @@ MonoBehaviour:
   - {fileID: 637830950}
   - {fileID: 1981471705}
   - {fileID: 1102889662}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 138984367}
   tileTypeDisplay: {fileID: 175585389}
   detectionPoint: {fileID: 1740210555}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -94375,10 +95403,16 @@ MonoBehaviour:
   - {fileID: 237710590}
   - {fileID: 581009748}
   - {fileID: 1456482555}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 252317448}
   tileTypeDisplay: {fileID: 1477545013}
   detectionPoint: {fileID: 161799838}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -94672,10 +95706,16 @@ MonoBehaviour:
   - {fileID: 1156975104}
   - {fileID: 1155394461}
   - {fileID: 1528245680}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2029221383}
   tileTypeDisplay: {fileID: 213790624}
   detectionPoint: {fileID: 1440388142}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -95028,10 +96068,16 @@ MonoBehaviour:
   - {fileID: 795464679}
   - {fileID: 97295018}
   - {fileID: 57768428}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1739443412}
   tileTypeDisplay: {fileID: 104515864}
   detectionPoint: {fileID: 1126199214}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -95180,10 +96226,16 @@ MonoBehaviour:
   - {fileID: 1955115383}
   - {fileID: 683714269}
   - {fileID: 1563959125}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 981306381}
   tileTypeDisplay: {fileID: 198156037}
   detectionPoint: {fileID: 521798365}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -95349,10 +96401,16 @@ MonoBehaviour:
   - {fileID: 332102134}
   - {fileID: 1806985910}
   - {fileID: 1251645164}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1565343168}
   tileTypeDisplay: {fileID: 360839766}
   detectionPoint: {fileID: 1897149087}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -95849,10 +96907,16 @@ MonoBehaviour:
   - {fileID: 1209236846}
   - {fileID: 30395260}
   - {fileID: 1577275620}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 505630115}
   tileTypeDisplay: {fileID: 1292417404}
   detectionPoint: {fileID: 1569480783}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -95935,10 +96999,16 @@ MonoBehaviour:
   - {fileID: 893855893}
   - {fileID: 1638184080}
   - {fileID: 1854586204}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1063379541}
   tileTypeDisplay: {fileID: 862879526}
   detectionPoint: {fileID: 340635743}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -96056,10 +97126,16 @@ MonoBehaviour:
   - {fileID: 438172030}
   - {fileID: 1959289447}
   - {fileID: 435965873}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1974171624}
   tileTypeDisplay: {fileID: 569479}
   detectionPoint: {fileID: 241899465}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -96504,10 +97580,16 @@ MonoBehaviour:
   - {fileID: 1763773518}
   - {fileID: 362538012}
   - {fileID: 448065398}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1959190116}
   tileTypeDisplay: {fileID: 358935523}
   detectionPoint: {fileID: 28401565}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -96621,10 +97703,16 @@ MonoBehaviour:
   - {fileID: 626232087}
   - {fileID: 1969137308}
   - {fileID: 523515621}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 260206967}
   tileTypeDisplay: {fileID: 917522318}
   detectionPoint: {fileID: 778075960}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -97484,10 +98572,16 @@ MonoBehaviour:
   - {fileID: 590656407}
   - {fileID: 912620644}
   - {fileID: 577460185}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1333323958}
   tileTypeDisplay: {fileID: 1238784539}
   detectionPoint: {fileID: 475164990}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -97889,10 +98983,16 @@ MonoBehaviour:
   - {fileID: 237170122}
   - {fileID: 880150700}
   - {fileID: 1538640800}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1292901375}
   tileTypeDisplay: {fileID: 1422256141}
   detectionPoint: {fileID: 482800679}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -98111,10 +99211,16 @@ MonoBehaviour:
   - {fileID: 68129457}
   - {fileID: 737886411}
   - {fileID: 173259726}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 456237558}
   tileTypeDisplay: {fileID: 1674786096}
   detectionPoint: {fileID: 115406198}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -98228,10 +99334,16 @@ MonoBehaviour:
   - {fileID: 194288797}
   - {fileID: 1764562264}
   - {fileID: 1538348209}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 555768694}
   tileTypeDisplay: {fileID: 243222107}
   detectionPoint: {fileID: 714079832}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -98631,10 +99743,16 @@ MonoBehaviour:
   - {fileID: 355189382}
   - {fileID: 607023881}
   - {fileID: 1118362732}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 635501136}
   tileTypeDisplay: {fileID: 1855202031}
   detectionPoint: {fileID: 619813122}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -99629,10 +100747,16 @@ MonoBehaviour:
   - {fileID: 1576114623}
   - {fileID: 487266470}
   - {fileID: 126420418}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1790148492}
   tileTypeDisplay: {fileID: 1004420386}
   detectionPoint: {fileID: 2075324999}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -100092,10 +101216,16 @@ MonoBehaviour:
   - {fileID: 1961607781}
   - {fileID: 478548874}
   - {fileID: 1175180027}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1550200629}
   tileTypeDisplay: {fileID: 1991519079}
   detectionPoint: {fileID: 1549615303}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -100451,10 +101581,16 @@ MonoBehaviour:
   - {fileID: 1581238408}
   - {fileID: 1885042421}
   - {fileID: 1363066451}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 42447699}
   tileTypeDisplay: {fileID: 576470129}
   detectionPoint: {fileID: 936942833}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -101143,10 +102279,16 @@ MonoBehaviour:
   - {fileID: 587338306}
   - {fileID: 1880471728}
   - {fileID: 1940108122}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 892283808}
   tileTypeDisplay: {fileID: 101495100}
   detectionPoint: {fileID: 714574519}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -101312,10 +102454,16 @@ MonoBehaviour:
   - {fileID: 404237206}
   - {fileID: 621201255}
   - {fileID: 1035236537}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 34321439}
   tileTypeDisplay: {fileID: 1528195181}
   detectionPoint: {fileID: 999210493}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -101398,10 +102546,16 @@ MonoBehaviour:
   - {fileID: 1628247350}
   - {fileID: 1132419563}
   - {fileID: 1547817914}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1160631760}
   tileTypeDisplay: {fileID: 1283507658}
   detectionPoint: {fileID: 266937513}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -101639,10 +102793,16 @@ MonoBehaviour:
   - {fileID: 129261511}
   - {fileID: 414435717}
   - {fileID: 1399968931}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1961773639}
   tileTypeDisplay: {fileID: 1359046096}
   detectionPoint: {fileID: 611661756}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -101725,10 +102885,16 @@ MonoBehaviour:
   - {fileID: 1450403658}
   - {fileID: 1095424019}
   - {fileID: 82778510}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1678278038}
   tileTypeDisplay: {fileID: 688656083}
   detectionPoint: {fileID: 293643583}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -101970,10 +103136,16 @@ MonoBehaviour:
   - {fileID: 469163918}
   - {fileID: 210602705}
   - {fileID: 701576968}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 164246219}
   tileTypeDisplay: {fileID: 611158910}
   detectionPoint: {fileID: 1627636391}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -102118,10 +103290,16 @@ MonoBehaviour:
   - {fileID: 353529110}
   - {fileID: 91295597}
   - {fileID: 783376205}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1031146295}
   tileTypeDisplay: {fileID: 990552968}
   detectionPoint: {fileID: 646200947}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -103704,10 +104882,16 @@ MonoBehaviour:
   - {fileID: 43234210}
   - {fileID: 992224243}
   - {fileID: 2021504598}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 664565872}
   tileTypeDisplay: {fileID: 940431981}
   detectionPoint: {fileID: 441036}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -104800,10 +105984,16 @@ MonoBehaviour:
   - {fileID: 1087184204}
   - {fileID: 1349254836}
   - {fileID: 1835803292}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1292563355}
   tileTypeDisplay: {fileID: 1703251239}
   detectionPoint: {fileID: 1888141366}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -105395,10 +106585,16 @@ MonoBehaviour:
   - {fileID: 111205529}
   - {fileID: 1539077402}
   - {fileID: 1976783949}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2023529106}
   tileTypeDisplay: {fileID: 2019085599}
   detectionPoint: {fileID: 1321008110}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -106286,10 +107482,16 @@ MonoBehaviour:
   - {fileID: 1658223887}
   - {fileID: 1422731640}
   - {fileID: 1465606875}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1699845664}
   tileTypeDisplay: {fileID: 876520358}
   detectionPoint: {fileID: 1124376105}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -106434,10 +107636,16 @@ MonoBehaviour:
   - {fileID: 509435516}
   - {fileID: 886001801}
   - {fileID: 767620356}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1488637147}
   tileTypeDisplay: {fileID: 744550828}
   detectionPoint: {fileID: 1874277232}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -106520,10 +107728,16 @@ MonoBehaviour:
   - {fileID: 897930978}
   - {fileID: 108306170}
   - {fileID: 1773483939}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1728777275}
   tileTypeDisplay: {fileID: 2015784834}
   detectionPoint: {fileID: 346519643}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -106699,10 +107913,16 @@ MonoBehaviour:
   - {fileID: 32423057}
   - {fileID: 1182355450}
   - {fileID: 893254176}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 42662853}
   tileTypeDisplay: {fileID: 1987363753}
   detectionPoint: {fileID: 966984884}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -107093,10 +108313,16 @@ MonoBehaviour:
   - {fileID: 1751193006}
   - {fileID: 719914774}
   - {fileID: 552386263}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1518336957}
   tileTypeDisplay: {fileID: 978537769}
   detectionPoint: {fileID: 1032393796}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -108487,10 +109713,16 @@ MonoBehaviour:
   - {fileID: 2052272639}
   - {fileID: 323287427}
   - {fileID: 665457944}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 845391944}
   tileTypeDisplay: {fileID: 1365032798}
   detectionPoint: {fileID: 1364672313}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -108715,10 +109947,16 @@ MonoBehaviour:
   - {fileID: 1213164201}
   - {fileID: 130160651}
   - {fileID: 1259941543}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 434317742}
   tileTypeDisplay: {fileID: 709500007}
   detectionPoint: {fileID: 314353326}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -109688,10 +110926,16 @@ MonoBehaviour:
   - {fileID: 1419328585}
   - {fileID: 1484446799}
   - {fileID: 2102156011}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1365262599}
   tileTypeDisplay: {fileID: 1275486133}
   detectionPoint: {fileID: 1528452034}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -110775,10 +112019,16 @@ MonoBehaviour:
   - {fileID: 1347120429}
   - {fileID: 1583661412}
   - {fileID: 1656909709}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1736827890}
   tileTypeDisplay: {fileID: 1823261000}
   detectionPoint: {fileID: 287606215}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -111230,10 +112480,16 @@ MonoBehaviour:
   - {fileID: 203916981}
   - {fileID: 27896991}
   - {fileID: 1969714357}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1120866609}
   tileTypeDisplay: {fileID: 1928145920}
   detectionPoint: {fileID: 1769126181}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -112156,10 +113412,16 @@ MonoBehaviour:
   - {fileID: 1990867505}
   - {fileID: 1618999459}
   - {fileID: 2083975981}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 134201243}
   tileTypeDisplay: {fileID: 539191831}
   detectionPoint: {fileID: 861287323}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -112681,10 +113943,16 @@ MonoBehaviour:
   - {fileID: 1728198847}
   - {fileID: 853326068}
   - {fileID: 953407120}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1159792945}
   tileTypeDisplay: {fileID: 856690727}
   detectionPoint: {fileID: 1547641018}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -113075,10 +114343,16 @@ MonoBehaviour:
   - {fileID: 1689433829}
   - {fileID: 5540616}
   - {fileID: 263417767}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 787137254}
   tileTypeDisplay: {fileID: 1595824761}
   detectionPoint: {fileID: 1965017419}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -113258,10 +114532,16 @@ MonoBehaviour:
   - {fileID: 2101699956}
   - {fileID: 278650066}
   - {fileID: 47605355}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2040975653}
   tileTypeDisplay: {fileID: 798902106}
   detectionPoint: {fileID: 194302113}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -114627,10 +115907,16 @@ MonoBehaviour:
   - {fileID: 434695404}
   - {fileID: 1222843100}
   - {fileID: 1322352634}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1981957460}
   tileTypeDisplay: {fileID: 687041303}
   detectionPoint: {fileID: 1957299051}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -116047,10 +117333,16 @@ MonoBehaviour:
   - {fileID: 284575741}
   - {fileID: 961396968}
   - {fileID: 654442927}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 89349950}
   tileTypeDisplay: {fileID: 657991044}
   detectionPoint: {fileID: 130686674}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -117458,10 +118750,16 @@ MonoBehaviour:
   - {fileID: 1847760772}
   - {fileID: 1446792664}
   - {fileID: 784973405}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1402503460}
   tileTypeDisplay: {fileID: 704419097}
   detectionPoint: {fileID: 2071814587}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -117908,10 +119206,16 @@ MonoBehaviour:
   - {fileID: 78563408}
   - {fileID: 1978210369}
   - {fileID: 1197204075}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1818669420}
   tileTypeDisplay: {fileID: 519634510}
   detectionPoint: {fileID: 385166160}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -119094,10 +120398,16 @@ MonoBehaviour:
   - {fileID: 95243716}
   - {fileID: 1194697174}
   - {fileID: 566608666}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1845192378}
   tileTypeDisplay: {fileID: 47702136}
   detectionPoint: {fileID: 1095007224}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -120638,10 +121948,16 @@ MonoBehaviour:
   - {fileID: 845809023}
   - {fileID: 1099010219}
   - {fileID: 1762369029}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 855103765}
   tileTypeDisplay: {fileID: 1356097414}
   detectionPoint: {fileID: 52633631}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -120838,10 +122154,16 @@ MonoBehaviour:
   - {fileID: 885255889}
   - {fileID: 2008528807}
   - {fileID: 131358750}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1345873902}
   tileTypeDisplay: {fileID: 2066129718}
   detectionPoint: {fileID: 765565613}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -121156,10 +122478,16 @@ MonoBehaviour:
   - {fileID: 1178273209}
   - {fileID: 1167227460}
   - {fileID: 614776175}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 55780922}
   tileTypeDisplay: {fileID: 492562158}
   detectionPoint: {fileID: 2047788888}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -122670,10 +123998,16 @@ MonoBehaviour:
   - {fileID: 1204505715}
   - {fileID: 1105636819}
   - {fileID: 1559978212}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 754971546}
   tileTypeDisplay: {fileID: 835354895}
   detectionPoint: {fileID: 1144534891}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -122967,10 +124301,16 @@ MonoBehaviour:
   - {fileID: 400303163}
   - {fileID: 959683949}
   - {fileID: 784864237}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1357139661}
   tileTypeDisplay: {fileID: 653214688}
   detectionPoint: {fileID: 430728243}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -123177,10 +124517,16 @@ MonoBehaviour:
   - {fileID: 75382027}
   - {fileID: 784675818}
   - {fileID: 2022455133}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 292298499}
   tileTypeDisplay: {fileID: 1678768359}
   detectionPoint: {fileID: 2027996072}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -124093,10 +125439,16 @@ MonoBehaviour:
   - {fileID: 875465337}
   - {fileID: 1457804708}
   - {fileID: 1355705871}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 911251920}
   tileTypeDisplay: {fileID: 1995288641}
   detectionPoint: {fileID: 266556086}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -124179,10 +125531,16 @@ MonoBehaviour:
   - {fileID: 513062007}
   - {fileID: 220109609}
   - {fileID: 1065808096}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 819055309}
   tileTypeDisplay: {fileID: 199096518}
   detectionPoint: {fileID: 2064900373}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -124265,10 +125623,16 @@ MonoBehaviour:
   - {fileID: 1088583820}
   - {fileID: 640583236}
   - {fileID: 1955399468}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 590116797}
   tileTypeDisplay: {fileID: 1893302031}
   detectionPoint: {fileID: 1477756657}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -124562,10 +125926,16 @@ MonoBehaviour:
   - {fileID: 730262423}
   - {fileID: 1130383861}
   - {fileID: 656415462}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1483201773}
   tileTypeDisplay: {fileID: 1143031206}
   detectionPoint: {fileID: 997608671}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -124714,10 +126084,16 @@ MonoBehaviour:
   - {fileID: 1010257538}
   - {fileID: 102103454}
   - {fileID: 1010570560}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1859133050}
   tileTypeDisplay: {fileID: 1754601137}
   detectionPoint: {fileID: 1594869410}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -125463,10 +126839,16 @@ MonoBehaviour:
   - {fileID: 428750028}
   - {fileID: 1722172884}
   - {fileID: 635117170}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 715037045}
   tileTypeDisplay: {fileID: 1113507227}
   detectionPoint: {fileID: 1753437454}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -125611,10 +126993,16 @@ MonoBehaviour:
   - {fileID: 17086692}
   - {fileID: 450716087}
   - {fileID: 731706037}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 470322690}
   tileTypeDisplay: {fileID: 955247198}
   detectionPoint: {fileID: 2078276253}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -126115,10 +127503,16 @@ MonoBehaviour:
   - {fileID: 92753208}
   - {fileID: 905191285}
   - {fileID: 1352226830}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2047430567}
   tileTypeDisplay: {fileID: 1163418832}
   detectionPoint: {fileID: 446347878}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -126201,10 +127595,16 @@ MonoBehaviour:
   - {fileID: 881965696}
   - {fileID: 31701951}
   - {fileID: 1068443672}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1991095905}
   tileTypeDisplay: {fileID: 1339473832}
   detectionPoint: {fileID: 1854536849}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -126605,10 +128005,16 @@ MonoBehaviour:
   - {fileID: 1912510896}
   - {fileID: 264301203}
   - {fileID: 941672215}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1983928963}
   tileTypeDisplay: {fileID: 1937147557}
   detectionPoint: {fileID: 1531836800}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -126929,10 +128335,16 @@ MonoBehaviour:
   - {fileID: 476154724}
   - {fileID: 1204186874}
   - {fileID: 2145370584}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 2020181077}
   tileTypeDisplay: {fileID: 1749229743}
   detectionPoint: {fileID: 1522233769}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -127108,10 +128520,16 @@ MonoBehaviour:
   - {fileID: 1718963138}
   - {fileID: 548354225}
   - {fileID: 217337638}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 1304272403}
   tileTypeDisplay: {fileID: 22738620}
   detectionPoint: {fileID: 733438729}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -127336,10 +128754,16 @@ MonoBehaviour:
   - {fileID: 932197796}
   - {fileID: 817829427}
   - {fileID: 1913058037}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 525960360}
   tileTypeDisplay: {fileID: 701665566}
   detectionPoint: {fileID: 991238856}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -127813,10 +129237,16 @@ MonoBehaviour:
   - {fileID: 2088949116}
   - {fileID: 926623275}
   - {fileID: 466549453}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 895982885}
   tileTypeDisplay: {fileID: 1596240569}
   detectionPoint: {fileID: 754035925}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -128381,10 +129811,16 @@ MonoBehaviour:
   - {fileID: 1003853397}
   - {fileID: 1800221846}
   - {fileID: 1534413839}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 761080179}
   tileTypeDisplay: {fileID: 984444742}
   detectionPoint: {fileID: 709560789}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
@@ -128892,10 +130328,16 @@ MonoBehaviour:
   - {fileID: 1969582961}
   - {fileID: 335257321}
   - {fileID: 161929774}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 127094113}
   tileTypeDisplay: {fileID: 1504926678}
   detectionPoint: {fileID: 721342448}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256

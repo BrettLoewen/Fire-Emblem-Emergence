@@ -23,6 +23,8 @@ public class PlayerCursor: MonoBehaviour
     private UnitTactics selectedUnit;
     private Tile selectedUnitTile;
 
+    private List<Tile> walkableTiles;
+
     private PlayerInputHandler inputHandler;
 
     #endregion //end Variables
@@ -276,6 +278,15 @@ public class PlayerCursor: MonoBehaviour
             // Start the selection visual
             selectedUnitTile = selectedTile;
             selectedUnitTile.SetUnitSelected(true);
+
+            // Calculate the walkable tiles for the selected unit
+            walkableTiles = selectedUnit.GetWalkableTiles(selectedUnitTile);
+
+            // Display which tiles are walkable and which ones are not
+            foreach (Tile _tile in walkableTiles)
+            {
+                _tile.SetIsWalkable();
+            }
         }
     }//end SelectUnit
 
@@ -290,6 +301,9 @@ public class PlayerCursor: MonoBehaviour
         // Stop the selection visual
         selectedUnitTile.SetUnitSelected(false);
         selectedUnitTile = null;
+
+        // Clear any pathfinding when the unit is deselected
+        TileManager.Instance.ResetPathfinding();
     }//end DeselectUnit
 
     #endregion

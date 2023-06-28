@@ -107,10 +107,16 @@ MonoBehaviour:
   - {fileID: 7289641806391231007}
   - {fileID: 1998190149774466700}
   - {fileID: 8182940043138165172}
+  detectionRadius: 0.5
+  tileDetectionMask:
+    serializedVersion: 2
+    m_Bits: 128
+  Distance: 0
+  Visited: 0
+  Parent: {fileID: 0}
   tileSelectedDisplay: {fileID: 4131490282841786468}
   tileTypeDisplay: {fileID: 4758217729923013090}
   detectionPoint: {fileID: 7105791770705628936}
-  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
