@@ -255,8 +255,18 @@ public class PlayerCursor: MonoBehaviour
             // If the player has already selected a unit...
             else
             {
-                Debug.Log("Implement Me!");
-                DeselectUnit();
+                // If the current tile is one the selected unit can walk to...
+                if (walkableTiles.Contains(selectedTile))
+                {
+                    // Calculate the path to the selected tile that the unit will need to take
+                    Stack<Tile> _path = CalculatePathToTile(selectedTile);
+
+                    // Tell the unit to move according to the calculated path
+                    selectedUnit.StartMove(_path, selectedTile);
+
+                    // Deselect the unit
+                    DeselectUnit();
+                }
             }
         }
     }//end HandleUnitCommanding
@@ -305,6 +315,37 @@ public class PlayerCursor: MonoBehaviour
         // Clear any pathfinding when the unit is deselected
         TileManager.Instance.ResetPathfinding();
     }//end DeselectUnit
+
+    /// <summary>
+    /// Trace the tiles parent heritage from the target tile backwards until the starting tile is found and return the path
+    /// </summary>
+    /// <param name="_endingTile">The target tile that the path should end at</param>
+    /// <returns>Returns a stack of tiles representing the path of tiles from the unit's tile to the target tile</returns>
+    public Stack<Tile> CalculatePathToTile(Tile _endingTile)
+    {
+        // Create a stack to hold the path
+        Stack<Tile> _path = new Stack<Tile>();
+
+        // Add the target tile to the stack
+        _path.Push(_endingTile);
+
+        // Start at the target tile
+        Tile _current = _endingTile;
+
+        // While the current tile has a parent, continue the back-trace
+        // When the parent is null, the starting tile (unit's tile) has been reached
+        while (_current.Parent != null)
+        {
+            // Add the current tile's parent tile to the stack
+            _path.Push(_current.Parent);
+
+            // Update the current tile to be that parent
+            _current = _current.Parent;
+        }
+
+        // Return the calculated stack of tiles representing the path
+        return _path;
+    }//end CalculatePathToTile
 
     #endregion
 }

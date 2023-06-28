@@ -55,5 +55,16 @@ public class UnitAnimator: MonoBehaviour
         animatorExtension.Animator.SetFloat("speedPercent", _speedPercent, speedSmoothTime, Time.deltaTime);
     }//end SetSpeedPercent
 
+    /// <summary>
+    /// Sets the `speedPercent` value in the animator according to the passed value. 
+    /// This is more direct than the other overload
+    /// </summary>
+    /// <param name="_percent">A value between 0f and 1f</param>
+    public void SetSpeedPercent(float _percent)
+    {
+        // Set the animator's `speedPercent` value smoothly according to the passed value
+        animatorExtension.Animator.SetFloat("speedPercent", _percent, speedSmoothTime, Time.deltaTime);
+    }//end SetSpeedPercent
+
     #endregion
 }
