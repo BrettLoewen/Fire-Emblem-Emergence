@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Defines a place on a grid (the tilemap) that a unit can stand on and how those places (tiles) link together
+/// </summary>
 public class Tile: MonoBehaviour
 {
     #region Variables
@@ -16,7 +19,7 @@ public class Tile: MonoBehaviour
     [SerializeField] private float tileTypeDetectionRadius;
 
     // Tile status variables
-    private bool displaySelected = true;
+    private bool displaySelected;
     private bool isWall;
 
     #endregion //end Variables
@@ -38,12 +41,12 @@ public class Tile: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        DisplayTileStatus();
     }//end Update
 
     #endregion //end Unity Control Methods
 
-    #region
+    #region Tile Display
 
     /// <summary>
     /// Displays the tile's status and type information
@@ -82,6 +85,15 @@ public class Tile: MonoBehaviour
             isWall = true;
         }
     }//end DetectTileType
+
+    /// <summary>
+    /// Update whether or not this tile should display the selected visual with the passed value
+    /// </summary>
+    /// <param name="_isSelected"></param>
+    public void SetIsSelected(bool _isSelected)
+    {
+        displaySelected = _isSelected;
+    }//end SetIsSelected
 
     #endregion
 }

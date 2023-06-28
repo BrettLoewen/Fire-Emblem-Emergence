@@ -11,6 +11,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool InteractInput;  //Stores input interacting
     public bool MenuInput;      //Stores input for the menu button (opening/closing the menu)
     public bool CancelInput;    //Stores input for canceling in a menu
+    public bool LookRightInput;
+    public bool LookLeftInput;
 
     /// <summary>
     /// Receive and store the input for movement
@@ -29,6 +31,30 @@ public class PlayerInputHandler : MonoBehaviour
     {
         LookInput = _context.ReadValue<Vector2>();
     }//end OnLookInput
+
+    /// <summary>
+    /// Receive and store the input for pressing right on the d-pad in a tactics scene
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnLookRightInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            LookRightInput = true;
+        }
+    }//end OnLookRightInput
+
+    /// <summary>
+    /// Receive and store the input for pressing left on the d-pad in a tactics scene
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnLookLefttInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            LookLeftInput = true;
+        }
+    }//end OnLookLefttInput
 
     /// <summary>
     /// Receive and store the input for sprinting

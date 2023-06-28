@@ -85,24 +85,24 @@ public class PlayerMovement: MonoBehaviour
     /// </summary>
     private void HandleMovement()
     {
-        //Get the direction of movement
+        // Get the direction of movement
         Vector2 _moveInput = inputHandler.MoveInput;
         Vector3 _direction = new Vector3(_moveInput.x, 0f, _moveInput.y).normalized;
 
-        //If there is movement input
+        // If there is movement input
         if (_direction.magnitude >= 0.1f)
         {
-            //Get and smooth the angle for the movement direction relative to the camera
-            float targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + playerCamera.MainCamera.transform.eulerAngles.y;
-            float smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            // Get and smooth the angle for the movement direction relative to the camera
+            float _targetAngle = Mathf.Atan2(_direction.x, _direction.z) * Mathf.Rad2Deg + playerCamera.MainCamera.transform.eulerAngles.y;
+            float _smoothAngle = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetAngle, ref turnSmoothVelocity, turnSmoothTime);
 
-            //Rotate the player to the angle
-            transform.rotation = Quaternion.Euler(0f, smoothAngle, 0f);
+            // Rotate the player to the angle
+            transform.rotation = Quaternion.Euler(0f, _smoothAngle, 0f);
 
-            //Turn the move angle into a new movement direction
-            Vector3 _moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            // Turn the move angle into a new movement direction
+            Vector3 _moveDir = Quaternion.Euler(0f, _targetAngle, 0f) * Vector3.forward;
 
-            //Set the current speed based on the sprint input
+            // Set the current speed based on the sprint input
             if (inputHandler.SprintInput)
             {
                 currentSpeed = sprintSpeed;
@@ -112,26 +112,26 @@ public class PlayerMovement: MonoBehaviour
                 currentSpeed = walkSpeed;
             }
 
-            //Move the character
+            // Move the character
             controller.Move(_moveDir.normalized * currentSpeed * Time.deltaTime);
         }
         else
         {
-            //Stop sprinting if there is no movement input
+            // Stop sprinting if there is no movement input
             inputHandler.SprintInput = false;
 
-            //Set the current speed to 0 if there is no movement input
+            // Set the current speed to 0 if there is no movement input
             currentSpeed = 0f;
         }
 
-        //If the character should be moving
+        // If the character should be moving
         if (currentSpeed > 0f)
         {
             //Set the current speed based on the actual velocity of the character controller
             currentSpeed = new Vector2(controller.velocity.x, controller.velocity.z).magnitude;
         }
 
-        //Animate the character according to the current speed
+        // Animate the character according to the current speed
         playerAnimator.SetSpeedPercent(currentSpeed, walkSpeed, sprintSpeed, inputHandler.SprintInput);
     }//end HandleMovement
 

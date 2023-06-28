@@ -47,7 +47,7 @@ public class TileManager: Singleton<TileManager>
 
     #endregion //end Unity Control Methods
 
-    #region
+    #region Tilemap Control
 
     /// <summary>
     /// Uses the tilemap dimensions to spawn every tile needed
@@ -109,6 +109,29 @@ public class TileManager: Singleton<TileManager>
             _tile.DisplayTileStatus();
         }
     }//end DisplayTileTypes
+
+    #endregion
+
+    #region
+
+
+    public bool PositionInTilemapBounds(Vector3 _position)
+    {
+        float _halfSizeOfTile = (sizeOfTile / 2f);
+        float _minX = transform.position.x - _halfSizeOfTile;
+        float _minZ = transform.position.z - _halfSizeOfTile;
+        float _maxX = transform.position.x + _halfSizeOfTile + (sizeOfTile * (tilemapDimensions.x - 1));
+        float _maxZ = transform.position.z + _halfSizeOfTile + (sizeOfTile * (tilemapDimensions.y - 1));
+
+        if(_position.x < _minX || _position.x > _maxX || _position.z < _minZ || _position.z > _maxZ)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
     #endregion
 
