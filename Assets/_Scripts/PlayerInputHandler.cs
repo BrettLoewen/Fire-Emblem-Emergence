@@ -69,7 +69,7 @@ public class PlayerInputHandler : MonoBehaviour
     /// Receive and store the input for interacting in the game world. Invoke methods associated with submitting in the menu
     /// </summary>
     /// <param name="_context"></param>
-    public void OnInteractInput(InputAction.CallbackContext _context)
+    public void OnInteractExplorationInput(InputAction.CallbackContext _context)
     {
         // Only allow interacting while the game is in exploration mode
         if(ExplorationGameManager.Instance.ExplorationState == ExplorationState.Explore)
@@ -79,7 +79,19 @@ public class PlayerInputHandler : MonoBehaviour
                 InteractInput = true;
             }
         }
-    }//end OnInteractInput
+    }//end OnInteractExplorationInput
+
+    /// <summary>
+    /// Receive and store the input for selecting in a tactics sceneu
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnInteractTacticsInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            InteractInput = true;
+        }
+    }//end OnInteractTacticsInput
 
     /// <summary>
     /// Receive and store the input for the menu button

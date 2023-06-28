@@ -109,11 +109,14 @@ MonoBehaviour:
   - {fileID: 8182940043138165172}
   tileSelectedDisplay: {fileID: 4131490282841786468}
   tileTypeDisplay: {fileID: 4758217729923013090}
-  tileTypeDetectionPoint: {fileID: 7105791770705628936}
+  detectionPoint: {fileID: 7105791770705628936}
+  detectionRadius: 0.5
   tileTypeDetectionMask:
     serializedVersion: 2
     m_Bits: 256
-  tileTypeDetectionRadius: 0.5
+  unitDetectionMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1 &2323746291919046626
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7105791770705628936}
   m_Layer: 7
-  m_Name: Tile Type Detection Point
+  m_Name: Detection Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

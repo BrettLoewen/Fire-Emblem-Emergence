@@ -20,6 +20,9 @@ public class PlayerCursor: MonoBehaviour
     private Tile selectedTile;
     private Tile prevSelectedTile;
 
+    private UnitTactics selectedUnit;
+    private Tile selectedUnitTile;
+
     private PlayerInputHandler inputHandler;
 
     #endregion //end Variables
@@ -50,6 +53,9 @@ public class PlayerCursor: MonoBehaviour
 
         // Display the selected tile
         DisplaySelectedTile();
+
+        // Select and command units
+        HandleUnitCommanding();
     }//end Update
 
     #endregion //end Unity Control Methods
@@ -207,6 +213,84 @@ public class PlayerCursor: MonoBehaviour
             prevSelectedTile.SetIsSelected(false);
         }
     }//end DisplaySelectedTile
+
+    #endregion
+
+    #region Unit Selection
+
+    /// <summary>
+    /// If the player pressed Cancel, deselect the selected unit if one was selected.
+    /// If the player pressed Select, either try to select a unit if none is selected 
+    /// or try to move the selected unit to a new tile
+    /// </summary>
+    private void HandleUnitCommanding()
+    {
+        // If the player pressed cancel
+        if(inputHandler.CancelInput)
+        {
+            // Cancel the input
+            inputHandler.CancelInput = false;
+
+            // If the player had selected a unit...
+            if(selectedUnit != null)
+            {
+                // Deselect the unit
+                DeselectUnit();
+            }
+        }
+
+        // If the player pressed select
+        if(inputHandler.InteractInput)
+        {
+            // Cancel the input
+            inputHandler.InteractInput = false;
+
+            // If the player has not selected a unit yet, try to select a unit
+            if(selectedUnit == null)
+            {
+                SelectUnit();
+            }
+            // If the player has already selected a unit...
+            else
+            {
+                Debug.Log("Implement Me!");
+                DeselectUnit();
+            }
+        }
+    }//end HandleUnitCommanding
+
+    /// <summary>
+    /// Try to get a unit from the currently selected tile and, if successful, select that unit
+    /// </summary>
+    private void SelectUnit()
+    {
+        // Get the unit that is standing on the tile the cursor is currently hovering over
+        UnitTactics _unit = selectedTile.GetUnitOnTile();
+
+        // If a unit was found...
+        if (_unit != null)
+        {
+            // Select that unit
+            selectedUnit = _unit;
+
+            // Start the selection visual
+            selectedUnitTile = selectedTile;
+            selectedUnitTile.SetUnitSelected(true);
+        }
+    }//end SelectUnit
+
+    /// <summary>
+    /// Null the selected unit and reset and selection indicators
+    /// </summary>
+    private void DeselectUnit()
+    {
+        // Deselect the unit
+        selectedUnit = null;
+
+        // Stop the selection visual
+        selectedUnitTile.SetUnitSelected(false);
+        selectedUnitTile = null;
+    }//end DeselectUnit
 
     #endregion
 }

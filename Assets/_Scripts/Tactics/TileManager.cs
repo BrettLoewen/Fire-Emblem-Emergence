@@ -114,24 +114,31 @@ public class TileManager: Singleton<TileManager>
 
     #region
 
-
+    /// <summary>
+    /// Returns whether or not the passed vector3 position is within the bounds of the tilemap
+    /// </summary>
+    /// <param name="_position"></param>
+    /// <returns>Returns true if the position is in bounds and false otherwise</returns>
     public bool PositionInTilemapBounds(Vector3 _position)
     {
+        // Calcalate the bounds of the tilemap
         float _halfSizeOfTile = (sizeOfTile / 2f);
         float _minX = transform.position.x - _halfSizeOfTile;
         float _minZ = transform.position.z - _halfSizeOfTile;
         float _maxX = transform.position.x + _halfSizeOfTile + (sizeOfTile * (tilemapDimensions.x - 1));
         float _maxZ = transform.position.z + _halfSizeOfTile + (sizeOfTile * (tilemapDimensions.y - 1));
 
+        // If the passed position is outside of the bounds (less than a minimum or greater than a maximum), return false
         if(_position.x < _minX || _position.x > _maxX || _position.z < _minZ || _position.z > _maxZ)
         {
             return false;
         }
+        // If the passed position in inside the bounds, return true
         else
         {
             return true;
         }
-    }
+    }//end PositionInTilemapBounds
 
     #endregion
 
