@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// Used to map scene indecies to a readable name that can be easily updated
 /// </summary>
-public enum Scenes { Persistent = 0, MainMenu = 1, HubWorld = 2 }
+public enum Scenes { Persistent = 0, MainMenu = 1, HubWorld = 2, Tactics = 3 }
 
 /// <summary>
 /// Used to manage scene loading and switching

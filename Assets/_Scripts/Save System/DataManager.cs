@@ -9,7 +9,7 @@ public static class DataManager
 {
     private const string UNIT_CUTOMIZATION_PATH = "Unit Customization"; // The name of the directory in the resources folder that holds customization objects
     private const string ITEM_PATH = "Items"; // The name of the directory in the resources folder that holds item data objects
-    private const string UNIT_PATH = "Units"; // The name of the directory in the resources folder that holds unit data objects
+    private const string UNIT_PATH = "Player Units"; // The name of the directory in the resources folder that holds the player's unit data objects
 
     private static List<Item> playerInventory = new List<Item>(); // The player's inventory of items
     private static int playerMoney = 5000;

@@ -20,7 +20,11 @@ public class UnitTactics: MonoBehaviour
 
     private float stoppingDistance = 0.2f;
 
+    private Unit unit;
+    private TeamTactics teamTactics;
+
     [SerializeField] private UnitAnimator animator;
+    [SerializeField] private UnitCustomizer customizer;
 
     #endregion //end Variables
 
@@ -56,6 +60,22 @@ public class UnitTactics: MonoBehaviour
     }//end Update
 
     #endregion //end Unity Control Methods
+
+    /// <summary>
+    /// Store references to the unit this UnitTactics object represents and the TeamTactics it belongs to.
+    /// Setup the UnitCustomizer to match the appearance of the unit
+    /// </summary>
+    /// <param name="_unit"></param>
+    /// <param name="_team"></param>
+    public void Setup(Unit _unit, TeamTactics _team)
+    {
+        // Store the references
+        unit = _unit;
+        teamTactics = _team;
+
+        // Setup the customizer to use the unit's appearance
+        customizer.SetCustomization(unit.UnitData.Customization);
+    }//end Setup
 
     /// <summary>
     /// Get and return a list of tiles this unit can walk to
