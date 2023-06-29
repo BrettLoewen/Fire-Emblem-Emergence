@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Used to receive input events from a PlayerInput component and provide easier to use data for player input
+/// </summary>
 public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MoveInput;   //Stores input for movement

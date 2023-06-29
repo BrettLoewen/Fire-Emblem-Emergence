@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Used to represent, control, and reference units
+/// </summary>
 public class UnitTactics: MonoBehaviour
 {
     #region Variables

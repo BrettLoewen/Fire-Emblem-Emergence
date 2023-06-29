@@ -25,6 +25,8 @@ public class PlayerCursor: MonoBehaviour
 
     private List<Tile> walkableTiles;
 
+    [SerializeField] private PathRenderer pathRenderer;
+
     private PlayerInputHandler inputHandler;
 
     #endregion //end Variables
@@ -55,6 +57,9 @@ public class PlayerCursor: MonoBehaviour
 
         // Display the selected tile
         DisplaySelectedTile();
+
+        // Display the path renderer (when appropriate)
+        HandlePathRenderer();
 
         // Select and command units
         HandleUnitCommanding();
@@ -348,4 +353,20 @@ public class PlayerCursor: MonoBehaviour
     }//end CalculatePathToTile
 
     #endregion
+
+
+    private void HandlePathRenderer()
+    {
+        if(selectedUnit != null)
+        {
+            if(walkableTiles.Contains(selectedTile))
+            {
+                pathRenderer.DisplayPath(CalculatePathToTile(selectedTile));
+            }
+        }
+        else
+        {
+            pathRenderer.Disable();
+        }
+    }
 }

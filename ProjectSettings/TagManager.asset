@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Path Renderer
+    uniqueID: 1481845157
+    locked: 0
