@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3423703575577413018}
   - component: {fileID: 6923157846356465430}
   m_Layer: 9
-  m_Name: Unit
+  m_Name: Unit Tactics
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8551125321948870745}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.25, y: 0, z: -5.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7162245226753320354}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3423703575577413018
 MonoBehaviour:
@@ -50,6 +50,7 @@ MonoBehaviour:
   moveSpeed: 3
   turnTime: 0.33
   animator: {fileID: 3751156353147984835}
+  customizer: {fileID: 8332691132112177227}
 --- !u!65 &6923157846356465430
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4352,3 +4353,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 191469428485364120}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8332691132112177227 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8145769286073291219, guid: 6db498cd6d165bd468c3bfbb1f112ae8,
+    type: 3}
+  m_PrefabInstance: {fileID: 191469428485364120}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1210ba2448e4ff428a87407a022ecb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

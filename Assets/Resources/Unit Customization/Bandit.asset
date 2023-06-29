@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5119f8bb763e83142bcebb3390b49b36, type: 3}
-  m_Name: Barbarian F
+  m_Name: Bandit
   m_EditorClassIdentifier: 
-  Material: {fileID: 2100000, guid: 45558052f6cb63a45ac890d839d69a6a, type: 2}
+  Material: {fileID: 2100000, guid: 2a875090dbe65f1459d9324877083d02, type: 2}
   Options:
   - itemName: 32
     itemIndex: 8

@@ -20,7 +20,13 @@ public class UnitTactics: MonoBehaviour
 
     private float stoppingDistance = 0.2f;
 
+    private Unit unit;
+    private TeamTactics teamTactics;
+
+    public bool HasActed { get; set; } = true;
+
     [SerializeField] private UnitAnimator animator;
+    [SerializeField] private UnitCustomizer customizer;
 
     #endregion //end Variables
 
@@ -57,6 +63,43 @@ public class UnitTactics: MonoBehaviour
 
     #endregion //end Unity Control Methods
 
+    #region Unit/Turn Management
+
+    /// <summary>
+    /// Store references to the unit this UnitTactics object represents and the TeamTactics it belongs to.
+    /// Setup the UnitCustomizer to match the appearance of the unit
+    /// </summary>
+    /// <param name="_unit"></param>
+    /// <param name="_team"></param>
+    public void Setup(Unit _unit, TeamTactics _team)
+    {
+        // Store the references
+        unit = _unit;
+        teamTactics = _team;
+
+        // Setup the customizer to use the unit's appearance
+        customizer.SetCustomization(unit.UnitData.Customization);
+    }//end Setup
+
+    /// <summary>
+    /// Returns true if this unit belongs to the player's TeamTactics and false otherwise
+    /// </summary>
+    /// <returns></returns>
+    public bool IsPlayerUnit()
+    {
+        // Returns true if this unit belongs to the player's TeamTactics and false otherwise
+        return teamTactics.IsPlayer();
+    }//end IsPlayerUnit
+
+    /// <summary>
+    /// Mark that this unit has finished acting and tell the TeamTactics that a unit has finished acting
+    /// </summary>
+    private void FinishActing()
+    {
+        HasActed = true;
+        teamTactics.UnitFinishedActing();
+    }//end FinishActing
+
     /// <summary>
     /// Get and return a list of tiles this unit can walk to
     /// </summary>
@@ -67,6 +110,8 @@ public class UnitTactics: MonoBehaviour
         // Ask the tile manager to calculate the walkable tiles and return the result
         return TileManager.Instance.CalculateWalkableTiles(_startingTile, movement);
     }//end GetWalkableTiles
+
+    #endregion
 
     #region Movement
 
@@ -117,6 +162,9 @@ public class UnitTactics: MonoBehaviour
         {
             // Flag that movement is done
             isMoving = false;
+
+            // End the unit's turn
+            FinishActing();
         }
     }//end Move
 
