@@ -284,8 +284,8 @@ public class PlayerCursor: MonoBehaviour
         // Get the unit that is standing on the tile the cursor is currently hovering over
         UnitTactics _unit = selectedTile.GetUnitOnTile();
 
-        // If a unit was found...
-        if (_unit != null)
+        // If a unit was found and that unit belongs to the player...
+        if (_unit != null && _unit.IsPlayerUnit())
         {
             // Select that unit
             selectedUnit = _unit;
@@ -354,19 +354,25 @@ public class PlayerCursor: MonoBehaviour
 
     #endregion
 
-
+    /// <summary>
+    /// Display the walkable path from the selected unit to the selected tile when appropriate
+    /// </summary>
     private void HandlePathRenderer()
     {
+        // Ensure a unit is selected
         if(selectedUnit != null)
         {
+            // Only update the displayed path if the selected unit and walk to the currently selected tile
             if(walkableTiles.Contains(selectedTile))
             {
+                // Tell the path renderer to display the path from the selected unit to the selected tile
                 pathRenderer.DisplayPath(CalculatePathToTile(selectedTile));
             }
         }
+        // If a unit is not currently selected, do not display the path
         else
         {
             pathRenderer.Disable();
         }
-    }
+    }//end HandlePathRenderer
 }

@@ -11,7 +11,7 @@ public class TeamTactics: MonoBehaviour
 
     [SerializeField] private UnitTactics unitTacticsPrefab;
 
-    private List<UnitTactics> units;
+    protected List<UnitTactics> units;
 
     #endregion //end Variables
 
@@ -65,6 +65,17 @@ public class TeamTactics: MonoBehaviour
             units.Add(_unitTactics);
         }
     }//end Setup
+
+    /// <summary>
+    /// Returns true if this TeamTactics is the player's and false otherwise.
+    /// Only a PlayerTactics can be the player's TeamTactics, so this just returns false
+    /// </summary>
+    /// <returns></returns>
+    public virtual bool IsPlayer()
+    {
+        // Only a PlayerTactics can be the player's TeamTactics, so this just returns false
+        return false;
+    }//end IsPlayer
 
     #endregion
 }

@@ -16,6 +16,7 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
     [SerializeField] private UnitData[] enemyUnitDatas;
 
     [SerializeField] private TeamTactics teamTacticsPrefab;
+    [SerializeField] private PlayerTactics playerTacticsPrefab;
 
     #endregion //end Variables
 
@@ -71,13 +72,8 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
             await Task.Yield();
         }
 
-        // Get the current save file
-        SaveData _saveData = SaveSystem.currentSaveData;
-
-        Debug.Log($"Player save data: \n{_saveData}");
-
         // Create and setup the player tactics
-        TeamTactics _playerTactics = Instantiate(teamTacticsPrefab, transform);
+        TeamTactics _playerTactics = Instantiate(playerTacticsPrefab, transform);
         _playerTactics.Setup(DataManager.GetUnits(), spawnPointsPlayer);
 
         // Create a list of the enemy units

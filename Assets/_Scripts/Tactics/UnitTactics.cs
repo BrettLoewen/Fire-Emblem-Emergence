@@ -78,6 +78,16 @@ public class UnitTactics: MonoBehaviour
     }//end Setup
 
     /// <summary>
+    /// Returns true if this unit belongs to the player's TeamTactics and false otherwise
+    /// </summary>
+    /// <returns></returns>
+    public bool IsPlayerUnit()
+    {
+        // Returns true if this unit belongs to the player's TeamTactics and false otherwise
+        return teamTactics.IsPlayer();
+    }//end IsPlayerUnit
+
+    /// <summary>
     /// Get and return a list of tiles this unit can walk to
     /// </summary>
     /// <param name="_startingTile">The tile to start the search for walkable tiles from</param>
