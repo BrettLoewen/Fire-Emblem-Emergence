@@ -23,6 +23,8 @@ public class UnitTactics: MonoBehaviour
     private Unit unit;
     private TeamTactics teamTactics;
 
+    public bool HasActed { get; set; } = true;
+
     [SerializeField] private UnitAnimator animator;
     [SerializeField] private UnitCustomizer customizer;
 
@@ -61,6 +63,8 @@ public class UnitTactics: MonoBehaviour
 
     #endregion //end Unity Control Methods
 
+    #region Unit/Turn Management
+
     /// <summary>
     /// Store references to the unit this UnitTactics object represents and the TeamTactics it belongs to.
     /// Setup the UnitCustomizer to match the appearance of the unit
@@ -88,6 +92,15 @@ public class UnitTactics: MonoBehaviour
     }//end IsPlayerUnit
 
     /// <summary>
+    /// Mark that this unit has finished acting and tell the TeamTactics that a unit has finished acting
+    /// </summary>
+    private void FinishActing()
+    {
+        HasActed = true;
+        teamTactics.UnitFinishedActing();
+    }//end FinishActing
+
+    /// <summary>
     /// Get and return a list of tiles this unit can walk to
     /// </summary>
     /// <param name="_startingTile">The tile to start the search for walkable tiles from</param>
@@ -97,6 +110,8 @@ public class UnitTactics: MonoBehaviour
         // Ask the tile manager to calculate the walkable tiles and return the result
         return TileManager.Instance.CalculateWalkableTiles(_startingTile, movement);
     }//end GetWalkableTiles
+
+    #endregion
 
     #region Movement
 
@@ -147,6 +162,9 @@ public class UnitTactics: MonoBehaviour
         {
             // Flag that movement is done
             isMoving = false;
+
+            // End the unit's turn
+            FinishActing();
         }
     }//end Move
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
+using TMPro;
 
 /// <summary>
 /// Used to manage the tactics scene, turn cycle, and battle state
@@ -10,6 +11,8 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
 {
     #region Variables
 
+    [SerializeField] private TextMeshProUGUI turnDisplayText;
+
     [SerializeField] private Transform[] spawnPointsPlayer;
     [SerializeField] private Transform[] spawnPointsEnemy;
 
@@ -17,6 +20,8 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
 
     [SerializeField] private TeamTactics teamTacticsPrefab;
     [SerializeField] private PlayerTactics playerTacticsPrefab;
+
+    private Queue<TeamTactics> teams;
 
     #endregion //end Variables
 
@@ -48,6 +53,9 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
         await LevelManager.Instance.SetLoadingFinished();
 
         await Task.Delay(100);
+
+        // Start the turn cycle
+        NextTurn();
     }//end Start
 
     // Update is called once per frame
@@ -87,9 +95,40 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
         TeamTactics _enemyTactics = Instantiate(teamTacticsPrefab, transform);
         _enemyTactics.Setup(_enemyUnits, spawnPointsEnemy);
 
+        // Initialize the queue of TeamTactics and add both newly created TeamTactics objects to the queue
+        teams = new Queue<TeamTactics>();
+        teams.Enqueue(_playerTactics);
+        teams.Enqueue(_enemyTactics);
+
         // Wait some time to guarantee everything is setup
         await Task.Delay(100);
     }//end SetupTeamTactics
+
+    /// <summary>
+    /// Used to get the next TeamTactics from the team turn order queue and start its turn
+    /// </summary>
+    public void NextTurn()
+    {
+        // Get the TeamTactics at the front of the queue
+        TeamTactics _activeTeam = teams.Dequeue();
+
+        // Tell that TeamTactics object that it is their turn
+        _activeTeam.StartTurn();
+
+        // If it is the player's turn, display that
+        if(_activeTeam.IsPlayer())
+        {
+            turnDisplayText.text = "Player's Turn";
+        }
+        // If it is the enemy's turn, display that
+        else
+        {
+            turnDisplayText.text = "Enemy's Turn";
+        }
+
+        // Requeue the TeamTactics
+        teams.Enqueue(_activeTeam);
+    }//end NextTurn
 
     #endregion
 }

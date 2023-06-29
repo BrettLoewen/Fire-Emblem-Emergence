@@ -46,5 +46,14 @@ public class PlayerTactics: TeamTactics
         return true;
     }//end IsPlayer
 
+    /// <summary>
+    /// Start this TeamTactics' turn. Refresh the units and make them act
+    /// </summary>
+    public override void StartTurn()
+    {
+        // Tell each unit that they can perform an action
+        RefreshUnits();
+    }//end StartTurn
+
     #endregion
 }

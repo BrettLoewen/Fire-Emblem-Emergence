@@ -284,8 +284,8 @@ public class PlayerCursor: MonoBehaviour
         // Get the unit that is standing on the tile the cursor is currently hovering over
         UnitTactics _unit = selectedTile.GetUnitOnTile();
 
-        // If a unit was found and that unit belongs to the player...
-        if (_unit != null && _unit.IsPlayerUnit())
+        // If a unit was found, that unit belongs to the player, and that unit has not acted yet...
+        if (_unit != null && _unit.IsPlayerUnit() && _unit.HasActed == false)
         {
             // Select that unit
             selectedUnit = _unit;

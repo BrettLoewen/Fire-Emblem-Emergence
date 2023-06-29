@@ -77,5 +77,60 @@ public class TeamTactics: MonoBehaviour
         return false;
     }//end IsPlayer
 
+    /// <summary>
+    /// Start this TeamTactics' turn. Refresh the units and make them act. For the base implementation, 
+    /// the turn is skipped by invoking the EndTurn method early.
+    /// </summary>
+    public virtual void StartTurn()
+    {
+        // Tell each unit that they can perform an action
+        RefreshUnits();
+
+        // End the turn in 1 second
+        Invoke("EndTurn", 1f);
+    }//end StartTurn
+
+    /// <summary>
+    /// Tell each unit that they can perform an action. Exists so different implementations of StartTurn can call it
+    /// since StartTurn is meant to be completely overridden (no base.StartTurn() allowed)
+    /// </summary>
+    protected void RefreshUnits()
+    {
+        // Tell each unit that they can perform an action
+        foreach (UnitTactics _unit in units)
+        {
+            _unit.HasActed = false;
+        }
+    }//end RefreshUnits
+
+    /// <summary>
+    /// Called by UnitTactics when a unit finishs acting. When this happens, check if all units have finished acting.
+    /// If they have all finished, end the turn
+    /// </summary>
+    public void UnitFinishedActing()
+    {
+        // Check if all units have finished acting
+        foreach (UnitTactics _unit in units)
+        {
+            // If a unit has not acted yet, return
+            if(_unit.HasActed == false)
+            {
+                return;
+            }
+        }
+
+        // If this line was reached, every unit has acted, so this TeamTactics' turn is done, so end the turn
+        EndTurn();
+    }//end UnitFinishedActing
+
+    /// <summary>
+    /// End this TeamTactics' turn and tell the game manager to move to the next TeamTactics' turn
+    /// </summary>
+    private void EndTurn()
+    {
+        // Tell the game manager to move to the next TeamTactics' turn
+        TacticsGameManager.Instance.NextTurn();
+    }//end EndTurn
+
     #endregion
 }
