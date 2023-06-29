@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Used to receive input events from a PlayerInput component and provide easier to use data for player input
+/// </summary>
 public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MoveInput;   //Stores input for movement
@@ -11,6 +14,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool InteractInput;  //Stores input interacting
     public bool MenuInput;      //Stores input for the menu button (opening/closing the menu)
     public bool CancelInput;    //Stores input for canceling in a menu
+    public bool LookRightInput;
+    public bool LookLeftInput;
 
     /// <summary>
     /// Receive and store the input for movement
@@ -31,6 +36,30 @@ public class PlayerInputHandler : MonoBehaviour
     }//end OnLookInput
 
     /// <summary>
+    /// Receive and store the input for pressing right on the d-pad in a tactics scene
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnLookRightInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            LookRightInput = true;
+        }
+    }//end OnLookRightInput
+
+    /// <summary>
+    /// Receive and store the input for pressing left on the d-pad in a tactics scene
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnLookLefttInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            LookLeftInput = true;
+        }
+    }//end OnLookLefttInput
+
+    /// <summary>
     /// Receive and store the input for sprinting
     /// </summary>
     /// <param name="_context"></param>
@@ -43,7 +72,7 @@ public class PlayerInputHandler : MonoBehaviour
     /// Receive and store the input for interacting in the game world. Invoke methods associated with submitting in the menu
     /// </summary>
     /// <param name="_context"></param>
-    public void OnInteractInput(InputAction.CallbackContext _context)
+    public void OnInteractExplorationInput(InputAction.CallbackContext _context)
     {
         // Only allow interacting while the game is in exploration mode
         if(ExplorationGameManager.Instance.ExplorationState == ExplorationState.Explore)
@@ -53,7 +82,19 @@ public class PlayerInputHandler : MonoBehaviour
                 InteractInput = true;
             }
         }
-    }//end OnInteractInput
+    }//end OnInteractExplorationInput
+
+    /// <summary>
+    /// Receive and store the input for selecting in a tactics sceneu
+    /// </summary>
+    /// <param name="_context"></param>
+    public void OnInteractTacticsInput(InputAction.CallbackContext _context)
+    {
+        if (_context.started)
+        {
+            InteractInput = true;
+        }
+    }//end OnInteractTacticsInput
 
     /// <summary>
     /// Receive and store the input for the menu button
