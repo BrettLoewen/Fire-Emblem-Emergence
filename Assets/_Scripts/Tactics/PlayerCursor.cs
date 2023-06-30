@@ -224,7 +224,7 @@ public class PlayerCursor: MonoBehaviour
 
     #endregion
 
-    #region Unit Selection
+    #region Unit Selection / Commanding
 
     /// <summary>
     /// If the player pressed Cancel, deselect the selected unit if one was selected.
@@ -264,18 +264,51 @@ public class PlayerCursor: MonoBehaviour
                 // If the current tile is one the selected unit can walk to...
                 if (walkableTiles.Contains(selectedTile))
                 {
-                    // Calculate the path to the selected tile that the unit will need to take
-                    Stack<Tile> _path = CalculatePathToTile(selectedTile);
+                    // Move to the tile
+                    MoveUnitToTile(selectedTile, null);
+                }
+                // If the tile was not walkable but is attackable...
+                else if(attackableTiles.Contains(selectedTile))
+                {
+                    // Get the unit that would be attacked in this scenario
+                    UnitTactics _targetUnit = selectedTile.GetUnitOnTile();
 
-                    // Tell the unit to move according to the calculated path
-                    selectedUnit.StartMove(_path, selectedTile);
-
-                    // Deselect the unit
-                    DeselectUnit();
+                    // If a unit is standing on the selected tile and it's an enemy unit...
+                    if (_targetUnit != null && _targetUnit.IsPlayerUnit() == false)
+                    {
+                        // Move to the tile and attack the unit
+                        MoveUnitToTile(selectedTile.Parent, _targetUnit);
+                    }
                 }
             }
         }
     }//end HandleUnitCommanding
+
+    /// <summary>
+    /// If the unit should walk, move the selected unit to the selected tile.
+    /// If the unit should attack, move the selected unit to the correct walkable tile to attack
+    /// and trigger an attack.
+    /// </summary>
+    /// <param name="_targetTile">The tile the unit should walk to</param>
+    /// <param name="_targetUnit">A valid UnitTactics if the unit is trying to attack and null if the unit should just walk</param>
+    private void MoveUnitToTile(Tile _targetTile, UnitTactics _targetUnit)
+    {
+        // Only move to the tile if is not null
+        if(_targetTile == null)
+        {
+            Debug.LogWarning("Null target tile for moving unit");
+            return;
+        }
+
+        // Calculate the path to the selected tile that the unit will need to take
+        Stack<Tile> _path = CalculatePathToTile(_targetTile);
+
+        // Tell the unit to move according to the calculated path
+        selectedUnit.StartMove(_path, _targetTile, _targetUnit);
+
+        // Deselect the unit
+        DeselectUnit();
+    }//end MoveUnitToTile
 
     /// <summary>
     /// Try to get a unit from the currently selected tile and, if successful, select that unit
@@ -377,6 +410,12 @@ public class PlayerCursor: MonoBehaviour
             {
                 // Tell the path renderer to display the path from the selected unit to the selected tile
                 pathRenderer.DisplayPath(CalculatePathToTile(selectedTile));
+            }
+            // If the tile was not walkable but is attackable, display the path to the walkable tile that can attack the selected tile
+            else if (attackableTiles.Contains(selectedTile))
+            {
+                // Tell the path renderer to display the path from the selected unit to the selected tile
+                pathRenderer.DisplayPath(CalculatePathToTile(selectedTile.Parent));
             }
         }
         // If a unit is not currently selected, do not display the path

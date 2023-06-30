@@ -257,54 +257,85 @@ public class TileManager: Singleton<TileManager>
 
     #region Attackable Tile Calculation
 
-
+    /// <summary>
+    /// Calculate the tiles a unit could attack given their walkable tiles and the range of their attack
+    /// </summary>
+    /// <param name="_walkableTiles"></param>
+    /// <param name="_range"></param>
+    /// <returns>Returns a list of tiles a unit could attack</returns>
     public List<Tile> CalculateAttackableTiles(List<Tile> _walkableTiles, int _range)
     {
+        // Create a list to hold the list of attackable tiles
         List<Tile> _attackableTiles = new List<Tile>();
 
-
+        // Loop through every walkable and add it to the list of attackable tiles
+        // It is guaranteed that every tile that can be walked to could be attacked by the previous tile on the path
         foreach (Tile _tile in _walkableTiles)
         {
+            // Verify that no tiles are added twice
             if(_attackableTiles.Contains(_tile) == false)
             {
                 _attackableTiles.Add(_tile);
             }
         }
 
+        // Extend away from the walkable tiles to get the nearby tiles that fall within attack range
         foreach (Tile _tile in _walkableTiles)
         {
+            // Get the tile's neighbouring tiles (adjacent and further out based on range)
             List<Tile> _nearbyTiles = CalculateNearbyTiles(_tile, 1, _range);
 
+            // Loop through each of the tile's neighbours
             foreach (Tile _nearbyTile in _nearbyTiles)
             {
+                // Verify that no tiles are added twice
                 if (_attackableTiles.Contains(_nearbyTile) == false)
                 {
+                    // Tell the neighbouring tile which walkable tile can attack it
+                    _nearbyTile.Parent = _tile;
+
+                    // Add the tile
                     _attackableTiles.Add(_nearbyTile);
                 }
             }
         }
 
+        // Return the list of attackable tiles
         return _attackableTiles;
     }
 
-
+    /// <summary>
+    /// A recursive search function used to find the tiles that are within a search range.
+    /// Given a starting tile and depth, it will keep searching through linked tiles and return
+    /// a list of all the tiles it found
+    /// </summary>
+    /// <param name="_startingTile"></param>
+    /// <param name="_depth"></param>
+    /// <param name="_maxDepth"></param>
+    /// <returns></returns>
     private List<Tile> CalculateNearbyTiles(Tile _startingTile, int _depth, int _maxDepth)
     {
+        // Create a list to hold the list of attackable tiles
         List<Tile> _attackableTiles = new List<Tile>();
 
-
+        // Loop through each tile that is adjacent to the starting tile
         foreach (Tile _tile in _startingTile.LinkedTiles)
         {
+            // Verify that no tiles are added/processed twice
             if (_attackableTiles.Contains(_tile) == false)
             {
                 _attackableTiles.Add(_tile);
 
+                // If the depth of the recursive search (range of the attack) has not been exceeded...
                 if (_depth < _maxDepth)
                 {
+                    // Recursively get this tile's neighbouring tiles (adjacent and further out based on range)
                     List<Tile> _nearbyTiles = CalculateNearbyTiles(_tile, _depth + 1, _maxDepth);
 
+                    // Loop through each of the neighbouring tiles and add them
                     foreach (Tile _nearbyTile in _nearbyTiles)
                     {
+                        // Verify that no tiles are added twice
                         if (_attackableTiles.Contains(_nearbyTile) == false)
                         {
                             _attackableTiles.Add(_nearbyTile);
@@ -314,8 +345,9 @@ public class TileManager: Singleton<TileManager>
             }
         }
 
+        // Return the list of attackable tiles
         return _attackableTiles;
-    }
+    }//end CalculateNearbyTiles
 
     #endregion
 

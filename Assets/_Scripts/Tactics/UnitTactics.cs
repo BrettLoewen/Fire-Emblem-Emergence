@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Used to represent, control, and reference units
@@ -19,6 +20,8 @@ public class UnitTactics: MonoBehaviour
     private Vector3 nextTilePosition;
     private Vector3 endTilePosition;
     private float stoppingDistance = 0.2f;
+
+    private UnitTactics targetUnit;
 
     private Unit unit;
     private TeamTactics teamTactics;
@@ -123,10 +126,29 @@ public class UnitTactics: MonoBehaviour
     }//end IsPlayerUnit
 
     /// <summary>
+    /// After a unit has finished moving to their destination, they should either end their turn or attack their target
+    /// </summary>
+    private void FinishMove()
+    {
+        // If the unit does not have a target, it was just walking, so end its turn
+        if(targetUnit == null)
+        {
+            FinishActing();
+        }
+        // If the unit does have a target, it needs to attack that target, so attack
+        else
+        {
+#pragma warning disable CS4014
+            PerformAttack();
+        }
+    }//end FinishMove
+
+    /// <summary>
     /// Mark that this unit has finished acting and tell the TeamTactics that a unit has finished acting
     /// </summary>
     private void FinishActing()
     {
+        targetUnit = null;
         HasActed = true;
         teamTactics.UnitFinishedActing();
     }//end FinishActing
@@ -171,7 +193,8 @@ public class UnitTactics: MonoBehaviour
     /// </summary>
     /// <param name="_path">The path of tiles from the unit's current tile to the end tile</param>
     /// <param name="_targetTile">The tile at the end of the path</param>
-    public void StartMove(Stack<Tile> _path, Tile _targetTile)
+    /// <param name="_targetUnit">A valid UnitTactics if the unit is trying to attack and null if the unit should just walk</param>
+    public void StartMove(Stack<Tile> _path, Tile _targetTile, UnitTactics _targetUnit)
     {
         // Store the passed path of tiles
         path = _path;
@@ -182,6 +205,9 @@ public class UnitTactics: MonoBehaviour
         // Calculate the necessary starting values for moving
         nextTilePosition = path.Pop().transform.position;
         endTilePosition = _targetTile.transform.position;
+
+        // Store the target unit for later
+        targetUnit = _targetUnit;
     }//end StartMove
 
     /// <summary>
@@ -215,7 +241,7 @@ public class UnitTactics: MonoBehaviour
             isMoving = false;
 
             // End the unit's turn
-            FinishActing();
+            FinishMove();
         }
     }//end Move
 
@@ -235,6 +261,57 @@ public class UnitTactics: MonoBehaviour
     }//end MoveUnit
 
     #endregion
+
+    /// <summary>
+    /// Used to make a unit attack their target and end their turn
+    /// </summary>
+    /// <returns></returns>
+    private async Task PerformAttack()
+    {
+        // Get the direction to the target unit and trigger the unit to rotate in that direction
+        Vector3 lookDirection = (targetUnit.transform.position - transform.position).normalized;
+        float _targetAngle = Mathf.Atan2(lookDirection.x, lookDirection.z) * Mathf.Rad2Deg;
+        transform.LeanRotateY(_targetAngle, turnTime);
+
+        // Wait for the rotation
+        await Task.Delay((int)(turnTime * 1000f));
+
+        // Deal damage to the target unit using this unit's stats
+        targetUnit.TakeDamage(strength + weapon.Might);
+
+        // The unit should now end their turn
+        FinishActing();
+    }//end PerformAttack
+
+    /// <summary>
+    /// Used to damage units and kill them if they run out health
+    /// </summary>
+    /// <param name="_amount"></param>
+    public void TakeDamage(int _amount)
+    {
+        // Use the unit's defense stat to reduce the damage taken
+        int _adjustedDamage = _amount - defense;
+
+        // Reduce the unit's health by the amount of damage
+        currentHealth -= _adjustedDamage;
+
+        // Update the health bar to display the unit's new health value
+        UpdateHealthbar();
+
+        // If the unit has run out of health, it should die
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }//end TakeDamage
+
+    /// <summary>
+    /// Used to remove this unit from the game.
+    /// </summary>
+    private void Die()
+    {
+        Debug.Log($"{name} died!");
+    }//end Die
 
     /// <summary>
     /// Used to update the unit's health bar which displays the unit's current health
