@@ -9,7 +9,7 @@ using TMPro;
 /// The state of the exploration scene
 /// </summary>
 [System.Serializable]
-public enum ExplorationState { Setup, Explore, Menu, Customization, Market }
+public enum ExplorationState { Setup, Explore, Menu, Customization, Market, LoadingTactics }
 
 /// <summary>
 /// The state of the exploration pause menu
@@ -393,6 +393,22 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         ExplorationState = ExplorationState.Explore;
         Time.timeScale = 1f;
     }//end CloseCustomizationMenu
+
+    #endregion
+
+    #region Switch to Battle
+
+    /// <summary>
+    /// Switch to the tactics scene
+    /// </summary>
+    public void LoadTactics()
+    {
+        // Switch the exploration mode (to stop player movement, etc.)
+        ExplorationState = ExplorationState.LoadingTactics;
+
+        // Load the tactics scene
+        LevelManager.Instance.LoadScene(Scenes.Tactics);
+    }//end LoadTactics
 
     #endregion
 
