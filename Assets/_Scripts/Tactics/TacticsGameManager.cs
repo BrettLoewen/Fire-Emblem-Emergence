@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// Used to manage the tactics scene, turn cycle, and battle state
@@ -24,6 +25,11 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
     private Queue<TeamTactics> teams;
 
     public bool BattleOver { get; private set; }
+    [SerializeField] private CanvasGroup battleOverScreen;
+    [SerializeField] private TextMeshProUGUI battleVictoryText;
+    [SerializeField] private Image battleVictoryDecoration;
+    [SerializeField] private Color victoryColor;
+    [SerializeField] private Color defeatColor;
 
     #endregion //end Variables
 
@@ -138,14 +144,20 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
         // Mark the battle as over
         BattleOver = true;
 
+        // If the player won, display victory, and if not, display defeat
         if(playerWon)
         {
-            Debug.Log("Player won");
+            battleVictoryText.text = "VICTORY!";
+            battleVictoryDecoration.color = victoryColor;
         }
         else
         {
-            Debug.Log("Player lost");
+            battleVictoryText.text = "DEFEAT";
+            battleVictoryDecoration.color = defeatColor;
         }
+
+        // Fade in the battle over screen
+        battleOverScreen.LeanAlpha(0.75f, 3);
     }
 
     #endregion
