@@ -22,3 +22,4 @@ MonoBehaviour:
   DamageType: 0
   Might: 3
   Weight: 5
+  Range: 2

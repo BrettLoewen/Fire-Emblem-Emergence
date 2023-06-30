@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Used to control a unit's animator component
@@ -11,7 +12,12 @@ public class UnitAnimator: MonoBehaviour
 
     [SerializeField] private float speedSmoothTime;   // The time it takes to adjust the player's run speed animator value
 
+    private string speedPercentString = "speedPercent";
+    private string attackString = "attack";
+    private string deathString = "death";
+
     [SerializeField] private UnitAnimationExtension animatorExtension;
+    public Transform CharacterTransform { get; private set; }
 
     #endregion //end Variables
 
@@ -20,7 +26,7 @@ public class UnitAnimator: MonoBehaviour
     // Awake is called before Start before the first frame update
     void Awake()
     {
-        
+        CharacterTransform = animatorExtension.transform;
     }//end Awake
 
     // Start is called before the first frame update
@@ -37,7 +43,7 @@ public class UnitAnimator: MonoBehaviour
 
     #endregion //end Unity Control Methods
 
-    #region
+    #region Animation Control
 
     /// <summary>
     /// Sets the `speedPercent` value in the animator according to the passed values
@@ -52,7 +58,7 @@ public class UnitAnimator: MonoBehaviour
         float _speedPercent = ((_isSprinting) ? _currentSpeed / _sprintSpeed : _currentSpeed / _walkSpeed * .5f);
 
         // Set the animator's `speedPercent` value smoothly according to the passed values
-        animatorExtension.Animator.SetFloat("speedPercent", _speedPercent, speedSmoothTime, Time.deltaTime);
+        animatorExtension.Animator.SetFloat(speedPercentString, _speedPercent, speedSmoothTime, Time.deltaTime);
     }//end SetSpeedPercent
 
     /// <summary>
@@ -63,8 +69,38 @@ public class UnitAnimator: MonoBehaviour
     public void SetSpeedPercent(float _percent)
     {
         // Set the animator's `speedPercent` value smoothly according to the passed value
-        animatorExtension.Animator.SetFloat("speedPercent", _percent, speedSmoothTime, Time.deltaTime);
+        animatorExtension.Animator.SetFloat(speedPercentString, _percent, speedSmoothTime, Time.deltaTime);
     }//end SetSpeedPercent
+
+    /// <summary>
+    /// Player the animator's attack animation
+    /// </summary>
+    public async Task TriggerAttack()
+    {
+        // Apply root motion so the attack animation plays properly
+        animatorExtension.Animator.applyRootMotion = true;
+
+        // Trigger the animator's attack trigger
+        animatorExtension.Animator.SetTrigger(attackString);
+
+        // Wait for the attack animation to finish
+        await Task.Delay(1333);
+
+        // Stop root motion so other animations play properly
+        animatorExtension.Animator.applyRootMotion = false;
+    }//end TriggerAttack
+
+    /// <summary>
+    /// Player the animator's death animation
+    /// </summary>
+    public void TriggerDeath()
+    {
+        // Apply root motion so the death animation plays properly
+        animatorExtension.Animator.applyRootMotion = true;
+
+        // Trigger the animator's death trigger
+        animatorExtension.Animator.SetTrigger(deathString);
+    }//end TriggerDeath
 
     #endregion
 }

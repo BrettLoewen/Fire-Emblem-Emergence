@@ -31,6 +31,7 @@ public class Tile: MonoBehaviour
     private bool displayUnitSelected;
     private bool isWall;
     private bool isWalkable;
+    private bool isAttackable;
 
     #endregion //end Variables
 
@@ -74,6 +75,10 @@ public class Tile: MonoBehaviour
         {
             tileTypeDisplay.material = TileManager.GetTileMaterialWalkable();
         }
+        else if(isAttackable)
+        {
+            tileTypeDisplay.material = TileManager.GetTileMaterialAttackable();
+        }
         else
         {
             tileTypeDisplay.material = TileManager.GetTileMaterialNothing();
@@ -112,6 +117,12 @@ public class Tile: MonoBehaviour
     {
         displayUnitSelected = _isSelected;
     }//end SetUnitSelected
+
+
+    public void SetIsAttackable()
+    {
+        isAttackable = true;
+    }
 
     #endregion
 
@@ -159,6 +170,7 @@ public class Tile: MonoBehaviour
 
         // Reset the pathfinding visual variables
         isWalkable = false;
+        isAttackable = false;
     }//end ResetPathfinding
 
     /// <summary>

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Threading.Tasks;
 
 /// <summary>
 /// Used to represent, control, and reference units
@@ -20,6 +21,8 @@ public class UnitTactics: MonoBehaviour
     private Vector3 endTilePosition;
     private float stoppingDistance = 0.2f;
 
+    private UnitTactics targetUnit;
+
     private Unit unit;
     private TeamTactics teamTactics;
 
@@ -28,6 +31,7 @@ public class UnitTactics: MonoBehaviour
     private int maxHealth;
     private int strength;
     private int defense;
+    private WeaponData weapon;
 
     public bool HasActed { get; set; } = true;
 
@@ -92,6 +96,18 @@ public class UnitTactics: MonoBehaviour
         maxHealth = unit.UnitData.Health;
         currentHealth = maxHealth;
 
+        // Find the unit's first item that is a weapon and store its data
+        weapon = null;
+        foreach (Item _item in unit.GetItems())
+        {
+            // If the item is a weapon, store it
+            if(_item.ItemData.ItemType == ItemType.Weapon)
+            {
+                weapon = (WeaponData)_item.ItemData;
+                break;
+            }
+        }
+
         // Update the health bar to reflect the new health stats
         UpdateHealthbar();
 
@@ -110,10 +126,29 @@ public class UnitTactics: MonoBehaviour
     }//end IsPlayerUnit
 
     /// <summary>
+    /// After a unit has finished moving to their destination, they should either end their turn or attack their target
+    /// </summary>
+    private void FinishMove()
+    {
+        // If the unit does not have a target, it was just walking, so end its turn
+        if(targetUnit == null)
+        {
+            FinishActing();
+        }
+        // If the unit does have a target, it needs to attack that target, so attack
+        else
+        {
+#pragma warning disable CS4014
+            PerformAttack();
+        }
+    }//end FinishMove
+
+    /// <summary>
     /// Mark that this unit has finished acting and tell the TeamTactics that a unit has finished acting
     /// </summary>
     private void FinishActing()
     {
+        targetUnit = null;
         HasActed = true;
         teamTactics.UnitFinishedActing();
     }//end FinishActing
@@ -129,6 +164,26 @@ public class UnitTactics: MonoBehaviour
         return TileManager.Instance.CalculateWalkableTiles(_startingTile, movement);
     }//end GetWalkableTiles
 
+    /// <summary>
+    /// Get and return a list of tiles this unit attack based on where they can walk
+    /// </summary>
+    /// <param name="_walkableTiles"></param>
+    /// <returns></returns>
+    public List<Tile> GetAttackableTiles(List<Tile> _walkableTiles)
+    {
+        // If this unit has no weapon, return an empty list (there are no tiles this unit can attack)
+        if(weapon == null)
+        {
+            return new List<Tile>();
+        }
+        // If this unit has a weapon, return the tiles it can attack with that weapon
+        else
+        {
+            // Ask the tile manager to calculate the walkable tiles and return the result
+            return TileManager.Instance.CalculateAttackableTiles(_walkableTiles, weapon.Range);
+        }
+    }//end GetAttackableTiles 
+
     #endregion
 
     #region Movement
@@ -138,7 +193,8 @@ public class UnitTactics: MonoBehaviour
     /// </summary>
     /// <param name="_path">The path of tiles from the unit's current tile to the end tile</param>
     /// <param name="_targetTile">The tile at the end of the path</param>
-    public void StartMove(Stack<Tile> _path, Tile _targetTile)
+    /// <param name="_targetUnit">A valid UnitTactics if the unit is trying to attack and null if the unit should just walk</param>
+    public void StartMove(Stack<Tile> _path, Tile _targetTile, UnitTactics _targetUnit)
     {
         // Store the passed path of tiles
         path = _path;
@@ -149,6 +205,9 @@ public class UnitTactics: MonoBehaviour
         // Calculate the necessary starting values for moving
         nextTilePosition = path.Pop().transform.position;
         endTilePosition = _targetTile.transform.position;
+
+        // Store the target unit for later
+        targetUnit = _targetUnit;
     }//end StartMove
 
     /// <summary>
@@ -182,7 +241,7 @@ public class UnitTactics: MonoBehaviour
             isMoving = false;
 
             // End the unit's turn
-            FinishActing();
+            FinishMove();
         }
     }//end Move
 
@@ -203,6 +262,92 @@ public class UnitTactics: MonoBehaviour
 
     #endregion
 
+    #region Attacking / Taking Damage
+
+    /// <summary>
+    /// Used to make a unit attack their target and end their turn
+    /// </summary>
+    /// <returns></returns>
+    private async Task PerformAttack()
+    {
+        // Get the direction to the target unit and trigger the unit to rotate in that direction
+        Vector3 _lookDirection = (targetUnit.transform.position - transform.position).normalized;
+        float _targetAngle = Mathf.Atan2(_lookDirection.x, _lookDirection.z) * Mathf.Rad2Deg;
+        transform.LeanRotateY(_targetAngle, turnTime);
+
+        // Save the target angle of this unit so it can be used to restore the unit's angle after the attack animation
+        float _unitsAngle = _targetAngle;
+         
+        // Get the direction from the target unit and trigger the target unit to rotate in that direction
+        _lookDirection = (transform.position - targetUnit.transform.position).normalized;
+        _targetAngle = Mathf.Atan2(_lookDirection.x, _lookDirection.z) * Mathf.Rad2Deg;
+        targetUnit.transform.LeanRotateY(_targetAngle, turnTime);
+
+        // Wait for the rotation
+        await Task.Delay((int)(turnTime * 1000f));
+
+        // Trigger the attack animation and wait a bit before dealing damage
+        animator.TriggerAttack();
+        await Task.Delay(800);
+
+        // Deal damage to the target unit using this unit's stats
+        targetUnit.TakeDamage(strength + weapon.Might);
+
+        // Wait for the attack animation to end
+        await Task.Delay(800);
+
+        // Restore the unit's angle after the root motion attack animation (the animation might offset the unit's angle)
+        animator.CharacterTransform.LeanRotateY(_unitsAngle, turnTime);
+        animator.CharacterTransform.LeanMove(transform.position, turnTime);
+        await Task.Delay((int)(turnTime * 1000f));
+
+        // The unit should now end their turn
+        FinishActing();
+    }//end PerformAttack
+
+    /// <summary>
+    /// Used to damage units and kill them if they run out health
+    /// </summary>
+    /// <param name="_amount"></param>
+    public void TakeDamage(int _amount)
+    {
+        // Use the unit's defense stat to reduce the damage taken
+        int _adjustedDamage = _amount - defense;
+
+        // Reduce the unit's health by the amount of damage
+        currentHealth -= _adjustedDamage;
+
+        // Update the health bar to display the unit's new health value
+        UpdateHealthbar();
+
+        // If the unit has run out of health, it should die
+        if(currentHealth <= 0)
+        {
+            Die();
+        }
+    }//end TakeDamage
+
+    /// <summary>
+    /// Used to remove this unit from the game.
+    /// </summary>
+    private async Task Die()
+    {
+        // Disable the collider so this unit cannot be detected anymore
+        GetComponent<BoxCollider>().enabled = false;
+
+        // Trigger the unit's death animation
+        animator.TriggerDeath();
+
+        // Tell the team tactics object that this unit died
+        teamTactics.UnitDied(this);
+
+        // Wait for some time
+        await Task.Delay(3000);
+
+        // Destory the unit
+        Destroy(gameObject);
+    }//end Die
+
     /// <summary>
     /// Used to update the unit's health bar which displays the unit's current health
     /// </summary>
@@ -212,4 +357,6 @@ public class UnitTactics: MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
     }//end UpdateHealthbar
+
+    #endregion
 }

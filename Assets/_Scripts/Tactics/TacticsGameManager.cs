@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading.Tasks;
 using TMPro;
+using UnityEngine.UI;
 
 /// <summary>
 /// Used to manage the tactics scene, turn cycle, and battle state
@@ -22,6 +23,14 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
     [SerializeField] private PlayerTactics playerTacticsPrefab;
 
     private Queue<TeamTactics> teams;
+
+    // Battle over
+    public bool BattleOver { get; private set; }
+    [SerializeField] private CanvasGroup battleOverScreen;
+    [SerializeField] private TextMeshProUGUI battleVictoryText;
+    [SerializeField] private Image battleVictoryDecoration;
+    [SerializeField] private Color victoryColor;
+    [SerializeField] private Color defeatColor;
 
     #endregion //end Variables
 
@@ -129,6 +138,39 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
         // Requeue the TeamTactics
         teams.Enqueue(_activeTeam);
     }//end NextTurn
+
+    /// <summary>
+    /// Called by TeamTactics when all units on a team have died. This method ends the game and displays whether
+    /// or not the player won
+    /// </summary>
+    /// <param name="playerWon"></param>
+    /// <returns></returns>
+    public async Task EndGame(bool playerWon)
+    {
+        // Mark the battle as over
+        BattleOver = true;
+
+        // If the player won, display victory, and if not, display defeat
+        if(playerWon)
+        {
+            battleVictoryText.text = "VICTORY!";
+            battleVictoryDecoration.color = victoryColor;
+        }
+        else
+        {
+            battleVictoryText.text = "DEFEAT";
+            battleVictoryDecoration.color = defeatColor;
+        }
+
+        // Fade in the battle over screen
+        battleOverScreen.LeanAlpha(0.75f, 2);
+
+        // Wait for the fade in of the battle screen and give it some time to sit
+        await Task.Delay(5000);
+
+        // Load the hub world
+        LevelManager.Instance.LoadScene(Scenes.HubWorld);
+    }//end EndGame
 
     #endregion
 }
