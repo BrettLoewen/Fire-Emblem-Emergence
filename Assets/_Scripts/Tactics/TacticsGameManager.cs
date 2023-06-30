@@ -23,6 +23,8 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
 
     private Queue<TeamTactics> teams;
 
+    public bool BattleOver { get; private set; }
+
     #endregion //end Variables
 
     #region Unity Control Methods
@@ -129,6 +131,22 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
         // Requeue the TeamTactics
         teams.Enqueue(_activeTeam);
     }//end NextTurn
+
+
+    public void EndGame(bool playerWon)
+    {
+        // Mark the battle as over
+        BattleOver = true;
+
+        if(playerWon)
+        {
+            Debug.Log("Player won");
+        }
+        else
+        {
+            Debug.Log("Player lost");
+        }
+    }
 
     #endregion
 }

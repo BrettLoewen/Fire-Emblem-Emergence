@@ -262,6 +262,8 @@ public class UnitTactics: MonoBehaviour
 
     #endregion
 
+    #region Attacking / Taking Damage
+
     /// <summary>
     /// Used to make a unit attack their target and end their turn
     /// </summary>
@@ -269,15 +271,35 @@ public class UnitTactics: MonoBehaviour
     private async Task PerformAttack()
     {
         // Get the direction to the target unit and trigger the unit to rotate in that direction
-        Vector3 lookDirection = (targetUnit.transform.position - transform.position).normalized;
-        float _targetAngle = Mathf.Atan2(lookDirection.x, lookDirection.z) * Mathf.Rad2Deg;
+        Vector3 _lookDirection = (targetUnit.transform.position - transform.position).normalized;
+        float _targetAngle = Mathf.Atan2(_lookDirection.x, _lookDirection.z) * Mathf.Rad2Deg;
         transform.LeanRotateY(_targetAngle, turnTime);
+
+        // Save the target angle of this unit so it can be used to restore the unit's angle after the attack animation
+        float _unitsAngle = _targetAngle;
+         
+        // Get the direction from the target unit and trigger the target unit to rotate in that direction
+        _lookDirection = (transform.position - targetUnit.transform.position).normalized;
+        _targetAngle = Mathf.Atan2(_lookDirection.x, _lookDirection.z) * Mathf.Rad2Deg;
+        targetUnit.transform.LeanRotateY(_targetAngle, turnTime);
 
         // Wait for the rotation
         await Task.Delay((int)(turnTime * 1000f));
 
+        // Trigger the attack animation and wait a bit before dealing damage
+        animator.TriggerAttack();
+        await Task.Delay(800);
+
         // Deal damage to the target unit using this unit's stats
         targetUnit.TakeDamage(strength + weapon.Might);
+
+        // Wait for the attack animation to end
+        await Task.Delay(800);
+
+        // Restore the unit's angle after the root motion attack animation (the animation might offset the unit's angle)
+        animator.CharacterTransform.LeanRotateY(_unitsAngle, turnTime);
+        animator.CharacterTransform.LeanMove(transform.position, turnTime);
+        await Task.Delay((int)(turnTime * 1000f));
 
         // The unit should now end their turn
         FinishActing();
@@ -308,9 +330,22 @@ public class UnitTactics: MonoBehaviour
     /// <summary>
     /// Used to remove this unit from the game.
     /// </summary>
-    private void Die()
+    private async Task Die()
     {
-        Debug.Log($"{name} died!");
+        // Disable the collider so this unit cannot be detected anymore
+        GetComponent<BoxCollider>().enabled = false;
+
+        // Trigger the unit's death animation
+        animator.TriggerDeath();
+
+        // Tell the team tactics object that this unit died
+        teamTactics.UnitDied(this);
+
+        // Wait for some time
+        await Task.Delay(3000);
+
+        // Destory the unit
+        Destroy(gameObject);
     }//end Die
 
     /// <summary>
@@ -322,4 +357,6 @@ public class UnitTactics: MonoBehaviour
         healthBar.maxValue = maxHealth;
         healthBar.value = currentHealth;
     }//end UpdateHealthbar
+
+    #endregion
 }

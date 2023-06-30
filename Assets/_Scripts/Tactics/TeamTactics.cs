@@ -123,6 +123,22 @@ public class TeamTactics: MonoBehaviour
         EndTurn();
     }//end UnitFinishedActing
 
+
+    public void UnitDied(UnitTactics _unit)
+    {
+        // Remove this unit from the list of units
+        units.Remove(_unit);
+
+        // If this team has no more units, this team has lost, so tell the game manager this
+        if(units.Count <= 0)
+        {
+            // Tell the game manager that the battle is over
+            // If this was the player's team, pass false since the player did not win
+            // If this was not the player's team, pass true since the player did win
+            TacticsGameManager.Instance.EndGame(!IsPlayer());
+        }
+    }
+
     /// <summary>
     /// End this TeamTactics' turn and tell the game manager to move to the next TeamTactics' turn
     /// </summary>

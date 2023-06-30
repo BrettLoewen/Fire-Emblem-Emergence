@@ -49,6 +49,12 @@ public class PlayerCursor: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If the battle is over, do nothing
+        if(TacticsGameManager.Instance.BattleOver)
+        {
+            return;
+        }
+
         // Move and rotate the cursor according to player input
         MoveCursor();
         RotateCursor();
