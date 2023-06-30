@@ -69,4 +69,10 @@ public class UnitData : ScriptableObject
     public string Name;                 // The name of the unit
     public Customization Customization; // An object that defines the apperance of the unit
     public ItemData[] DefaultItems;     // The items the unit will spawn with
+
+    // Stats
+    public int Movement = 5;
+    public int Health = 20;
+    public int Strength = 5;
+    public int Defense = 3;
 }

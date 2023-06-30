@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Used to represent, control, and reference units
@@ -9,21 +10,28 @@ public class UnitTactics: MonoBehaviour
 {
     #region Variables
 
+    // Movement
     [SerializeField] private int movement = 5;
     [SerializeField] private float moveSpeed = 4f;
     [SerializeField] private float turnTime = 0.33f;
-
     private bool isMoving;
     private Stack<Tile> path;
     private Vector3 nextTilePosition;
     private Vector3 endTilePosition;
-
     private float stoppingDistance = 0.2f;
 
     private Unit unit;
     private TeamTactics teamTactics;
 
+    // Stats
+    private int currentHealth;
+    private int maxHealth;
+    private int strength;
+    private int defense;
+
     public bool HasActed { get; set; } = true;
+
+    [SerializeField] private Slider healthBar;
 
     [SerializeField] private UnitAnimator animator;
     [SerializeField] private UnitCustomizer customizer;
@@ -76,6 +84,16 @@ public class UnitTactics: MonoBehaviour
         // Store the references
         unit = _unit;
         teamTactics = _team;
+
+        // Setup the stats
+        movement = unit.UnitData.Movement;
+        strength = unit.UnitData.Strength;
+        defense = unit.UnitData.Defense;
+        maxHealth = unit.UnitData.Health;
+        currentHealth = maxHealth;
+
+        // Update the health bar to reflect the new health stats
+        UpdateHealthbar();
 
         // Setup the customizer to use the unit's appearance
         customizer.SetCustomization(unit.UnitData.Customization);
@@ -184,4 +202,14 @@ public class UnitTactics: MonoBehaviour
     }//end MoveUnit
 
     #endregion
+
+    /// <summary>
+    /// Used to update the unit's health bar which displays the unit's current health
+    /// </summary>
+    private void UpdateHealthbar()
+    {
+        // Update the relevant values of the health bar slider with the unit's health variables
+        healthBar.maxValue = maxHealth;
+        healthBar.value = currentHealth;
+    }//end UpdateHealthbar
 }
