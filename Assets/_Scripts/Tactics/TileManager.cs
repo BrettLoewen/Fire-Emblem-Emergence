@@ -22,6 +22,7 @@ public class TileManager: Singleton<TileManager>
     // Tile display materials
     [SerializeField] private Material tileMaterialWall;
     [SerializeField] private Material tileMaterialWalkable;
+    [SerializeField] private Material tileMaterialAttackable;
     [SerializeField] private Material tileMaterialNothing;
 
     #endregion //end Variables
@@ -122,6 +123,8 @@ public class TileManager: Singleton<TileManager>
 
     #endregion
 
+    #region Tilemap Boundary Checking
+
     /// <summary>
     /// Returns whether or not the passed vector3 position is within the bounds of the tilemap
     /// </summary>
@@ -147,6 +150,8 @@ public class TileManager: Singleton<TileManager>
             return true;
         }
     }//end PositionInTilemapBounds
+
+    #endregion
 
     #region Tilemap Pathfinding
 
@@ -244,12 +249,73 @@ public class TileManager: Singleton<TileManager>
             }
         }
 
-        // Remove the starting tile from the list of walkable tiles
-        walkableTiles.RemoveAt(0);
-
         // Return a list containing all of the valid tiles that could be walked to
         return walkableTiles;
     }//end CalculateWalkableTiles
+
+    #endregion
+
+    #region Attackable Tile Calculation
+
+
+    public List<Tile> CalculateAttackableTiles(List<Tile> _walkableTiles, int _range)
+    {
+        List<Tile> _attackableTiles = new List<Tile>();
+
+
+        foreach (Tile _tile in _walkableTiles)
+        {
+            if(_attackableTiles.Contains(_tile) == false)
+            {
+                _attackableTiles.Add(_tile);
+            }
+        }
+
+        foreach (Tile _tile in _walkableTiles)
+        {
+            List<Tile> _nearbyTiles = CalculateNearbyTiles(_tile, 1, _range);
+
+            foreach (Tile _nearbyTile in _nearbyTiles)
+            {
+                if (_attackableTiles.Contains(_nearbyTile) == false)
+                {
+                    _attackableTiles.Add(_nearbyTile);
+                }
+            }
+        }
+
+        return _attackableTiles;
+    }
+
+
+    private List<Tile> CalculateNearbyTiles(Tile _startingTile, int _depth, int _maxDepth)
+    {
+        List<Tile> _attackableTiles = new List<Tile>();
+
+
+        foreach (Tile _tile in _startingTile.LinkedTiles)
+        {
+            if (_attackableTiles.Contains(_tile) == false)
+            {
+                _attackableTiles.Add(_tile);
+
+                if (_depth < _maxDepth)
+                {
+                    List<Tile> _nearbyTiles = CalculateNearbyTiles(_tile, _depth + 1, _maxDepth);
+
+                    foreach (Tile _nearbyTile in _nearbyTiles)
+                    {
+                        if (_attackableTiles.Contains(_nearbyTile) == false)
+                        {
+                            _attackableTiles.Add(_nearbyTile);
+                        }
+                    }
+                }
+            }
+        }
+
+        return _attackableTiles;
+    }
 
     #endregion
 
@@ -281,6 +347,15 @@ public class TileManager: Singleton<TileManager>
     {
         return Instance.tileMaterialWalkable;
     }//end GetTileMaterialWalkable
+
+    /// <summary>
+    /// Return the defined material that a tile should display if its Attackable
+    /// </summary>
+    /// <returns></returns>
+    public static Material GetTileMaterialAttackable()
+    {
+        return Instance.tileMaterialAttackable;
+    }//end GetTileMaterialAttackable
 
     #endregion
 }

@@ -25,4 +25,5 @@ public class WeaponData : ItemData
 
     public int Might;   // Used for damage calculation
     public int Weight;  // Used for speed calculation
+    public int Range = 1;
 }

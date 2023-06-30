@@ -24,6 +24,7 @@ public class PlayerCursor: MonoBehaviour
     private Tile selectedUnitTile;
 
     private List<Tile> walkableTiles;
+    private List<Tile> attackableTiles;
 
     [SerializeField] private PathRenderer pathRenderer;
 
@@ -301,6 +302,15 @@ public class PlayerCursor: MonoBehaviour
             foreach (Tile _tile in walkableTiles)
             {
                 _tile.SetIsWalkable();
+            }
+
+            // Calculate the attackable tiles for the selected unit
+            attackableTiles = selectedUnit.GetAttackableTiles(walkableTiles);
+
+            // Display which tiles are attackable and which ones are not
+            foreach (Tile _tile in attackableTiles)
+            {
+                _tile.SetIsAttackable();
             }
         }
     }//end SelectUnit

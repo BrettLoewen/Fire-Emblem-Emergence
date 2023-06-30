@@ -34500,6 +34500,8 @@ MonoBehaviour:
   tileMaterialWall: {fileID: 2100000, guid: a0528136dfcbbb94abf762bd4346eb74, type: 2}
   tileMaterialWalkable: {fileID: 2100000, guid: 6907e2e510a43d84dbe9fa3c41421aa7,
     type: 2}
+  tileMaterialAttackable: {fileID: 2100000, guid: becea26ec1db79e449fd53d3cd324935,
+    type: 2}
   tileMaterialNothing: {fileID: 2100000, guid: f73557124760a5c4f9537d6472c42391, type: 2}
 --- !u!4 &569923150
 Transform:

@@ -28,6 +28,7 @@ public class UnitTactics: MonoBehaviour
     private int maxHealth;
     private int strength;
     private int defense;
+    private WeaponData weapon;
 
     public bool HasActed { get; set; } = true;
 
@@ -92,6 +93,18 @@ public class UnitTactics: MonoBehaviour
         maxHealth = unit.UnitData.Health;
         currentHealth = maxHealth;
 
+        // Find the unit's first item that is a weapon and store its data
+        weapon = null;
+        foreach (Item _item in unit.GetItems())
+        {
+            // If the item is a weapon, store it
+            if(_item.ItemData.ItemType == ItemType.Weapon)
+            {
+                weapon = (WeaponData)_item.ItemData;
+                break;
+            }
+        }
+
         // Update the health bar to reflect the new health stats
         UpdateHealthbar();
 
@@ -128,6 +141,26 @@ public class UnitTactics: MonoBehaviour
         // Ask the tile manager to calculate the walkable tiles and return the result
         return TileManager.Instance.CalculateWalkableTiles(_startingTile, movement);
     }//end GetWalkableTiles
+
+    /// <summary>
+    /// Get and return a list of tiles this unit attack based on where they can walk
+    /// </summary>
+    /// <param name="_walkableTiles"></param>
+    /// <returns></returns>
+    public List<Tile> GetAttackableTiles(List<Tile> _walkableTiles)
+    {
+        // If this unit has no weapon, return an empty list (there are no tiles this unit can attack)
+        if(weapon == null)
+        {
+            return new List<Tile>();
+        }
+        // If this unit has a weapon, return the tiles it can attack with that weapon
+        else
+        {
+            // Ask the tile manager to calculate the walkable tiles and return the result
+            return TileManager.Instance.CalculateAttackableTiles(_walkableTiles, weapon.Range);
+        }
+    }//end GetAttackableTiles 
 
     #endregion
 
