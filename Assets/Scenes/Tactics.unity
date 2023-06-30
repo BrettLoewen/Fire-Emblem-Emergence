@@ -128073,6 +128073,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Path Renderer
       objectReference: {fileID: 0}
+    - target: {fileID: 8847454428222168850, guid: 0d3bc9e3f7ca0d54ea8197839e5ad611,
+        type: 3}
+      propertyPath: m_Parameters.textureMode
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

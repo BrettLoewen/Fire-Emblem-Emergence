@@ -15,5 +15,9 @@ MonoBehaviour:
   Name: Severa
   Customization: {fileID: 11400000, guid: 785292b114b7cc34fa9673558f695722, type: 2}
   DefaultItems:
-  - {fileID: 11400000, guid: 22b7f8f4e38f7cb488391f5b14622858, type: 2}
   - {fileID: 11400000, guid: e36ca1f884db7f24cac96449d130b854, type: 2}
+  - {fileID: 11400000, guid: 22b7f8f4e38f7cb488391f5b14622858, type: 2}
+  Movement: 6
+  Health: 18
+  Strength: 8
+  Defense: 4

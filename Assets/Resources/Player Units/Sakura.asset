@@ -16,3 +16,7 @@ MonoBehaviour:
   Customization: {fileID: 11400000, guid: 7ec924850cdba0e4c90e49b419342b93, type: 2}
   DefaultItems:
   - {fileID: 11400000, guid: 5be16d1ae867a1042ac9d4898a2ae976, type: 2}
+  Movement: 4
+  Health: 15
+  Strength: 4
+  Defense: 2
