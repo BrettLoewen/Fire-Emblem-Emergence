@@ -6,6 +6,11 @@ using UnityEngine.InputSystem.UI;
 
 /// <summary>
 /// Used to track the state of the main menu
+/// 
+/// Note: this class has commented out calls to the SaveSystem class. These calls have been commented out
+/// to remove persistent saving from the game as I figured it was more trouble than it was worth. I have
+/// left the code in the project in case my future self wants to further develop this project or use the
+/// code for a different project
 /// </summary>
 public enum MainMenuState { Selection, Load, NewGame, Options, Loading }
 
@@ -70,42 +75,45 @@ public class MainMenu: MonoBehaviour
     #region OnClick Methods for Buttons
 
     /// <summary>
-    /// Called by the Continue button to start the game using the current save file
+    /// Called by the Play button to start the game
     /// </summary>
-    public async void OnContinueClick()
+    public void OnPlayClick()
     {
-        // Check whether or not the game has a current save file
-        bool hasSaveFile = await SaveSystem.HasCurrentSaveFile();
+        //// Check whether or not the game has a current save file
+        //bool hasSaveFile = await SaveSystem.HasCurrentSaveFile();
 
-        // If the game does have a current save file, load according to that save file
-        if(hasSaveFile)
-        {
-            menuState = MainMenuState.Loading;
-            LevelManager.Instance.LoadScene(Scenes.HubWorld);
-        }
-    }//end OnContinueClick
+        //// If the game does have a current save file, load according to that save file
+        //if(hasSaveFile)
+        //{
+        //    menuState = MainMenuState.Loading;
+        //    LevelManager.Instance.LoadScene(Scenes.HubWorld);
+        //}
+
+        menuState = MainMenuState.Loading;
+        LevelManager.Instance.LoadScene(Scenes.HubWorld);
+    }//end OnPlayClick
 
     /// <summary>
     /// Called by the Load button to switch to the load save file screen
     /// </summary>
-    async public void OnLoadClick()
-    {
-        // Open the save file screen in load mode
-        menuState = MainMenuState.Load;
-        mainScreen.SetActive(false);
-        await saveFileScreen.OpenSaveFileScreen(SaveFileScreenMode.Load);
-    }//end OnLoadClick
+    //async public void OnLoadClick()
+    //{
+    //    // Open the save file screen in load mode
+    //    menuState = MainMenuState.Load;
+    //    mainScreen.SetActive(false);
+    //    await saveFileScreen.OpenSaveFileScreen(SaveFileScreenMode.Load);
+    //}//end OnLoadClick
 
-    /// <summary>
-    /// Called by the New Game button to switch to the new game save file scren
-    /// </summary>
-    async public void OnNewGameClick()
-    {
-        // Open the save file screen in new game mode
-        menuState = MainMenuState.NewGame;
-        mainScreen.SetActive(false);
-        await saveFileScreen.OpenSaveFileScreen(SaveFileScreenMode.NewGame);
-    }//end OnNewGameClick
+    ///// <summary>
+    ///// Called by the New Game button to switch to the new game save file scren
+    ///// </summary>
+    //async public void OnNewGameClick()
+    //{
+    //    // Open the save file screen in new game mode
+    //    menuState = MainMenuState.NewGame;
+    //    mainScreen.SetActive(false);
+    //    await saveFileScreen.OpenSaveFileScreen(SaveFileScreenMode.NewGame);
+    //}//end OnNewGameClick
 
     /// <summary>
     /// Called by the Options button to switch to the options screen
