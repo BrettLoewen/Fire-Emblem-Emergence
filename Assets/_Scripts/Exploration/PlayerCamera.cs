@@ -49,7 +49,7 @@ public class PlayerCamera: MonoBehaviour
             thirdPersonCamera.m_YAxis.m_InputAxisValue = inputHandler.LookInput.y;// * currentSensitivity;
 
             // Store the player's current position so it can be saved
-            SaveSystem.SetPlayerCameraValues(thirdPersonCamera.m_XAxis.Value, thirdPersonCamera.m_YAxis.Value);
+            //SaveSystem.SetPlayerCameraValues(thirdPersonCamera.m_XAxis.Value, thirdPersonCamera.m_YAxis.Value);
         }
     }//end Update
 

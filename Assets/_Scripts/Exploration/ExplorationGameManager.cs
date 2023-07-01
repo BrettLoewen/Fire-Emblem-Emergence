@@ -85,7 +85,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
     #region Unity Control Methods
 
     // Awake is called before Start before the first frame update
-    protected override async void Awake()
+    protected override void Awake()
     {
         // Setup the base class singleton
         base.Awake();
@@ -107,7 +107,7 @@ public class ExplorationGameManager: Singleton<ExplorationGameManager>
         LevelManager.LoadPersistentScene(Scenes.HubWorld);
 
         // Make sure the save system loads the current save file
-        await SaveSystem.LoadCurrentSaveFile();
+        //await SaveSystem.LoadCurrentSaveFile();
     }//end Awake
 
     // Start is called before the first frame update
