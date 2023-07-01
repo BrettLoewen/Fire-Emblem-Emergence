@@ -12,7 +12,7 @@ using UnityEngine.InputSystem.UI;
 /// left the code in the project in case my future self wants to further develop this project or use the
 /// code for a different project
 /// </summary>
-public enum MainMenuState { Selection, Load, NewGame, Options, Loading }
+public enum MainMenuState { Selection, Load, NewGame, Options, Loading, Controls, Credits }
 
 /// <summary>
 /// Used to operate and control the main menu scene
@@ -25,13 +25,17 @@ public class MainMenu: MonoBehaviour
 
     // Screens
     [SerializeField] private GameObject mainScreen;
-    [SerializeField] private SaveFileScreen saveFileScreen;
-    [SerializeField] private GameObject optionsScreen;
+    //[SerializeField] private SaveFileScreen saveFileScreen;
+    //[SerializeField] private GameObject optionsScreen;
+    [SerializeField] private GameObject controlsScreen;
+    [SerializeField] private GameObject creditsScreen;
 
     // Screen navigation buttons
-    [SerializeField] private GameObject loadButton;
-    [SerializeField] private GameObject newGameButton;
-    [SerializeField] private GameObject optionsButton;
+    //[SerializeField] private GameObject loadButton;
+    //[SerializeField] private GameObject newGameButton;
+    //[SerializeField] private GameObject optionsButton;
+    [SerializeField] private GameObject controlsButton;
+    [SerializeField] private GameObject creditsButton;
 
     private MainMenuState menuState; // Used to track the menu's state
 
@@ -63,7 +67,7 @@ public class MainMenu: MonoBehaviour
         if(inputModule.cancel.action.triggered)
         {
             // If the player is on the Load, NewGame, or Options screens, bring them back to the selection screen
-            if(menuState == MainMenuState.Load || menuState == MainMenuState.NewGame || menuState == MainMenuState.Options)
+            if(menuState != MainMenuState.Selection && menuState != MainMenuState.Loading)
             {
                 SwitchToSelectionMenu(menuState);
             }
@@ -118,13 +122,35 @@ public class MainMenu: MonoBehaviour
     /// <summary>
     /// Called by the Options button to switch to the options screen
     /// </summary>
-    public void OnOptionsClick()
+    //public void OnOptionsClick()
+    //{
+    //    // Open the options screen
+    //    menuState = MainMenuState.Options;
+    //    mainScreen.SetActive(false);
+    //    optionsScreen.SetActive(true);
+    //}//end OnOptionsClick
+
+    /// <summary>
+    /// Called by the Controls button to switch to the controls screen
+    /// </summary>
+    public void OnControlsClick()
     {
         // Open the options screen
-        menuState = MainMenuState.Options;
+        menuState = MainMenuState.Controls;
         mainScreen.SetActive(false);
-        optionsScreen.SetActive(true);
-    }//end OnOptionsClick
+        controlsScreen.SetActive(true);
+    }//end OnControlsClick
+
+    /// <summary>
+    /// Called by the Credits button to switch to the credits screen
+    /// </summary>
+    public void OnCreditsClick()
+    {
+        // Open the options screen
+        menuState = MainMenuState.Credits;
+        mainScreen.SetActive(false);
+        creditsScreen.SetActive(true);
+    }//end OnCreditsClick
 
     /// <summary>
     /// Called by the Quit button to close the game
@@ -145,15 +171,27 @@ public class MainMenu: MonoBehaviour
     private void SwitchToSelectionMenu(MainMenuState state)
     {
         // If the save file screen was open, close it
-        if(state == MainMenuState.Load || state == MainMenuState.NewGame)
+        //if(state == MainMenuState.Load || state == MainMenuState.NewGame)
+        //{
+        //    saveFileScreen.CloseSaveFileScreen();
+        //}
+
+        //// If the menu was on the options screen, close it
+        //if(state == MainMenuState.Options)
+        //{
+        //    optionsScreen.SetActive(false);
+        //}
+
+        // If the menu was on the controls screen, close it
+        if (state == MainMenuState.Controls)
         {
-            saveFileScreen.CloseSaveFileScreen();
+            controlsScreen.SetActive(false);
         }
 
-        // If the menu was on the options screen, close it
-        if(state == MainMenuState.Options)
+        // If the menu was on the credits screen, close it
+        if (state == MainMenuState.Credits)
         {
-            optionsScreen.SetActive(false);
+            creditsScreen.SetActive(false);
         }
 
         // Enable the selection screen
@@ -162,14 +200,20 @@ public class MainMenu: MonoBehaviour
         // Set the current selection button according to the previous state 
         switch(state)
         {
-            case MainMenuState.Load:
-                EventSystem.current.SetSelectedGameObject(loadButton);
+            //case MainMenuState.Load:
+            //    EventSystem.current.SetSelectedGameObject(loadButton);
+            //    break;
+            //case MainMenuState.NewGame:
+            //    EventSystem.current.SetSelectedGameObject(newGameButton);
+            //    break;
+            //case MainMenuState.Options:
+            //    EventSystem.current.SetSelectedGameObject(optionsButton);
+            //    break;
+            case MainMenuState.Controls:
+                EventSystem.current.SetSelectedGameObject(controlsButton);
                 break;
-            case MainMenuState.NewGame:
-                EventSystem.current.SetSelectedGameObject(newGameButton);
-                break;
-            case MainMenuState.Options:
-                EventSystem.current.SetSelectedGameObject(optionsButton);
+            case MainMenuState.Credits:
+                EventSystem.current.SetSelectedGameObject(creditsButton);
                 break;
         }
 
