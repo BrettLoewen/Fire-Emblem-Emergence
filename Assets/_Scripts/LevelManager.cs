@@ -91,7 +91,7 @@ public class LevelManager: Singleton<LevelManager>
 
         Instance.sceneCamera.SetActive(false);
         Instance.eventSystem.SetActive(false);
-        Camera.main.GetComponent<AudioListener>().enabled = true;
+        //Camera.main.GetComponent<AudioListener>().enabled = true;
 
         Instance.currentScene = _loadedFromScene;
 
@@ -130,16 +130,19 @@ public class LevelManager: Singleton<LevelManager>
         LeanTween.alphaCanvas(loadingScreen, 1f, FADE_TIME);
         await Task.Delay((int)(FADE_TIME * 1000f));
 
+        // Switch to the correct music track for the new scene
+        AudioManager.TryPlayMusic(_sceneToLoad);
+
         // Enable the loading screen camera so there will always be at least one camera
         sceneCamera.SetActive(true);
 
         // As long as the previous scene was not the persistent scene, unload it
         if (currentScene != Scenes.Persistent)
         {
-            AsyncOperation _unloadOperatoin = SceneManager.UnloadSceneAsync((int)currentScene);
+            AsyncOperation _unloadOperation = SceneManager.UnloadSceneAsync((int)currentScene);
 
             // Wait until the scene has been unloaded before continuing
-            while (_unloadOperatoin.isDone == false)
+            while (_unloadOperation.isDone == false)
             {
                 await Task.Yield();
             }
@@ -157,7 +160,7 @@ public class LevelManager: Singleton<LevelManager>
         // Disable the loading screen now that loading has concluded
         sceneCamera.SetActive(false);
         eventSystem.SetActive(false);
-        Camera.main.GetComponent<AudioListener>().enabled = true;
+        //Camera.main.GetComponent<AudioListener>().enabled = true;
 
         // Mark that the current scene is the one that was just loaded into
         Instance.currentScene = _sceneToLoad;

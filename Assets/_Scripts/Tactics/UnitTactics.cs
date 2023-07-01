@@ -288,13 +288,16 @@ public class UnitTactics: MonoBehaviour
 
         // Trigger the attack animation and wait a bit before dealing damage
         animator.TriggerAttack();
-        await Task.Delay(800);
+        await Task.Delay(400);
 
         // Deal damage to the target unit using this unit's stats
         targetUnit.TakeDamage(strength + weapon.Might);
 
+        // Play the attack sound effect
+        AudioManager.TryPlayClip(Clip.Punch);
+
         // Wait for the attack animation to end
-        await Task.Delay(800);
+        await Task.Delay(1200);
 
         // Restore the unit's angle after the root motion attack animation (the animation might offset the unit's angle)
         animator.CharacterTransform.LeanRotateY(_unitsAngle, turnTime);
