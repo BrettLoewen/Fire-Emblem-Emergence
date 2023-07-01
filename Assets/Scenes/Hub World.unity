@@ -4326,12 +4326,12 @@ PrefabInstance:
     - target: {fileID: 639260421203819789, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000029802322
+      value: -0.00000008940697
       objectReference: {fileID: 0}
     - target: {fileID: 639260421203819789, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007450581
+      value: 0.000000014901161
       objectReference: {fileID: 0}
     - target: {fileID: 1317061009053532397, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
@@ -4418,6 +4418,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 87
       objectReference: {fileID: 0}
+    - target: {fileID: 4367130285741051591, guid: de396bed7a14d1840a065ac8b26da895,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4621110131840701325, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -4436,14 +4441,15 @@ PrefabInstance:
     - target: {fileID: 8977719847924397261, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000008940697
+      value: -0.00000011920929
       objectReference: {fileID: 0}
     - target: {fileID: 8977719847924397261, guid: de396bed7a14d1840a065ac8b26da895,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000007450581
+      value: 0.0000000037252903
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4367130285741051591, guid: de396bed7a14d1840a065ac8b26da895, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
