@@ -1120,7 +1120,7 @@ MonoBehaviour:
     - Menu: Menu
 
 
-    Battle:
+    Battle
 
     - Move: Left Stick
 
@@ -2132,7 +2132,7 @@ MonoBehaviour:
     Esape
 
 
-    Battle:
+    Battle
 
     - Move: WASD
 
