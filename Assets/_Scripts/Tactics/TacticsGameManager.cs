@@ -37,7 +37,7 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
     #region Unity Control Methods
 
     // Awake is called before Start before the first frame update
-    protected override async void Awake()
+    protected override void Awake()
     {
         // Setup the base class singleton
         base.Awake();
@@ -47,7 +47,7 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
         LevelManager.LoadPersistentScene(Scenes.Tactics);
 
         // Make sure the save system loads the current save file
-        await SaveSystem.LoadCurrentSaveFile();
+        //await SaveSystem.LoadCurrentSaveFile();
     }//end Awake
 
     // Start is called before the first frame update
@@ -84,10 +84,10 @@ public class TacticsGameManager: Singleton<TacticsGameManager>
     private async Task SetupTeamTactics()
     {
         // Wait until the save file has been loaded before using it to initialize the tactics scene
-        while (SaveSystem.currentSaveData == null)
-        {
-            await Task.Yield();
-        }
+        //while (SaveSystem.currentSaveData == null)
+        //{
+        //    await Task.Yield();
+        //}
 
         // Create and setup the player tactics
         TeamTactics _playerTactics = Instantiate(playerTacticsPrefab, transform);

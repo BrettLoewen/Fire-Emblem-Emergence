@@ -5,6 +5,11 @@ using System.Threading.Tasks;
 
 /// <summary>
 /// Used to manage the player and provide a connection point for its various components
+/// 
+/// Note: this class has commented out calls to the SaveSystem class. These calls have been commented out
+/// to remove persistent saving from the game as I figured it was more trouble than it was worth. I have
+/// left the code in the project in case my future self wants to further develop this project or use the
+/// code for a different project
 /// </summary>
 public class PlayerManager : Singleton<PlayerManager>
 {
@@ -34,28 +39,28 @@ public class PlayerManager : Singleton<PlayerManager>
     public async Task Setup()
     {
         // Wait until the save file has been loaded before using it to initialize the player
-        while(SaveSystem.currentSaveData == null)
-        {
-            await Task.Yield();
-        }
+        //while(SaveSystem.currentSaveData == null)
+        //{
+        //    await Task.Yield();
+        //}
 
         // Get the current save file
-        SaveData _saveData = SaveSystem.currentSaveData;
+        //SaveData _saveData = SaveSystem.currentSaveData;
 
-        Debug.Log($"Player save data: \n{_saveData}");
+        //Debug.Log($"Player save data: \n{_saveData}");
 
         // Place the player at the correct position and rotation
-        transform.position = _saveData.playerPosition;
-        transform.rotation = _saveData.playerRotation;
+        //transform.position = _saveData.playerPosition;
+        //transform.rotation = _saveData.playerRotation;
 
-        // Make the camera look in the right direction
-        PlayerCamera.Setup(_saveData.playerCameraValues, _saveData.playerPosition);
+        //// Make the camera look in the right direction
+        //PlayerCamera.Setup(_saveData.playerCameraValues, _saveData.playerPosition);
 
-        // If the save file has customization info, tell the unit customizer to use that customization info
-        if(_saveData.playerCustomization != null && _saveData.playerCustomization != "")
-        {
-            PlayerCustomizer.SetCustomization(DataManager.GetCustomizationFromString(_saveData.playerCustomization));
-        }
+        //// If the save file has customization info, tell the unit customizer to use that customization info
+        //if(_saveData.playerCustomization != null && _saveData.playerCustomization != "")
+        //{
+        //    PlayerCustomizer.SetCustomization(DataManager.GetCustomizationFromString(_saveData.playerCustomization));
+        //}
 
         // Wait some time to guarantee the position and camera setting has time to take effect
         await Task.Delay(100);
@@ -71,6 +76,6 @@ public class PlayerManager : Singleton<PlayerManager>
         PlayerCustomizer.SetCustomization(_customization);
 
         // Update the save data to use the passed customization object
-        SaveSystem.SetPlayerCustomization(_customization.name);
+        //SaveSystem.SetPlayerCustomization(_customization.name);
     }//end SetCustomization
 }

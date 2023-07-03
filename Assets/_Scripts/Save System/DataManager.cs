@@ -4,6 +4,11 @@ using UnityEngine;
 
 /// <summary>
 /// Used to get and store game data
+/// 
+/// Note: this class has commented out calls to the SaveSystem class. These calls have been commented out
+/// to remove persistent saving from the game as I figured it was more trouble than it was worth. I have
+/// left the code in the project in case my future self wants to further develop this project or use the
+/// code for a different project
 /// </summary>
 public static class DataManager
 {
@@ -67,17 +72,21 @@ public static class DataManager
         // If the player inventory is null, get the necessary information from the save system
         if(playerInventory == null || playerInventory.Count == 0)
         {
-            List<Item> _savedInventory = SaveSystem.GetPlayerInventory();
+            //List<Item> _savedInventory = SaveSystem.GetPlayerInventory();
 
-            // If the save system inventory is null, make a new blank inventory
-            if (_savedInventory == null)
-            {
-                Debug.LogWarning("Null inventory in save data!");
+            //// If the save system inventory is null, make a new blank inventory
+            //if (_savedInventory == null)
+            //{
+            //    Debug.LogWarning("Null inventory in save data!");
 
-                _savedInventory = new List<Item>();
-            }
+            //    _savedInventory = new List<Item>();
+            //}
+
+            List<Item> _savedInventory = new List<Item>();
 
             playerInventory = _savedInventory;
+
+            GetUnits();
         }
 
         // Make a shallow copy of the player inventory and return it
@@ -93,13 +102,13 @@ public static class DataManager
     public static void AddItemToPlayerInventory(Item _itemToAdd)
     {
         // Ensure the DataManager has an up to date version of the player inventory
-        GetPlayerInventory();
+        //GetPlayerInventory();
 
         // Add the new item to the inventory
         playerInventory.Add(_itemToAdd);
 
         // Update the inventory save data
-        SaveSystem.SetPlayerInventoryData(playerInventory, playerMoney);
+        //SaveSystem.SetPlayerInventoryData(playerInventory, playerMoney);
     }//end AddItemToPlayerInventory
 
     /// <summary>
@@ -109,13 +118,13 @@ public static class DataManager
     public static void RemoveItemFromPlayerInventory(Item _itemToRemove)
     {
         // Ensure the DataManager has an up to date version of the player inventory
-        GetPlayerInventory();
+        //GetPlayerInventory();
 
         // Remove the item from the inventory
         playerInventory.Remove(_itemToRemove);
 
         // Update the inventory save data
-        SaveSystem.SetPlayerInventoryData(playerInventory, playerMoney);
+        //SaveSystem.SetPlayerInventoryData(playerInventory, playerMoney);
     }//end RemoveItemFromPlayerInventory
 
     /// <summary>
@@ -144,10 +153,10 @@ public static class DataManager
     public static int GetPlayerMoney()
     {
         // If the player has < 0 money, then the save data has not been read from yet, so read from it
-        if(playerMoney < 0)
-        {
-            playerMoney = SaveSystem.currentSaveData.playerMoney;
-        }
+        //if(playerMoney < 0)
+        //{
+        //    playerMoney = SaveSystem.currentSaveData.playerMoney;
+        //}
 
         return playerMoney;
     }//end GetPlayerMoney
